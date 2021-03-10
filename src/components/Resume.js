@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 import {Download} from 'react-feather';
 import resumePic from '../assets/resume.jpg'
+import { saveAs } from 'file-saver';
 
 const ResumeDiv = styled.div`
     position: relative;
@@ -42,13 +43,17 @@ const DownloadButton = styled.button`
 
 const Resume = ({mobile}) => {
 
+    const downloadResume = () => {
+        saveAs(
+            process.env.PUBLIC_URL + "/resume.pdf",
+            "resume.pdf");
+    }
+
     return (
         <>
-        <Link to='/files/resume.pdf' target='_blank' download>
-            <DownloadButton mobileSite={mobile}>
+            <DownloadButton mobileSite={mobile} onClick={downloadResume}>
                <Download size={16} style={{marginRight: '4px'}}/> Download
             </DownloadButton>
-        </Link>
         <ResumeDiv>
             <img style={{width: '70vw'}} src={resumePic} alt="resume-pic"/>
         </ResumeDiv>
