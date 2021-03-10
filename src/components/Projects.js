@@ -14,6 +14,7 @@ const ProjectDiv = styled.div`
     grid-template-rows: 1fr 1fr;
     margin: 50px auto 0 auto;
     width: 70vw;
+    max-width: 830px;
     height: ${props => props.mobileSite ? 'auto' : '600px'};
     border: none;
     padding: 10px;
@@ -34,6 +35,7 @@ const Projects = ({mobile}) => {
 
     const imageStyle = {
         width: '70vw',
+        maxWidth: '830px',
         cursor: 'pointer',
         gridArea: 'image'
     }
