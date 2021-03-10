@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import heroPic from '../assets/hero.jpg';
 
 
 const ContainerDiv = styled.div`
@@ -7,16 +8,16 @@ const ContainerDiv = styled.div`
     top: 100px;
     width: 100vw;
     height: 100vh;
-    padding: 20px;
-    background: url('/images/hero.jpg');
+    display: flex;
+    justify-content: center;
+    background: url('hero.jpg');
     background-size: ${props => props.mobileSite ? 'fill' : 'contain'};
     background-repeat: no-repeat;
 `;
 
 const AboutDiv = styled.div`
-    position: relative;
-    top: 30px;
-    margin: 0 auto;
+    position: absolute;
+    top: 250px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,9 +37,8 @@ const AboutDiv = styled.div`
 `;
 
 const NameDiv = styled.div`
-    position: relative;
-    top: 20px;
-    margin: 20px auto;
+    position: absolute;
+    top: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,14 +50,12 @@ const NameDiv = styled.div`
     font-weight: bold;
     font-style: italic;
     text-align: center;
-    color: ${props => props.mobileSite ? 'white' : 'black'};
-    text-shadow: ${props => props.mobileSite ? 'none' : '2px 2px white'};
+    text-shadow: 2px 2px white;
 `;
 
 const TitleDiv = styled.div`
-    position: relative;
-    top: 40px;
-    margin: 20px auto;
+    position: absolute;
+    top: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,13 +66,13 @@ const TitleDiv = styled.div`
     font-size: 42px;
     font-weight: bold;
     font-style: italic;
-    color: ${props => props.mobileSite ? 'white' : 'black'};
-    text-shadow: ${props => props.mobileSite ? 'none' : '2px 2px white'};
+    text-shadow: 2px 2px white;
 `;
 
 const Home = ({mobile}) => {
     return (
         <ContainerDiv mobileSite={mobile}>
+            <img src={heroPic} alt="background" style={{width: '100vw', zIndex: '-1'}}/>
             <NameDiv mobileSite={mobile}>
                 Bavin Edwards
             </NameDiv>
