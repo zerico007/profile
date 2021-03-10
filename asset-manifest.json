@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/profile/static/css/main.4aa6a9d4.chunk.css",
+    "main.js": "/profile/static/js/main.1e8b3201.chunk.js",
+    "main.js.map": "/profile/static/js/main.1e8b3201.chunk.js.map",
+    "runtime-main.js": "/profile/static/js/runtime-main.6ca917af.js",
+    "runtime-main.js.map": "/profile/static/js/runtime-main.6ca917af.js.map",
+    "static/js/2.bb3e0265.chunk.js": "/profile/static/js/2.bb3e0265.chunk.js",
+    "static/js/2.bb3e0265.chunk.js.map": "/profile/static/js/2.bb3e0265.chunk.js.map",
+    "index.html": "/profile/index.html",
+    "static/css/main.4aa6a9d4.chunk.css.map": "/profile/static/css/main.4aa6a9d4.chunk.css.map",
+    "static/js/2.bb3e0265.chunk.js.LICENSE.txt": "/profile/static/js/2.bb3e0265.chunk.js.LICENSE.txt",
+    "static/media/apple-shop.247f3682.jpg": "/profile/static/media/apple-shop.247f3682.jpg",
+    "static/media/auctions.dfece1f0.jpg": "/profile/static/media/auctions.dfece1f0.jpg",
+    "static/media/gradebook.a03f3abc.jpg": "/profile/static/media/gradebook.a03f3abc.jpg",
+    "static/media/profilePic.9e39ad30.jpg": "/profile/static/media/profilePic.9e39ad30.jpg",
+    "static/media/resume.1022a32f.jpg": "/profile/static/media/resume.1022a32f.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6ca917af.js",
+    "static/js/2.bb3e0265.chunk.js",
+    "static/css/main.4aa6a9d4.chunk.css",
+    "static/js/main.1e8b3201.chunk.js"
+  ]
+}
