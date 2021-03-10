@@ -54,7 +54,7 @@ const Projects = ({mobile}) => {
             <img src={auctionsPic} alt="auctions-pic" loading="lazy" style={imageStyle}/>
             </a>
             <Description>
-                Web app simialr to ebay for posting items for sale and bidding. Built with Python using Django.
+                Web app similar to ebay for posting items for sale and bidding. Built with Python using Django.
                 SQL DB used. 
             </Description>
         </ProjectDiv>
