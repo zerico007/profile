@@ -10,7 +10,6 @@ const ContainerDiv = styled.div`
     height: 100vh;
     display: flex;
     justify-content: center;
-    background: url('hero.jpg');
     background-size: ${props => props.mobileSite ? 'fill' : 'contain'};
     background-repeat: no-repeat;
 `;
@@ -22,7 +21,7 @@ const AboutDiv = styled.div`
     justify-content: center;
     align-items: center;
     width: ${props => props.mobileSite ? '70vw' : '50vw'};
-    height: 50vh;
+    height: 40vh;
     border: none;
     padding: 10px;
     background: #361999;
@@ -48,7 +47,6 @@ const NameDiv = styled.div`
     padding: 10px;
     font-size: 62px;
     font-weight: bold;
-    font-style: italic;
     text-align: center;
     text-shadow: 2px 2px white;
 `;
@@ -65,7 +63,6 @@ const TitleDiv = styled.div`
     padding: 10px;
     font-size: 42px;
     font-weight: bold;
-    font-style: italic;
     text-shadow: 2px 2px white;
 `;
 
