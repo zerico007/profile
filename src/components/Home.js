@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import heroPic from '../assets/hero.jpg';
+import heroPic from '../assets/hero2.jpg';
 
 
 const ContainerDiv = styled.div`
     position: relative;
-    top: 100px;
+    top: 95px;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -23,14 +23,14 @@ const AboutDiv = styled.div`
     width: ${props => props.mobileSite ? '70vw' : '50vw'};
     height: 40vh;
     border: none;
+    border: 3px solid #f1f1f1;
     padding: 10px;
-    background: #361999;
+    background-color: rgba(0,0,0, 0.4);
     color: white;
     border-radius: 6px;
-    font-size: ${props => props.mobileSite ? '16px' : '22px'};
+    font-size: ${props => props.mobileSite ? '16px' : '26px'};
     line-height: 150%;
     font-weight: bold;
-    box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem black;
     text-align: center;
     animation: enterBottom 1s;
 `;
@@ -48,7 +48,7 @@ const NameDiv = styled.div`
     font-size: 62px;
     font-weight: bold;
     text-align: center;
-    text-shadow: 2px 2px white;
+    color: white;
 `;
 
 const TitleDiv = styled.div`
@@ -63,13 +63,14 @@ const TitleDiv = styled.div`
     padding: 10px;
     font-size: 42px;
     font-weight: bold;
-    text-shadow: 2px 2px white;
+    color: white;
+    
 `;
 
 const Home = ({mobile}) => {
     return (
         <ContainerDiv mobileSite={mobile}>
-            <img src={heroPic} alt="background" style={{width: '100vw', zIndex: '-1'}}/>
+            <img src={heroPic} alt="background" style={{width: '105vw', zIndex: '-1', filter: 'blur(8px)'}}/>
             <NameDiv mobileSite={mobile}>
                 Bavin Edwards
             </NameDiv>
