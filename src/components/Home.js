@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import heroPic from '../assets/hero2.jpg';
+import heroPic from '../assets/hero.jpg';
+import { Link } from 'react-router-dom';
 
 
 const ContainerDiv = styled.div`
@@ -10,6 +11,7 @@ const ContainerDiv = styled.div`
     height: 100vh;
     display: flex;
     justify-content: center;
+    background-color: rgba(0,0,0, 0.4);
     background-size: ${props => props.mobileSite ? 'fill' : 'contain'};
     background-repeat: no-repeat;
 `;
@@ -25,10 +27,9 @@ const AboutDiv = styled.div`
     border: none;
     border: 3px solid #f1f1f1;
     padding: 10px;
-    background-color: rgba(0,0,0, 0.4);
     color: white;
     border-radius: 6px;
-    font-size: ${props => props.mobileSite ? '16px' : '26px'};
+    font-size: ${props => props.mobileSite ? '18px' : '26px'};
     line-height: 150%;
     font-weight: bold;
     text-align: center;
@@ -45,7 +46,7 @@ const NameDiv = styled.div`
     height: 32px;
     border: none;
     padding: 10px;
-    font-size: 62px;
+    font-size: ${props => props.mobileSite ? '48px' : '62px'};
     font-weight: bold;
     text-align: center;
     color: white;
@@ -61,16 +62,17 @@ const TitleDiv = styled.div`
     height: 32px;
     border: none;
     padding: 10px;
-    font-size: 42px;
+    font-size: ${props => props.mobileSite ? '36px' : '42px'};
     font-weight: bold;
     color: white;
     
 `;
 
+
 const Home = ({mobile}) => {
     return (
         <ContainerDiv mobileSite={mobile}>
-            <img src={heroPic} alt="background" style={{width: '105vw', zIndex: '-1', filter: 'blur(8px)'}}/>
+            <img src={heroPic} alt="background" style={{width: '105vw', zIndex: '-1', filter: 'blur(4px)'}}/>
             <NameDiv mobileSite={mobile}>
                 Bavin Edwards
             </NameDiv>
@@ -84,7 +86,6 @@ const Home = ({mobile}) => {
             digital connections with the world around us and the virtual world.
             My goal is play an active role in solving real world problems
             through knowledge, innovation, data analysis and critical thinking.
-
             </AboutDiv>
         </ContainerDiv>
     )

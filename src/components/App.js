@@ -20,7 +20,7 @@ function App() {
   return (
     <>
     <NavBar mobile={mobile} setRoute={setRoute} route={route}/>
-      {route === 'home' && <Home mobile={mobile}/>}
+      {route === 'home' && <Home mobile={mobile} setRoute={setRoute}/>}
       {route === 'resume' && <Resume mobile={mobile}/>}
       {route === 'projects' && <Projects mobile={mobile}/>}
       {route === 'contacts' && <Contacts mobile={mobile}/>}
