@@ -16,6 +16,10 @@ function App() {
     window.addEventListener('resize', () => window.innerWidth < 768 ? setMobile(true) : setMobile(false));
 });
 
+useEffect(() => {
+  window.innerWidth < 768 ? setMobile(true) : setMobile(false);
+}, [setMobile]);
+
   return (
     <>
     <NavBar mobile={mobile} setRoute={setRoute} route={route}/>
