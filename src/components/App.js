@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-import styled from '@emotion/styled';
 import NavBar from './NavBar';
 import Resume from './Resume';
 import Projects from './Projects';

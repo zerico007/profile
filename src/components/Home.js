@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import heroPic from '../assets/hero.jpg';
-import { Link } from 'react-router-dom';
+import {ChevronDown} from 'react-feather';
 
 
 const ContainerDiv = styled.div`
@@ -10,7 +10,9 @@ const ContainerDiv = styled.div`
     width: 100vw;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     background-color: rgba(0,0,0, 0.4);
     background-size: ${props => props.mobileSite ? 'fill' : 'contain'};
     background-repeat: no-repeat;
@@ -18,7 +20,7 @@ const ContainerDiv = styled.div`
 
 const AboutDiv = styled.div`
     position: absolute;
-    top: 250px;
+    top: 170px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,7 +40,7 @@ const AboutDiv = styled.div`
 
 const NameDiv = styled.div`
     position: absolute;
-    top: 60px;
+    top: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,7 +56,7 @@ const NameDiv = styled.div`
 
 const TitleDiv = styled.div`
     position: absolute;
-    top: 150px;
+    top: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,8 +70,26 @@ const TitleDiv = styled.div`
     
 `;
 
+const Footer = styled.div`
+    position: absolute;
+    top: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+    font-weight: bold;
+    color: white;
+    width: fit-content;
+    animation: bounce 1s infinite alternate;
+    cursor: pointer;
+    &:hover {
+        color: #78FFF1;
+    }
+`;
 
-const Home = ({mobile}) => {
+
+const Home = ({mobile, setRoute}) => {
     return (
         <ContainerDiv mobileSite={mobile}>
             <img src={heroPic} alt="background" style={{width: '105vw', zIndex: '-1', filter: 'blur(4px)'}}/>
@@ -87,6 +107,10 @@ const Home = ({mobile}) => {
             My goal is play an active role in solving real world problems
             through knowledge, innovation, data analysis and critical thinking.
             </AboutDiv>
+            <Footer onClick={() => setRoute('projects')}>
+                <span>Take a look at my work</span>
+                <ChevronDown/>
+            </Footer>
         </ContainerDiv>
     )
 }

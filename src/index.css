@@ -46,3 +46,12 @@ code {
     transform: translateY(0);
   }
 }
+
+@keyframes bounce {
+  0% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(5px);
+  }
+}

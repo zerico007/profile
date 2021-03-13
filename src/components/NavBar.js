@@ -85,16 +85,6 @@ const MobileNavButtonsDiv = styled.div`
 `;
 
 
-const NameDiv = styled.div`
-    width: fit-content;
-    color: #78FFF1;
-    &:hover {
-        color: #FF6495;
-    }
-    margin-left: 100px;
-    margin-right: 0px;
-`;
-
 const NavBar = ({mobile, setRoute, route}) => {
     const [ showNav, setShowNav ] = useState(false);
 
