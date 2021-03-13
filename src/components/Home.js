@@ -100,10 +100,10 @@ const Home = ({mobile, setRoute}) => {
                 Web Developer
             </TitleDiv>
             <AboutDiv mobileSite={mobile}>
-            We live in a data driven digital world and thus success
+            We live in a data driven digital world, and thus success
             in any field requires us to be able to take full advantage 
             of the profuse amount of data available to us through our 
-            digital connections with the world around us and the virtual world.
+            digital connections within the world around us.
             My goal is to play an active role in solving real world problems
             through knowledge, innovation, data analysis and critical thinking.
             </AboutDiv>
