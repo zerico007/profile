@@ -104,7 +104,7 @@ const Home = ({mobile, setRoute}) => {
             in any field requires us to be able to take full advantage 
             of the profuse amount of data available to us through our 
             digital connections with the world around us and the virtual world.
-            My goal is play an active role in solving real world problems
+            My goal is to play an active role in solving real world problems
             through knowledge, innovation, data analysis and critical thinking.
             </AboutDiv>
             <Footer onClick={() => setRoute('projects')}>
