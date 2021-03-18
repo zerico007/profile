@@ -11,6 +11,10 @@ code {
     monospace;
 }
 
+a {
+  text-decoration: none;
+}
+
 @keyframes enterLeft {
   0% {
     transform: translateX(-1000px);
