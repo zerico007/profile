@@ -4,29 +4,30 @@ import heroPic from "../assets/hero.jpg";
 import { ChevronDown } from "react-feather";
 
 const ContainerDiv = styled.div`
-  position: relative;
-  top: 95px;
+  position: absolute;
+  margin-top: 80px;
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.4);
-  background-size: ${(props) => (props.mobileSite ? "fill" : "contain")};
   background-repeat: no-repeat;
+  background-size: ${(props) => (props.mobileSite ? "fill" : "contain")};
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  align-items: center;
 `;
 
 const AboutDiv = styled.div`
-  position: absolute;
-  top: 170px;
   display: flex;
+  margin: 20px 0;
   justify-content: center;
   align-items: center;
+  background: rgba(255, 255, 255, 0.2);
+  filter: drop-shadow(16px 16px 20px grey);
   width: ${(props) => (props.mobileSite ? "70vw" : "50vw")};
   height: 40vh;
   border: none;
-  border: 3px solid #f1f1f1;
   padding: 10px;
   color: white;
   border-radius: 6px;
@@ -41,9 +42,8 @@ const AboutDiv = styled.div`
 `;
 
 const NameDiv = styled.div`
-  position: absolute;
-  top: 30px;
   display: flex;
+  margin: 20px 0;
   justify-content: center;
   align-items: center;
   width: fit-content;
@@ -60,9 +60,8 @@ const NameDiv = styled.div`
 `;
 
 const TitleDiv = styled.div`
-  position: absolute;
-  top: 100px;
   display: flex;
+  margin: 20px 0;
   justify-content: center;
   align-items: center;
   width: fit-content;
@@ -78,9 +77,8 @@ const TitleDiv = styled.div`
 `;
 
 const Footer = styled.div`
-  position: absolute;
-  top: 70vh;
   display: flex;
+  margin: 20px 0;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -97,11 +95,17 @@ const Footer = styled.div`
 
 const Home = ({ mobile, setRoute }) => {
   return (
-    <ContainerDiv mobileSite={mobile}>
+    <ContainerDiv>
       <img
         src={heroPic}
         alt="background"
-        style={{ width: "105vw", zIndex: "-1", filter: "blur(4px)" }}
+        style={{
+          width: "100%",
+          height: "100%",
+          zIndex: "-1",
+          filter: "blur(4px)",
+          position: "absolute",
+        }}
       />
       <NameDiv mobileSite={mobile}>Bavin Edwards</NameDiv>
       <TitleDiv mobileSite={mobile}>Web Developer</TitleDiv>
