@@ -84,7 +84,7 @@ const MobileNavButtonsDiv = styled.div`
   background: url("${wave}");
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
+  height: 90vh;
 `;
 
 const NavBar = ({ mobile, setRoute, route }) => {
