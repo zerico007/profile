@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "@emotion/styled";
 import { Check } from "react-feather";
 import profilePic from "../assets/profilePic.jpg";
+import wave from "../assets/wave-haikei.svg";
 
 const NavDiv = styled.div`
   position: fixed;
@@ -80,7 +81,9 @@ const MobileNavButtonsDiv = styled.div`
   flex-direction: column;
   z-index: 100;
   width: 105vw;
-  background-color: #361999;
+  background: url("${wave}");
+  background-size: cover;
+  background-repeat: no-repeat;
   height: 100vh;
 `;
 
