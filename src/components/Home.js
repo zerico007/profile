@@ -30,7 +30,7 @@ const AboutDiv = styled.div`
   border: none;
   padding: 10px;
   color: white;
-  border-radius: 6px;
+  border-radius: 15px 50px;
   font-size: ${(props) => (props.mobileSite ? "18px" : "22px")};
   line-height: 150%;
   font-weight: bold;
