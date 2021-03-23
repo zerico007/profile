@@ -23,7 +23,7 @@ function App() {
 
   const ContainerDiv = styled.div`
     position: absolute;
-    top: 95px;
+    top: 100px;
     width: 100vw;
     height: 100vh;
   `;

@@ -18,7 +18,7 @@ const ResumeDiv = styled.div`
 
 const DownloadButton = styled.button`
   position: relative;
-  margin: 150px auto 50px auto;
+  margin: 50px auto;
   width: 150px;
   height: 35px;
   background: #78fff1;

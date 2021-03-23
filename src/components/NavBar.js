@@ -9,7 +9,7 @@ const NavDiv = styled.div`
   left: 0;
   top: 0;
   width: 100%;
-  height: 95px;
+  height: 100px;
   padding: 20px;
   background: #361999;
   margin-bottom: 3rem;
@@ -81,7 +81,8 @@ const MobileNavButtonsDiv = styled.div`
   align-items: flex-start;
   flex-direction: column;
   z-index: 100;
-  width: 105vw;
+  width: 110vw;
+  transform: translateX(-5px);
   background: url("${wave}");
   background-size: cover;
   background-repeat: no-repeat;

@@ -6,7 +6,6 @@ import gradebookPic from "../assets/gradebook.jpg";
 
 const ProjectDiv = styled.div`
   position: relative;
-  top: 100px;
   display: grid;
   grid-template-areas:
     "image"
