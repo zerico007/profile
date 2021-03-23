@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import styled from "@emotion/styled";
 import NavBar from "./NavBar";
 import Resume from "./Resume";
 import Projects from "./Projects";
@@ -20,13 +21,22 @@ function App() {
     window.innerWidth < 768 ? setMobile(true) : setMobile(false);
   }, [setMobile]);
 
+  const ContainerDiv = styled.div`
+    position: absolute;
+    top: 64px;
+    width: 100vw;
+    height: 100vh;
+  `;
+
   return (
     <>
       <NavBar mobile={mobile} setRoute={setRoute} route={route} />
-      {route === "home" && <Home mobile={mobile} setRoute={setRoute} />}
-      {route === "resume" && <Resume mobile={mobile} />}
-      {route === "projects" && <Projects mobile={mobile} />}
-      {route === "contacts" && <Contacts mobile={mobile} />}
+      <ContainerDiv>
+        {route === "home" && <Home mobile={mobile} setRoute={setRoute} />}
+        {route === "resume" && <Resume mobile={mobile} />}
+        {route === "projects" && <Projects mobile={mobile} />}
+        {route === "contacts" && <Contacts mobile={mobile} />}
+      </ContainerDiv>
     </>
   );
 }

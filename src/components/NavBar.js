@@ -14,6 +14,7 @@ const NavDiv = styled.div`
   background: #361999;
   margin-bottom: 3rem;
   z-index: 10;
+  box-sizing: border-box;
 `;
 
 const ImgDiv = styled.div`
@@ -64,7 +65,7 @@ const NavButton = styled.div`
     transform: scale(1.2);
   }
   margin-right: ${(props) => (props.mobileSite ? "0" : "40px")};
-  margin-top: ${(props) => (props.mobileSite ? "45px" : "10px")};
+  margin-top: ${(props) => (props.mobileSite ? "45px" : "0")};
   margin-left: ${(props) => (props.mobileSite ? "auto" : "0")};
   text-align: center;
   line-height: 1.5rem;
@@ -75,7 +76,7 @@ const MobileNavButtonsDiv = styled.div`
   left: 0;
   padding-left: 40px;
   padding-top: 10px;
-  top: 100px;
+  top: 94px;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
@@ -134,7 +135,7 @@ const NavBar = ({ mobile, setRoute, route }) => {
       {mobile && (
         <NavButton
           onClick={() => setShowNav(!showNav)}
-          style={{ float: "right" }}
+          style={{ float: "right", marginRight: "0" }}
         >
           {showNav ? (
             <i className="fas fa-times fa-2x"></i>

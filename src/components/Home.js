@@ -4,10 +4,10 @@ import heroPic from "../assets/hero.jpg";
 import { ChevronDown } from "react-feather";
 
 const ContainerDiv = styled.div`
-  position: absolute;
-  margin-top: 80px;
-  width: 100vw;
-  height: 100vh;
+  position: relative;
+  width: 100%;
+  height: fit-content;
+  overflow-y: scroll;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,6 +19,7 @@ const ContainerDiv = styled.div`
 `;
 
 const AboutDiv = styled.div`
+  position: relative;
   display: flex;
   margin: 20px 0;
   justify-content: center;
@@ -31,7 +32,6 @@ const AboutDiv = styled.div`
   padding: 10px;
   color: white;
   border-radius: 15px 50px;
-  font-size: ${(props) => (props.mobileSite ? "18px" : "22px")};
   line-height: 150%;
   font-weight: bold;
   text-align: center;
@@ -42,6 +42,7 @@ const AboutDiv = styled.div`
 `;
 
 const NameDiv = styled.div`
+  position: relative;
   display: flex;
   margin: 20px 0;
   justify-content: center;
@@ -60,6 +61,7 @@ const NameDiv = styled.div`
 `;
 
 const TitleDiv = styled.div`
+  position: relative;
   display: flex;
   margin: 20px 0;
   justify-content: center;
@@ -77,6 +79,7 @@ const TitleDiv = styled.div`
 `;
 
 const Footer = styled.div`
+  position: relative;
   display: flex;
   margin: 20px 0;
   flex-direction: column;
@@ -94,6 +97,15 @@ const Footer = styled.div`
 `;
 
 const Home = ({ mobile, setRoute }) => {
+  const fontSizeAboutDiv = () => {
+    if (window.matchMedia("(orientation: landscape)").matches) {
+      return "14px";
+    } else if (mobile) {
+      return "16px";
+    } else if (!mobile) {
+      return "22px";
+    }
+  };
   return (
     <ContainerDiv>
       <img
@@ -101,7 +113,7 @@ const Home = ({ mobile, setRoute }) => {
         alt="background"
         style={{
           width: "100%",
-          height: "100%",
+          height: "100vh",
           zIndex: "-1",
           filter: "blur(4px)",
           position: "absolute",
@@ -109,7 +121,7 @@ const Home = ({ mobile, setRoute }) => {
       />
       <NameDiv mobileSite={mobile}>Bavin Edwards</NameDiv>
       <TitleDiv mobileSite={mobile}>Web Developer</TitleDiv>
-      <AboutDiv mobileSite={mobile}>
+      <AboutDiv mobileSite={mobile} style={{ fontSize: fontSizeAboutDiv() }}>
         We live in a data driven digital world, and thus success in any field
         requires us to be able to take full advantage of the profuse amount of
         data available to us through our digital connections within the world
