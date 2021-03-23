@@ -9,7 +9,7 @@ const NavDiv = styled.div`
   left: 0;
   top: 0;
   width: 100%;
-  height: 64px;
+  height: 95px;
   padding: 20px;
   background: #361999;
   margin-bottom: 3rem;
