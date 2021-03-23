@@ -6,7 +6,7 @@ import { ChevronDown } from "react-feather";
 const ContainerDiv = styled.div`
   position: relative;
   width: 100%;
-  height: fit-content;
+  height: 100%;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
