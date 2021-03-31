@@ -61,7 +61,7 @@ const LaunchButton = styled.button`
   &:hover {
     transform: scale(1.3);
     background: white;
-    color: black;
+    color: ${(props) => (props.mobileSite ? "white" : "black")};
   }
 `;
 
@@ -80,7 +80,7 @@ const Projects = ({ mobile }) => {
   return (
     <>
       <ProjectDiv
-        onMouseEnter={() => setShop(true)}
+        onMouseEnter={() => !mobile && setShop(true)}
         onMouseLeave={() => setShop(false)}
         mobileSite={mobile}
       >
@@ -100,9 +100,24 @@ const Projects = ({ mobile }) => {
             <LaunchButton>Visit</LaunchButton>
           </a>
         </LaunchCover>
+        {mobile && (
+          <a
+            href="https://zerico007.github.io/apple_shop/"
+            target="_blank"
+            rel="noreferrer"
+            style={{ zIndex: "5" }}
+          >
+            <LaunchButton
+              mobileSite={mobile}
+              style={{ background: "black", margin: "0 auto" }}
+            >
+              Visit
+            </LaunchButton>
+          </a>
+        )}
       </ProjectDiv>
       <ProjectDiv
-        onMouseEnter={() => setAuction(true)}
+        onMouseEnter={() => !mobile && setAuction(true)}
         onMouseLeave={() => setAuction(false)}
         mobileSite={mobile}
       >
@@ -126,9 +141,24 @@ const Projects = ({ mobile }) => {
             <LaunchButton>Visit</LaunchButton>
           </a>
         </LaunchCover>
+        {mobile && (
+          <a
+            href="http://zerico007.pythonanywhere.com/"
+            target="_blank"
+            rel="noreferrer"
+            style={{ zIndex: "5" }}
+          >
+            <LaunchButton
+              mobileSite={mobile}
+              style={{ background: "black", margin: "0 auto" }}
+            >
+              Visit
+            </LaunchButton>
+          </a>
+        )}
       </ProjectDiv>
       <ProjectDiv
-        onMouseEnter={() => setGradebook(true)}
+        onMouseEnter={() => !mobile && setGradebook(true)}
         onMouseLeave={() => setGradebook(false)}
         mobileSite={mobile}
         style={{ marginBottom: "100px" }}
@@ -153,6 +183,21 @@ const Projects = ({ mobile }) => {
             <LaunchButton>Visit</LaunchButton>
           </a>
         </LaunchCover>
+        {mobile && (
+          <a
+            href="http://kabash.pythonanywhere.com/"
+            target="_blank"
+            rel="noreferrer"
+            style={{ zIndex: "5" }}
+          >
+            <LaunchButton
+              mobileSite={mobile}
+              style={{ background: "black", margin: "0 auto" }}
+            >
+              Visit
+            </LaunchButton>
+          </a>
+        )}
       </ProjectDiv>
     </>
   );
