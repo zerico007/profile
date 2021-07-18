@@ -83,6 +83,7 @@ const MobileNavButtonsDiv = styled.div`
   flex-direction: column;
   z-index: 100;
   width: 110vw;
+  animation: enterLeft 0.75s;
   transform: translateX(-5px);
   background: url("${wave}");
   background-size: cover;
@@ -161,7 +162,7 @@ const NavBar = ({ mobile, setRoute, route }) => {
             mobileSite={true}
             selected={route === "resume"}
             onClick={() => setRoute("resume")}
-            style={{ animation: "enterLeft 1.5s" }}
+            style={{ animation: "enterLeft 1.25s" }}
           >
             {route === "resume" && <Check size={16} />} Resume
           </NavButton>
@@ -169,7 +170,7 @@ const NavBar = ({ mobile, setRoute, route }) => {
             mobileSite={true}
             selected={route === "contacts"}
             onClick={() => setRoute("contacts")}
-            style={{ animation: "enterLeft 2s" }}
+            style={{ animation: "enterLeft 1.5s" }}
           >
             {route === "contacts" && <Check size={16} />} Contact Me
           </NavButton>
