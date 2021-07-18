@@ -51,7 +51,7 @@ const Resume = ({ mobile }) => {
         <Download size={16} style={{ marginRight: "4px" }} /> Download
       </DownloadButton>
       <ResumeDiv>
-        <img style={{ width: "70vw" }} src={resumePic} alt="resume-pic" />
+        <img style={{ width: "100%" }} src={resumePic} alt="resume-pic" />
       </ResumeDiv>
     </>
   );
