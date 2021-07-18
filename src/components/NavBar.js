@@ -9,7 +9,7 @@ const NavDiv = styled.div`
   left: 0;
   top: 0;
   width: 100%;
-  height: 100px;
+  height: 110px;
   padding: 20px;
   background: #361999;
   margin-bottom: 3rem;
@@ -43,6 +43,7 @@ const NavButtonsDiv = styled.div`
   align-items: center;
   background: none;
   float: right;
+  margin-top: 0.75rem;
   margin-right: 7rem;
 `;
 
