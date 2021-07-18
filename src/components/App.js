@@ -11,10 +11,12 @@ function App() {
   const [mobile, setMobile] = usePersistedState("mobile", false);
   const [route, setRoute] = usePersistedState("route", "home");
 
+  const checkIfMobile = () =>
+    window.innerWidth < 768 ? setMobile(true) : setMobile(false);
+
   useEffect(() => {
-    window.addEventListener("resize", () =>
-      window.innerWidth < 768 ? setMobile(true) : setMobile(false)
-    );
+    window.addEventListener("resize", checkIfMobile);
+    return () => window.removeEventListener("resize", checkIfMobile);
   });
 
   useEffect(() => {
