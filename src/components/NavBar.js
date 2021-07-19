@@ -9,9 +9,10 @@ const NavDiv = styled.div`
   left: 0;
   top: 0;
   width: 100%;
-  height: 110px;
+  height: 100px;
   padding: 20px;
   background: white;
+  z-index: 10;
   margin-bottom: 3rem;
   box-sizing: border-box;
 `;
