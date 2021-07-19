@@ -11,7 +11,7 @@ const NavDiv = styled.div`
   width: 100%;
   height: 110px;
   padding: 20px;
-  background: #361999;
+  background: white;
   margin-bottom: 3rem;
   z-index: 10;
   box-sizing: border-box;
@@ -21,7 +21,7 @@ const ImgDiv = styled.div`
   width: 60px;
   height: 60px;
   border-radius: 100px;
-  border: 2px solid #78fff1;
+  border: 2px solid #3463ad;
   padding: 5px;
   overflow: hidden;
   float: left;
@@ -54,11 +54,11 @@ const NavButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #361999;
+  background: white;
   border: none;
   border-radius: 6px;
   font-size: ${(props) => (props.mobileSite ? "24px" : "18px")};
-  color: ${(props) => (props.selected ? "#FF6495" : "#78FFF1")};
+  color: ${(props) => (props.selected ? "#FF6495" : "#3463ad")};
   transition: all 0.3s ease-in-out;
   cursor: pointer;
   &:hover {
@@ -85,7 +85,7 @@ const MobileNavButtonsDiv = styled.div`
   width: 110vw;
   animation: enterLeft 0.75s;
   transform: translateX(-5px);
-  background: url("${wave}");
+  background: white;
   background-size: cover;
   background-repeat: no-repeat;
   height: 90vh;

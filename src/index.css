@@ -14,6 +14,10 @@ a {
   text-decoration: none;
 }
 
+span {
+  margin: 0 0.25rem;
+}
+
 @keyframes enterLeft {
   0% {
     transform: translateX(-1000px);
@@ -36,6 +40,9 @@ a {
   0% {
     transform: translateY(1000px);
   }
+  40% {
+    transform: translateY(1000px);
+  }
   100% {
     transform: translateY(0);
   }
@@ -56,5 +63,17 @@ a {
   }
   100% {
     transform: translateY(5px);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

@@ -14,7 +14,7 @@ const ContainerDiv = styled.div`
   background-repeat: no-repeat;
   background-size: ${(props) => (props.mobileSite ? "fill" : "contain")};
   background-position: center;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: white;
   align-items: center;
 `;
 
@@ -30,12 +30,12 @@ const AboutDiv = styled.div`
   height: 40vh;
   border: none;
   padding: 10px;
-  color: white;
+  color: #3463ad;
   border-radius: 15px 50px;
   line-height: 150%;
   font-weight: bold;
   text-align: center;
-  animation: enterBottom 1s;
+  animation: enterBottom 5s;
   @media (max-width: 400px) {
     font-size: 14px;
   }
@@ -44,17 +44,19 @@ const AboutDiv = styled.div`
 const NameDiv = styled.div`
   position: relative;
   display: flex;
-  margin: 20px 0;
+  margin: 3rem 0;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  width: fit-content;
+  width: 60vw;
+  line-height: ${(props) => (props.mobileSite ? "3rem" : "4rem")};
   height: 32px;
   border: none;
   padding: 10px;
   font-size: ${(props) => (props.mobileSite ? "48px" : "62px")};
   font-weight: bold;
   text-align: center;
-  color: white;
+  color: #3463ad;
   @media (max-width: 400px) {
     font-size: 36px;
   }
@@ -63,7 +65,7 @@ const NameDiv = styled.div`
 const TitleDiv = styled.div`
   position: relative;
   display: flex;
-  margin: 20px 0;
+  margin: 3rem 0;
   justify-content: center;
   align-items: center;
   width: fit-content;
@@ -72,7 +74,7 @@ const TitleDiv = styled.div`
   padding: 10px;
   font-size: ${(props) => (props.mobileSite ? "36px" : "42px")};
   font-weight: bold;
-  color: white;
+  color: #3463ad;
   @media (max-width: 400px) {
     font-size: 24px;
   }
@@ -87,7 +89,7 @@ const Footer = styled.div`
   align-items: center;
   height: 32px;
   font-weight: bold;
-  color: white;
+  color: #3463ad;
   width: fit-content;
   animation: bounce 1s infinite alternate;
   cursor: pointer;
@@ -108,7 +110,7 @@ const Home = ({ mobile, setRoute }) => {
   };
   return (
     <ContainerDiv>
-      <img
+      {/* <img
         src={heroPic}
         alt="background"
         style={{
@@ -118,9 +120,18 @@ const Home = ({ mobile, setRoute }) => {
           filter: "blur(4px)",
           position: "absolute",
         }}
-      />
-      <NameDiv mobileSite={mobile}>Bavin Edwards</NameDiv>
-      <TitleDiv mobileSite={mobile}>Web Developer</TitleDiv>
+      /> */}
+      <NameDiv mobileSite={mobile}>
+        <span style={{ animation: "fadeIn 0.5s" }}>Hi,</span>
+        <span style={{ animation: "fadeIn 1s" }}> my</span>
+        <span style={{ animation: "fadeIn 1.5s" }}> name</span>
+        <span style={{ animation: "fadeIn 2s" }}> is</span>
+        <span style={{ animation: "fadeIn 2.5s" }}> Bavin</span>
+        <span style={{ animation: "fadeIn 3s" }}> Edwards</span>
+      </NameDiv>
+      <TitleDiv style={{ animation: "fadeIn 3.8s" }} mobileSite={mobile}>
+        I am a Web Developer
+      </TitleDiv>
       <AboutDiv mobileSite={mobile} style={{ fontSize: fontSizeAboutDiv() }}>
         We live in a data driven digital world, and thus success in any field
         requires us to be able to take full advantage of the profuse amount of

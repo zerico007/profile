@@ -22,8 +22,8 @@ const DownloadButton = styled.button`
   width: 150px;
   height: 35px;
   background: #78fff1;
-  color: #361999;
-  border: 2px solid #361999;
+  color: #3463ad;
+  border: 2px solid #3463ad;
   border-radius: 20px;
   outline: none;
   cursor: pointer;
@@ -33,7 +33,7 @@ const DownloadButton = styled.button`
   transition: all 0.3s ease-in-out;
   animation: enterLeft 1s;
   &:hover {
-    background: #361999;
+    background: #3463ad;
     color: #78fff1;
     border: 2px solid #78fff1;
     transform: scale(1.2);
