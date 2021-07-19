@@ -21,7 +21,7 @@ const ContainerDiv = styled.div`
 const AboutDiv = styled.div`
   position: relative;
   display: flex;
-  margin: 20px 0;
+  margin: 1rem 0;
   justify-content: center;
   align-items: center;
   background: rgba(255, 255, 255, 0.2);
@@ -65,7 +65,8 @@ const NameDiv = styled.div`
 const TitleDiv = styled.div`
   position: relative;
   display: flex;
-  margin: ${(props) => (props.mobileSite ? "7rem 0" : "3rem 0")};
+  margin-top: ${(props) => (props.mobileSite ? "7rem" : "3rem")};
+  margin-bottom: 1rem;
   justify-content: center;
   align-items: center;
   width: fit-content;
