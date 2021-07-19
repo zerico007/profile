@@ -44,7 +44,7 @@ const AboutDiv = styled.div`
 const NameDiv = styled.div`
   position: relative;
   display: flex;
-  margin: 3rem 0;
+  margin: 4rem 0;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
@@ -53,7 +53,7 @@ const NameDiv = styled.div`
   height: 32px;
   border: none;
   padding: 10px;
-  font-size: ${(props) => (props.mobileSite ? "48px" : "62px")};
+  font-size: 48px;
   font-weight: bold;
   text-align: center;
   color: #3463ad;
@@ -65,7 +65,7 @@ const NameDiv = styled.div`
 const TitleDiv = styled.div`
   position: relative;
   display: flex;
-  margin: 3rem 0;
+  margin: ${(props) => (props.mobileSite ? "7rem 0" : "3rem 0")};
   justify-content: center;
   align-items: center;
   width: fit-content;

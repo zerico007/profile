@@ -13,7 +13,6 @@ const NavDiv = styled.div`
   padding: 20px;
   background: white;
   margin-bottom: 3rem;
-  z-index: 10;
   box-sizing: border-box;
 `;
 
