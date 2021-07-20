@@ -10,10 +10,6 @@ const ContainerDiv = styled.div`
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  background-repeat: no-repeat;
-  background-size: ${(props) => (props.mobileSite ? "fill" : "contain")};
-  background-position: center;
   background-color: white;
   align-items: center;
 `;
@@ -44,16 +40,17 @@ const AboutDiv = styled.div`
 const NameDiv = styled.div`
   position: relative;
   display: flex;
-  margin: 4rem 0;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  width: 60vw;
+  width: 80vw;
   line-height: ${(props) => (props.mobileSite ? "3rem" : "4rem")};
   height: 32px;
   border: none;
   padding: 10px;
-  font-size: 48px;
+  font-size: ${(props) => (props.mobileSite ? "32px" : "42px")};
   font-weight: bold;
   text-align: center;
   color: #3463ad;
@@ -65,7 +62,7 @@ const NameDiv = styled.div`
 const TitleDiv = styled.div`
   position: relative;
   display: flex;
-  margin-top: ${(props) => (props.mobileSite ? "7rem" : "3rem")};
+  margin-top: 2rem;
   margin-bottom: 1rem;
   justify-content: center;
   align-items: center;
@@ -73,7 +70,7 @@ const TitleDiv = styled.div`
   height: 32px;
   border: none;
   padding: 10px;
-  font-size: ${(props) => (props.mobileSite ? "36px" : "42px")};
+  font-size: ${(props) => (props.mobileSite ? "28px" : "42px")};
   font-weight: bold;
   color: #3463ad;
   @media (max-width: 400px) {
