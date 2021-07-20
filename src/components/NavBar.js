@@ -91,6 +91,9 @@ const mobileDivStyles = {
 
 const NavBar = ({ mobile, setRoute, route }) => {
   const [showNav, setShowNav] = useState(false);
+  const [nav, setNav] = useState(false);
+
+  const isDisabled = !nav && showNav;
 
   const handleMobileNavClick = () => {
     setNav(!nav);
@@ -115,6 +118,7 @@ const NavBar = ({ mobile, setRoute, route }) => {
         onClick={() => {
           setRoute("home");
           setShowNav(false);
+          setNav(false);
         }}
       >
         <img
@@ -152,10 +156,10 @@ const NavBar = ({ mobile, setRoute, route }) => {
       )}
       {mobile && (
         <NavButton
-          onClick={handleMobileNavClick}
+          onClick={!isDisabled && handleMobileNavClick}
           style={{ float: "right", marginRight: "0" }}
         >
-          {showNav ? (
+          {nav ? (
             <i className="fas fa-times fa-2x"></i>
           ) : (
             <i className="fas fa-bars fa-2x"></i>
