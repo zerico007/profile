@@ -116,6 +116,7 @@ const NavBar = ({ mobile, setRoute, route }) => {
         onClick={() => {
           setRoute("home");
           setShowNav(false);
+          setNav(false);
         }}
       >
         <img
