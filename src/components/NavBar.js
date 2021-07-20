@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import styled from "@emotion/styled";
 import { Check } from "react-feather";
 import profilePic from "../assets/profilePic.jpg";
@@ -71,27 +71,44 @@ const NavButton = styled.div`
   line-height: 1.5rem;
 `;
 
-const MobileNavButtonsDiv = styled.div`
-  position: fixed;
-  left: 0;
-  padding-left: 40px;
-  padding-top: 10px;
-  top: 94px;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  z-index: 100;
-  width: 110vw;
-  animation: enterLeft 0.75s;
-  transform: translateX(-5px);
-  background: white;
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 90vh;
-`;
+const mobileDivStyles = {
+  position: "fixed",
+  left: "0",
+  paddingLeft: "40px",
+  paddingTop: "10px",
+  top: "94px",
+  display: "flex",
+  alignItems: "flex-start",
+  flexDirection: "column",
+  zIndex: "100",
+  width: "110vw",
+  transform: "translateX(-5px)",
+  background: "white",
+  backgroundSize: "cover",
+  backgroundRepeat: "no-repeat",
+  height: "90vh",
+};
 
 const NavBar = ({ mobile, setRoute, route }) => {
   const [showNav, setShowNav] = useState(false);
+  const [nav, setNav] = useState(false);
+
+  const handleMobileNavClick = () => {
+    setNav(!nav);
+    if (mobile && showNav) {
+      mobileNavRef.current.classList.remove("enter");
+      mobileNavRef.current.classList.add("exit");
+      setTimeout(() => {
+        mobileNavRef.current.classList.remove("exit");
+        setShowNav(!showNav);
+      }, 1000);
+    }
+    if (mobile && !showNav) {
+      setShowNav(!showNav);
+    }
+  };
+
+  const mobileNavRef = useRef();
 
   return (
     <NavDiv>
@@ -136,10 +153,10 @@ const NavBar = ({ mobile, setRoute, route }) => {
       )}
       {mobile && (
         <NavButton
-          onClick={() => setShowNav(!showNav)}
+          onClick={handleMobileNavClick}
           style={{ float: "right", marginRight: "0" }}
         >
-          {showNav ? (
+          {nav ? (
             <i className="fas fa-times fa-2x"></i>
           ) : (
             <i className="fas fa-bars fa-2x"></i>
@@ -147,7 +164,12 @@ const NavBar = ({ mobile, setRoute, route }) => {
         </NavButton>
       )}
       {showNav && (
-        <MobileNavButtonsDiv onClick={() => mobile && setShowNav(!showNav)}>
+        <div
+          ref={mobileNavRef}
+          style={mobileDivStyles}
+          onClick={handleMobileNavClick}
+          className={showNav ? "enter" : ""}
+        >
           <NavButton
             mobileSite={true}
             selected={route === "projects"}
@@ -173,7 +195,7 @@ const NavBar = ({ mobile, setRoute, route }) => {
           >
             {route === "contacts" && <Check size={16} />} Contact Me
           </NavButton>
-        </MobileNavButtonsDiv>
+        </div>
       )}
     </NavDiv>
   );

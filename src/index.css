@@ -27,6 +27,15 @@ span {
   }
 }
 
+@keyframes exitLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-1000px);
+  }
+}
+
 @keyframes enterRight {
   0% {
     transform: translateX(1000px);
@@ -76,4 +85,11 @@ span {
   100% {
     opacity: 1;
   }
+}
+
+.exit {
+  animation: exitLeft 1s;
+}
+.enter {
+  animation: enterLeft 1s;
 }

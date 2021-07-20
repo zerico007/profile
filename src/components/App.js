@@ -20,7 +20,7 @@ function App() {
   });
 
   useEffect(() => {
-    window.innerWidth < 768 ? setMobile(true) : setMobile(false);
+    window.innerWidth < 900 ? setMobile(true) : setMobile(false);
   }, [setMobile]);
 
   const ContainerDiv = styled.div`

@@ -22,7 +22,7 @@ const AboutDiv = styled.div`
   align-items: center;
   background: rgba(255, 255, 255, 0.2);
   filter: drop-shadow(16px 16px 20px grey);
-  width: ${(props) => (props.mobileSite ? "70vw" : "50vw")};
+  width: 70vw;
   height: 40vh;
   border: none;
   padding: 10px;
@@ -98,7 +98,7 @@ const Footer = styled.div`
 
 const Home = ({ mobile, setRoute }) => {
   const fontSizeAboutDiv = () => {
-    if (window.matchMedia("(orientation: landscape)").matches) {
+    if (window.matchMedia("(orientation: landscape)").matches && mobile) {
       return "14px";
     } else if (mobile) {
       return "16px";
