@@ -9,9 +9,9 @@ const NavDiv = styled.div`
   left: 0;
   top: 0;
   width: 100%;
-  height: 100px;
+  height: 120px;
   padding: 20px;
-  background: white;
+  background: #3463ad;
   z-index: 10;
   box-sizing: border-box;
 `;
@@ -20,7 +20,7 @@ const ImgDiv = styled.div`
   width: 60px;
   height: 60px;
   border-radius: 100px;
-  border: 2px solid #3463ad;
+  border: 2px solid white;
   padding: 5px;
   overflow: hidden;
   float: left;
@@ -53,11 +53,11 @@ const NavButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: white;
+  background: #3463ad;
   border: none;
   border-radius: 6px;
   font-size: ${(props) => (props.mobileSite ? "24px" : "18px")};
-  color: ${(props) => (props.selected ? "#FF6495" : "#3463ad")};
+  color: ${(props) => (props.selected ? "#FF6495" : "white")};
   transition: all 0.3s ease-in-out;
   cursor: pointer;
   &:hover {
@@ -83,7 +83,7 @@ const mobileDivStyles = {
   zIndex: "100",
   width: "110vw",
   transform: "translateX(-5px)",
-  background: "white",
+  background: "#3463ad",
   backgroundSize: "cover",
   backgroundRepeat: "no-repeat",
   height: "90vh",
