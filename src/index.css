@@ -20,7 +20,7 @@ span {
 
 @keyframes enterLeft {
   0% {
-    transform: translateX(-1000px);
+    transform: translateX(-1500px);
   }
   100% {
     transform: translateX(0);
