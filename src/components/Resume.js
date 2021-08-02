@@ -12,7 +12,9 @@ const ResumeDiv = styled.div`
   border: none;
   padding: 10px;
   border-radius: 6px;
-  box-shadow: 0.3rem 0.3rem 0.3rem 0.5rem lightgrey;
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
   animation: enterBottom 1s;
 `;
 

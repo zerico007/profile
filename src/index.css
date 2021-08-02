@@ -1,6 +1,7 @@
 body {
   margin: 0;
   font-family: "Nunito", sans-serif;
+  background: white;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

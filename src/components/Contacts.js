@@ -11,7 +11,8 @@ const ContactBox = styled.div`
   align-items: center;
   padding: 10px;
   margin-top: 40px;
-  box-shadow: 0.3rem 0.3rem 0.3rem 0.5rem lightgrey;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
   background: #78fff1;

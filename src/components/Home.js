@@ -10,7 +10,7 @@ const ContainerDiv = styled.div`
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
-  background-color: white;
+
   align-items: center;
 `;
 
