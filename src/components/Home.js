@@ -20,18 +20,17 @@ const AboutDiv = styled.div`
   margin: 1rem 0;
   justify-content: center;
   align-items: center;
-  background: rgba(255, 255, 255, 0.2);
-  filter: drop-shadow(16px 16px 20px grey);
+  background: rgba(52, 98, 173);
   width: 70vw;
   height: 40vh;
   border: none;
   padding: 10px;
-  color: #3463ad;
+  color: white;
   border-radius: 15px 50px;
   line-height: 150%;
   font-weight: bold;
   text-align: center;
-  animation: enterBottom 5s;
+  animation: enterLeft 4.8s;
   @media (max-width: 400px) {
     font-size: 14px;
   }
