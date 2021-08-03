@@ -9,19 +9,34 @@ import { usePersistedState } from "../utils";
 
 function App() {
   const [mobile, setMobile] = usePersistedState("mobile", false);
+  const [orientation, setOrientation] = usePersistedState("orientation", "landscape");
   const [route, setRoute] = usePersistedState("route", "home");
 
-  const checkIfMobile = () =>
-    window.innerWidth < 768 ? setMobile(true) : setMobile(false);
+  const checkIfMobileOrTablet = () =>
+     window.matchMedia('(max-width: 768px)').matches ? setMobile(true) : setMobile(false);
+  
+  const isPortrait = () => window.matchMedia("(orientation: portrait)").matches;
 
   useEffect(() => {
-    window.addEventListener("resize", checkIfMobile);
-    return () => window.removeEventListener("resize", checkIfMobile);
+    window.addEventListener("resize", checkIfMobileOrTablet);
+    return () => window.removeEventListener("resize", checkIfMobileOrTablet);
   });
 
   useEffect(() => {
-    window.innerWidth < 900 ? setMobile(true) : setMobile(false);
+     window.matchMedia('(max-width: 768px)').matches ? setMobile(true) : setMobile(false);
   }, [setMobile]);
+
+  useEffect(() => {
+    window.scroll({
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth'
+    });
+  }, [route, orientation])
+
+  useEffect(() => {
+    isPortrait() ? setOrientation("portrait") : setOrientation("landscape");
+  })
 
   const ContainerDiv = styled.div`
     position: absolute;
@@ -34,7 +49,7 @@ function App() {
     <>
       <NavBar mobile={mobile} setRoute={setRoute} route={route} />
       <ContainerDiv>
-        {route === "home" && <Home mobile={mobile} setRoute={setRoute} />}
+        {route === "home" && <Home mobile={mobile} orientation={orientation} setRoute={setRoute} />}
         {route === "resume" && <Resume mobile={mobile} />}
         {route === "projects" && <Projects mobile={mobile} />}
         {route === "contacts" && <Contacts mobile={mobile} />}

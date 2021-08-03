@@ -21,14 +21,17 @@ const ResumeDiv = styled.div`
 const DownloadButton = styled.button`
   position: relative;
   margin: 50px auto;
-  width: 150px;
-  height: 35px;
-  background: #78fff1;
+  width: 11rem;
+  height: 2.5rem;
+  background: white;
   color: #3463ad;
   border: 2px solid #3463ad;
   border-radius: 20px;
   outline: none;
   cursor: pointer;
+  font-weight: 900;
+  font-size: 1rem;
+  font-family: "Nunito", sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,8 +39,8 @@ const DownloadButton = styled.button`
   animation: enterLeft 1s;
   &:hover {
     background: #3463ad;
-    color: #78fff1;
-    border: 2px solid #78fff1;
+    color: white;
+    border: 2px solid white;
     transform: scale(1.2);
   }
 `;

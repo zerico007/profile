@@ -10,7 +10,6 @@ const ContainerDiv = styled.div`
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
-
   align-items: center;
 `;
 
@@ -20,17 +19,17 @@ const AboutDiv = styled.div`
   margin: 1rem 0;
   justify-content: center;
   align-items: center;
-  background: rgba(52, 98, 173);
   width: 70vw;
+  max-width: 830px;
   height: 40vh;
-  border: none;
-  padding: 10px;
+  border: ${(props) => (props.mobileSite ? "none" : "2px solid white")};
+  padding: 1rem;
   color: white;
   border-radius: 15px 50px;
   line-height: 150%;
   font-weight: bold;
   text-align: center;
-  animation: enterLeft 4.8s;
+  animation: fadeIn 4.8s;
   @media (max-width: 400px) {
     font-size: 14px;
   }
@@ -52,7 +51,7 @@ const NameDiv = styled.div`
   font-size: ${(props) => (props.mobileSite ? "32px" : "42px")};
   font-weight: bold;
   text-align: center;
-  color: #3463ad;
+  color: white;
   @media (max-width: 400px) {
     font-size: 36px;
   }
@@ -71,7 +70,7 @@ const TitleDiv = styled.div`
   padding: 10px;
   font-size: ${(props) => (props.mobileSite ? "28px" : "42px")};
   font-weight: bold;
-  color: #3463ad;
+  color: white;
   @media (max-width: 400px) {
     font-size: 24px;
   }
@@ -86,7 +85,7 @@ const Footer = styled.div`
   align-items: center;
   height: 32px;
   font-weight: bold;
-  color: #3463ad;
+  color: white;
   width: fit-content;
   animation: bounce 1s infinite alternate;
   cursor: pointer;
@@ -95,9 +94,9 @@ const Footer = styled.div`
   }
 `;
 
-const Home = ({ mobile, setRoute }) => {
+const Home = ({ mobile, setRoute, orientation }) => {
   const fontSizeAboutDiv = () => {
-    if (window.matchMedia("(orientation: landscape)").matches && mobile) {
+    if (orientation === "landscape" && window.innerHeight < 500) {
       return "14px";
     } else if (mobile) {
       return "16px";

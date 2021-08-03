@@ -156,7 +156,7 @@ const NavBar = ({ mobile, setRoute, route }) => {
       )}
       {mobile && (
         <NavButton
-          onClick={!isDisabled && handleMobileNavClick}
+          onClick={() => !isDisabled && handleMobileNavClick()}
           style={{ float: "right", marginRight: "0" }}
         >
           {nav ? (

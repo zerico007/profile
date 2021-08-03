@@ -15,13 +15,13 @@ const ContactBox = styled.div`
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
-  background: #78fff1;
-  color: #361999;
-  border: 2px solid #361999;
+  background: white;
+  color: #3463ad;
+  border: 2px solid #3463ad;
   &:hover {
-    background: #361999;
-    color: #78fff1;
-    border: 2px solid #78fff1;
+    background: #3463ad;
+    color: white;
+    border: 2px solid white;
     transform: scale(1.2);
   }
 `;

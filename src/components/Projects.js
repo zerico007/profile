@@ -16,12 +16,12 @@ const ProjectDiv = styled.div`
   max-width: 830px;
   height: ${(props) => (props.mobileSite ? "auto" : "600px")};
   border: none;
-  padding: 10px;
+  padding: 0.7rem;
   border-radius: 6px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
-  animation: enterTop 1.8s;
+  animation: fadeIn 1s;
 `;
 
 const LaunchCover = styled.div`
@@ -50,14 +50,14 @@ const LaunchButton = styled.button`
   border: 2px solid white;
   outline: none;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   background: none;
-  height: 32px;
-  width: 150px;
+  height: 2rem;
+  width: 10rem;
   font-weight: bold;
   transition: all ease-in-out 0.3s;
   &:hover {
