@@ -29,7 +29,7 @@ function App() {
 
   useEffect(() => {
     checkIfMobile();
-  }, [setMobile]);
+  }, [setMobile, checkIfMobile]);
 
   useEffect(() => {
     window.scroll({
@@ -38,7 +38,7 @@ function App() {
       behavior: "smooth",
     });
     checkIfMobile();
-  }, [route, orientation]);
+  }, [route, orientation, checkIfMobile]);
 
   useEffect(() => {
     isPortrait() ? setOrientation("portrait") : setOrientation("landscape");
@@ -48,7 +48,8 @@ function App() {
     position: absolute;
     top: 100px;
     width: 100vw;
-    height: 100vh;
+    height: auto;
+    
   `;
 
   return (

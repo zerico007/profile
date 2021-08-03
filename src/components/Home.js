@@ -90,7 +90,7 @@ const Footer = styled.div`
   animation: bounce 1s infinite alternate;
   cursor: pointer;
   &:hover {
-    color: #78fff1;
+    color: #ff6495;
   }
 `;
 

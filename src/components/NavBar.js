@@ -11,9 +11,9 @@ const NavDiv = styled.div`
   width: 100%;
   height: 120px;
   padding: 20px;
-  background: #3463ad;
   z-index: 10;
   box-sizing: border-box;
+  border-bottom: none;
 `;
 
 const ImgDiv = styled.div`
@@ -40,7 +40,7 @@ const NavButtonsDiv = styled.div`
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  background: none;
+  background: transparent;
   float: right;
   margin-top: 0.75rem;
   margin-right: 7rem;
@@ -53,7 +53,7 @@ const NavButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #3463ad;
+  background: transparent;
   border: none;
   border-radius: 6px;
   font-size: ${(props) => (props.mobileSite ? "24px" : "18px")};
@@ -83,7 +83,7 @@ const mobileDivStyles = {
   zIndex: "100",
   width: "110vw",
   transform: "translateX(-5px)",
-  background: "#3463ad",
+  background: "var(--main-blue)",
   backgroundSize: "cover",
   backgroundRepeat: "no-repeat",
   height: "90vh",

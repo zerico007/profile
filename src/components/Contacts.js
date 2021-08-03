@@ -16,10 +16,10 @@ const ContactBox = styled.div`
   transition: all 0.3s ease-in-out;
   cursor: pointer;
   background: white;
-  color: #3463ad;
-  border: 2px solid #3463ad;
+  color: var(--main-blue);
+  border: 2px solid var(--main-blue);
   &:hover {
-    background: #3463ad;
+    background: var(--main-blue);
     color: white;
     border: 2px solid white;
     transform: scale(1.2);

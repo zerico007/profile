@@ -1,7 +1,15 @@
+:root {
+  --main-blue: linear-gradient(147deg, #000000 0%, #04619f 74%);
+
+}
+
 body {
   margin: 0;
   font-family: "Nunito", sans-serif;
-  background: rgba(52, 98, 173);
+  background: var(--main-blue);
+  height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -21,10 +29,12 @@ span {
 
 @keyframes enterLeft {
   0% {
-    transform: translateX(-1500px);
+    transform: translateX(-200px);
+    opacity: 0;
   }
   100% {
     transform: translateX(0);
+    opacity: 1;
   }
 }
 
@@ -79,15 +89,18 @@ span {
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    transform: translateY(100px);
+    transform: translateY(200px);
+    transform: scale(0.2);
   }
   50% {
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(100px);
+    transform: scale(0.7);
   }
   100% {
     opacity: 1;
     transform: translateY(0);
+    transform: scale(1);
   }
 }
 

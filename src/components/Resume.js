@@ -15,7 +15,7 @@ const ResumeDiv = styled.div`
   background: white;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
-  animation: enterBottom 1s;
+  animation: fadeIn 1s;
 `;
 
 const DownloadButton = styled.button`
@@ -24,8 +24,8 @@ const DownloadButton = styled.button`
   width: 11rem;
   height: 2.5rem;
   background: white;
-  color: #3463ad;
-  border: 2px solid #3463ad;
+  color: var(--main-blue);
+  border: 2px solid var(--main-blue);
   border-radius: 20px;
   outline: none;
   cursor: pointer;
@@ -38,7 +38,7 @@ const DownloadButton = styled.button`
   transition: all 0.3s ease-in-out;
   animation: enterLeft 1s;
   &:hover {
-    background: #3463ad;
+    background: var(--main-blue);
     color: white;
     border: 2px solid white;
     transform: scale(1.2);
