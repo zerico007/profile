@@ -9,34 +9,40 @@ import { usePersistedState } from "../utils";
 
 function App() {
   const [mobile, setMobile] = usePersistedState("mobile", false);
-  const [orientation, setOrientation] = usePersistedState("orientation", "landscape");
+  const [orientation, setOrientation] = usePersistedState(
+    "orientation",
+    "landscape"
+  );
   const [route, setRoute] = usePersistedState("route", "home");
 
-  const checkIfMobileOrTablet = () =>
-     window.matchMedia('(max-width: 768px)').matches ? setMobile(true) : setMobile(false);
-  
+  const checkIfMobile = () =>
+    window.matchMedia("(max-width: 768px)").matches
+      ? setMobile(true)
+      : setMobile(false);
+
   const isPortrait = () => window.matchMedia("(orientation: portrait)").matches;
 
   useEffect(() => {
-    window.addEventListener("resize", checkIfMobileOrTablet);
-    return () => window.removeEventListener("resize", checkIfMobileOrTablet);
+    window.addEventListener("resize", checkIfMobile);
+    return () => window.removeEventListener("resize", checkIfMobile);
   });
 
   useEffect(() => {
-     window.matchMedia('(max-width: 768px)').matches ? setMobile(true) : setMobile(false);
+    checkIfMobile();
   }, [setMobile]);
 
   useEffect(() => {
     window.scroll({
-      top: 0, 
-      left: 0, 
-      behavior: 'smooth'
+      top: 0,
+      left: 0,
+      behavior: "smooth",
     });
-  }, [route, orientation])
+    checkIfMobile();
+  }, [route, orientation]);
 
   useEffect(() => {
     isPortrait() ? setOrientation("portrait") : setOrientation("landscape");
-  })
+  });
 
   const ContainerDiv = styled.div`
     position: absolute;
@@ -49,7 +55,9 @@ function App() {
     <>
       <NavBar mobile={mobile} setRoute={setRoute} route={route} />
       <ContainerDiv>
-        {route === "home" && <Home mobile={mobile} orientation={orientation} setRoute={setRoute} />}
+        {route === "home" && (
+          <Home mobile={mobile} orientation={orientation} setRoute={setRoute} />
+        )}
         {route === "resume" && <Resume mobile={mobile} />}
         {route === "projects" && <Projects mobile={mobile} />}
         {route === "contacts" && <Contacts mobile={mobile} />}
