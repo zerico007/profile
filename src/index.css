@@ -1,6 +1,5 @@
 :root {
   --main-blue: linear-gradient(147deg, #000000 0%, #04619f 74%);
-
 }
 
 body {
@@ -109,4 +108,9 @@ span {
 }
 .enter {
   animation: enterLeft 1s;
+}
+
+.scroll-up:hover {
+  transition: all 0.4s;
+  transform: scale(1.4);
 }

@@ -5,7 +5,7 @@ import profilePic from "../assets/profilePic.jpg";
 import wave from "../assets/wave-haikei.svg";
 
 const NavDiv = styled.div`
-  position: fixed;
+  position: absolute;
   left: 0;
   top: 0;
   width: 100%;
