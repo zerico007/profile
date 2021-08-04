@@ -5,13 +5,16 @@ import Resume from "./Resume";
 import Projects from "./Projects";
 import Contacts from "./Contacts";
 import Home from "./Home";
-import { usePersistedState } from "../utils";
 import UpButton from "./UpButton";
+import { usePersistedState } from "../utils";
+import smoothscroll from "smoothscroll-polyfill";
 
 function App() {
   const [mobile, setMobile] = useState(false);
   const [orientation, setOrientation] = useState("landscape");
   const [route, setRoute] = usePersistedState("route", "home");
+
+  smoothscroll.polyfill();
 
   const checkIfMobile = useCallback(() => {
     window.matchMedia("(max-width: 768px)").matches
