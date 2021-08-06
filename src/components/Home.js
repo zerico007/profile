@@ -21,10 +21,10 @@ const AboutDiv = styled.div`
   align-items: center;
   width: 70vw;
   max-width: 830px;
-  height: 40vh;
+  height: auto;
   border: ${(props) => (props.mobileSite ? "none" : "2px solid white")};
   background: ${(props) => (props.mobileSite ? "rgba(0,0,0,0.2)" : "none")};
-  padding: 1rem;
+  padding: 2rem;
   color: white;
   line-height: 150%;
   font-weight: bold;
