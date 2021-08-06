@@ -17,11 +17,13 @@ const ContainerDiv = styled.div`
   width: 100vw;
   height: auto;
   min-height: 100vh;
+  padding-bottom: 3rem;
   background-image: url(${heroPic});
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: cover;
+  background-size: auto 100%;
+  background-blend-mode: overlay;
 `;
 
 const Background = styled.div`
@@ -93,6 +95,18 @@ function App() {
         {route === "projects" && <Projects mobile={mobile} />}
         {route === "contacts" && <Contacts mobile={mobile} />}
         {route === "skills" && <SkillsContainer mobile={mobile} />}
+        <footer
+          style={{
+            position: "relative",
+            width: "12.5rem",
+            bottom: "1rem",
+            margin: "3rem auto",
+            color: "white",
+            textAlign: "center",
+          }}
+        >
+          Created by Bavin Edwards &copy; 2021
+        </footer>
       </ContainerDiv>
     </>
   );

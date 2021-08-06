@@ -30,7 +30,7 @@ const ContactsContainer = styled.div`
   position: relative;
   margin: 0 auto;
   width: 100vw;
-  height: 100vh;
+  height: 70vh;
   display: flex;
   flex-direction: ${(props) => (props.mobileSite ? "column" : "row")};
   justify-content: ${(props) =>

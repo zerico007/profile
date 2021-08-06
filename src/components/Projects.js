@@ -18,7 +18,7 @@ const ProjectDiv = styled.div`
   border: none;
   padding: 0.7rem;
   border-radius: 6px;
-  background-color: white;
+  background: rgba(255, 255, 255, 0.7);
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
   animation: fadeIn 1s;
@@ -77,6 +77,7 @@ const Projects = ({ mobile }) => {
     maxWidth: "830px",
     cursor: "pointer",
     gridArea: "image",
+    borderRadius: "0.5rem",
   };
 
   return (
