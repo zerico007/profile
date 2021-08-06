@@ -123,11 +123,11 @@ span {
 }
 
 .exit {
-  animation: exitTopRight 1s;
+  animation: exitTopRight 0.6s;
   transform-origin: 100% 0%;
 }
 .enter {
-  animation: enterTopRight 1s;
+  animation: enterTopRight 0.6s;
   transform-origin: 100% 0%;
 }
 
