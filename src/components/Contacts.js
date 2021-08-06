@@ -31,10 +31,12 @@ const ContactsContainer = styled.div`
   top: ${(props) => (props.mobileSite ? "30px" : "100px")};
   margin: 0 auto;
   width: 70vw;
+  height: 100vh;
   display: flex;
   flex-direction: ${(props) => (props.mobileSite ? "column" : "row")};
-  justify-content: space-evenly;
-  align-items: center;
+  justify-content: ${(props) =>
+    props.mobileSite ? "flex-start" : "space-evenly"};
+  align-items: ${(props) => (props.mobileSite ? "center" : "flex-start")};
 `;
 
 const Contacts = ({ mobile }) => {

@@ -7,7 +7,28 @@ import Contacts from "./Contacts";
 import Home from "./Home";
 import UpButton from "./UpButton";
 import { usePersistedState } from "../utils";
+import heroPic from "../assets/hero.jpg";
 import smoothscroll from "smoothscroll-polyfill";
+
+const ContainerDiv = styled.div`
+  position: absolute;
+  top: 100px;
+  width: 100vw;
+  height: auto;
+  min-height: 100vh;
+  background-image: url(${heroPic});
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+`;
+
+const Background = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+`;
 
 function App() {
   const [mobile, setMobile] = useState(false);
@@ -32,10 +53,6 @@ function App() {
     });
 
   useEffect(() => {
-    return () => console.log("unloading");
-  });
-
-  useEffect(() => {
     window.addEventListener("resize", checkIfMobile);
     return () => window.removeEventListener("resize", checkIfMobile);
   }, [checkIfMobile]);
@@ -49,27 +66,16 @@ function App() {
     checkIfMobile();
   }, [route, orientation, checkIfMobile]);
 
-  // useEffect(() => {
-  //   scrollToTopOfPage();
-  //   checkIfMobile();
-  // }, [checkIfMobile]);
-
   useEffect(() => {
     isPortrait() ? setOrientation("portrait") : setOrientation("landscape");
   }, []);
-
-  const ContainerDiv = styled.div`
-    position: absolute;
-    top: 100px;
-    width: 100vw;
-    height: auto;
-  `;
 
   return (
     <>
       <NavBar mobile={mobile} setRoute={setRoute} route={route} />
       <UpButton scrollToTopOfPage={scrollToTopOfPage} />
       <ContainerDiv>
+        <Background />
         {route === "home" && (
           <Home mobile={mobile} orientation={orientation} setRoute={setRoute} />
         )}

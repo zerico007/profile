@@ -23,12 +23,13 @@ const AboutDiv = styled.div`
   max-width: 830px;
   height: 40vh;
   border: ${(props) => (props.mobileSite ? "none" : "2px solid white")};
+  background: ${(props) => (props.mobileSite ? "rgba(0,0,0,0.2)" : "none")};
   padding: 1rem;
   color: white;
-  border-radius: 15px 50px;
   line-height: 150%;
   font-weight: bold;
   text-align: center;
+  border-radius: 0.5rem;
   animation: fadeIn 4.8s;
   @media (max-width: 400px) {
     font-size: 14px;
@@ -104,19 +105,9 @@ const Home = ({ mobile, setRoute, orientation }) => {
       return "22px";
     }
   };
+
   return (
-    <ContainerDiv>
-      {/* <img
-        src={heroPic}
-        alt="background"
-        style={{
-          width: "100%",
-          height: "100vh",
-          zIndex: "-1",
-          filter: "blur(4px)",
-          position: "absolute",
-        }}
-      /> */}
+    <ContainerDiv mobileSite={mobile}>
       <NameDiv mobileSite={mobile}>
         <span style={{ animation: "fadeIn 0.5s" }}>Hi,</span>
         <span style={{ animation: "fadeIn 1s" }}> my</span>
