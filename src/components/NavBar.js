@@ -43,7 +43,7 @@ const NavButtonsDiv = styled.div`
   background: transparent;
   float: right;
   margin-top: 0.75rem;
-  margin-right: 7rem;
+  margin-right: 2rem;
 `;
 
 const NavButton = styled.div`
@@ -64,7 +64,6 @@ const NavButton = styled.div`
     color: #ff6495;
     transform: scale(1.2);
   }
-  margin-right: ${(props) => (props.mobileSite ? "0" : "40px")};
   margin-top: ${(props) => (props.mobileSite ? "45px" : "0")};
   margin-left: ${(props) => (props.mobileSite ? "auto" : "0")};
   text-align: center;
@@ -89,7 +88,7 @@ const mobileDivStyles = {
   height: "90vh",
 };
 
-const NavBar = ({ mobile, setRoute, route }) => {
+const NavBar = ({ mobile, setRoute, route, tablet }) => {
   const [showNav, setShowNav] = useState(false);
   const [nav, setNav] = useState(false);
 
@@ -134,6 +133,13 @@ const NavBar = ({ mobile, setRoute, route }) => {
       {!mobile && (
         <NavButtonsDiv>
           <NavButton
+            selected={route === "skills"}
+            onClick={() => setRoute("skills")}
+          >
+            {route === "skills" && <Check size={16} />}
+            Skills
+          </NavButton>
+          <NavButton
             selected={route === "projects"}
             onClick={() => setRoute("projects")}
           >
@@ -175,9 +181,18 @@ const NavBar = ({ mobile, setRoute, route }) => {
         >
           <NavButton
             mobileSite={true}
+            style={{ animation: "enterLeft 1s" }}
+            selected={route === "skills"}
+            onClick={() => setRoute("skills")}
+          >
+            {route === "skills" && <Check size={16} />}
+            Skills
+          </NavButton>
+          <NavButton
+            mobileSite={true}
             selected={route === "projects"}
             onClick={() => setRoute("projects")}
-            style={{ animation: "enterLeft 1s" }}
+            style={{ animation: "enterLeft 1.25s" }}
           >
             {route === "projects" && <Check size={16} />}
             Projects
@@ -186,7 +201,7 @@ const NavBar = ({ mobile, setRoute, route }) => {
             mobileSite={true}
             selected={route === "resume"}
             onClick={() => setRoute("resume")}
-            style={{ animation: "enterLeft 1.25s" }}
+            style={{ animation: "enterLeft 1.5s" }}
           >
             {route === "resume" && <Check size={16} />} Resume
           </NavButton>
@@ -194,7 +209,7 @@ const NavBar = ({ mobile, setRoute, route }) => {
             mobileSite={true}
             selected={route === "contacts"}
             onClick={() => setRoute("contacts")}
-            style={{ animation: "enterLeft 1.5s" }}
+            style={{ animation: "enterLeft 1.75s" }}
           >
             {route === "contacts" && <Check size={16} />} Contact Me
           </NavButton>

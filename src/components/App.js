@@ -5,6 +5,7 @@ import Resume from "./Resume";
 import Projects from "./Projects";
 import Contacts from "./Contacts";
 import Home from "./Home";
+import SkillsContainer from "./SkillsContainer";
 import UpButton from "./UpButton";
 import { usePersistedState } from "../utils";
 import heroPic from "../assets/hero.jpg";
@@ -32,15 +33,19 @@ const Background = styled.div`
 
 function App() {
   const [mobile, setMobile] = useState(false);
+  const [tablet, setTablet] = useState(false);
   const [orientation, setOrientation] = useState("landscape");
   const [route, setRoute] = usePersistedState("route", "home");
 
   smoothscroll.polyfill();
 
-  const checkIfMobile = useCallback(() => {
+  const checkIfMobileOrTablet = useCallback(() => {
     window.matchMedia("(max-width: 768px)").matches
       ? setMobile(true)
       : setMobile(false);
+    window.matchMedia("(max-width: 866px)").matches
+      ? setTablet(true)
+      : setTablet(false);
   }, []);
 
   const isPortrait = () => window.matchMedia("(orientation: portrait)").matches;
@@ -53,18 +58,18 @@ function App() {
     });
 
   useEffect(() => {
-    window.addEventListener("resize", checkIfMobile);
-    return () => window.removeEventListener("resize", checkIfMobile);
-  }, [checkIfMobile]);
+    window.addEventListener("resize", checkIfMobileOrTablet);
+    return () => window.removeEventListener("resize", checkIfMobileOrTablet);
+  }, [checkIfMobileOrTablet]);
 
   useEffect(() => {
-    checkIfMobile();
-  }, [checkIfMobile]);
+    checkIfMobileOrTablet();
+  }, [checkIfMobileOrTablet]);
 
   useEffect(() => {
     scrollToTopOfPage();
-    checkIfMobile();
-  }, [route, orientation, checkIfMobile]);
+    checkIfMobileOrTablet();
+  }, [route, orientation, checkIfMobileOrTablet]);
 
   useEffect(() => {
     isPortrait() ? setOrientation("portrait") : setOrientation("landscape");
@@ -72,7 +77,12 @@ function App() {
 
   return (
     <>
-      <NavBar mobile={mobile} setRoute={setRoute} route={route} />
+      <NavBar
+        mobile={mobile}
+        setRoute={setRoute}
+        route={route}
+        tablet={tablet}
+      />
       <UpButton scrollToTopOfPage={scrollToTopOfPage} />
       <ContainerDiv>
         <Background />
@@ -82,6 +92,7 @@ function App() {
         {route === "resume" && <Resume mobile={mobile} />}
         {route === "projects" && <Projects mobile={mobile} />}
         {route === "contacts" && <Contacts mobile={mobile} />}
+        {route === "skills" && <SkillsContainer mobile={mobile} />}
       </ContainerDiv>
     </>
   );
