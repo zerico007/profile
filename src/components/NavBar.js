@@ -95,7 +95,7 @@ const NavBar = ({ mobile, setRoute, route, tablet }) => {
     background: "rgba(0,0,0,0.8)",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
-    height: "100vh",
+    height: "120vh",
     transition: "top 0.4s ease-in-out",
   };
 
