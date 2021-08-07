@@ -45,6 +45,16 @@ const Description = styled.p`
   grid-area: desc;
 `;
 
+const ContainerDiv = styled.div`
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
 const LaunchButton = styled.button`
   position: relative;
   border: 2px solid white;
@@ -81,7 +91,7 @@ const Projects = ({ mobile }) => {
   };
 
   return (
-    <>
+    <ContainerDiv>
       <ProjectDiv
         onMouseEnter={() => !mobile && setShop(true)}
         onMouseLeave={() => setShop(false)}
@@ -202,7 +212,7 @@ const Projects = ({ mobile }) => {
           </a>
         )}
       </ProjectDiv>
-    </>
+    </ContainerDiv>
   );
 };
 

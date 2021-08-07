@@ -4,6 +4,16 @@ import { Download } from "react-feather";
 import resumePic from "../assets/resume.jpg";
 import { saveAs } from "file-saver";
 
+const ContainerDiv = styled.div`
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
 const ResumeDiv = styled.div`
   position: relative;
   margin: 0 auto;
@@ -51,14 +61,14 @@ const Resume = ({ mobile }) => {
   };
 
   return (
-    <>
+    <ContainerDiv>
       <DownloadButton mobileSite={mobile} onClick={downloadResume}>
         <Download size={16} style={{ marginRight: "4px" }} /> Download
       </DownloadButton>
       <ResumeDiv>
         <img style={{ width: "100%" }} src={resumePic} alt="resume-pic" />
       </ResumeDiv>
-    </>
+    </ContainerDiv>
   );
 };
 

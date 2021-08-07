@@ -17,12 +17,14 @@ const NavDiv = styled.div`
 `;
 
 const ImgDiv = styled.div`
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   border-radius: 100px;
   border: 2px solid white;
   padding: 5px;
-  overflow: hidden;
+  background-image: url(${profilePic});
+  background-size: cover;
+  background-repeat: no-repeat;
   float: left;
   display: flex;
   align-items: center;
@@ -119,17 +121,7 @@ const NavBar = ({ mobile, setRoute, route, tablet }) => {
           setShowNav(false);
           setNav(false);
         }}
-      >
-        <img
-          src={profilePic}
-          alt="profile-pic"
-          style={{
-            objectFit: "contain",
-            width: "100px",
-            transform: "translateY(30px)",
-          }}
-        />
-      </ImgDiv>
+      />
       {!mobile && (
         <NavButtonsDiv>
           <NavButton
