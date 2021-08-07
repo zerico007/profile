@@ -120,12 +120,11 @@ const Home = ({ mobile, setRoute, orientation }) => {
         I am a Web Developer
       </TitleDiv>
       <AboutDiv mobileSite={mobile} style={{ fontSize: fontSizeAboutDiv() }}>
-        We live in a data driven digital world, and thus success in any field
+        We live in a data-driven, digital world, and thus success in any field
         requires us to be able to take full advantage of the profuse amount of
-        data available to us through our digital connections within the world
-        around us. My goal is to play an active role in solving real world
-        problems through knowledge, innovation, data analysis and critical
-        thinking.
+        data available to us through digital connections within the world around
+        us. My goal is to play an active role in solving real world problems
+        through knowledge, innovation, data analysis and critical thinking.
       </AboutDiv>
       <Footer onClick={() => setRoute("projects")}>
         <span>Take a look at my work</span>
