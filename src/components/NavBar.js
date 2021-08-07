@@ -1,19 +1,21 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import { Check } from "react-feather";
 import profilePic from "../assets/profilePic.jpg";
 import wave from "../assets/wave-haikei.svg";
 
 const NavDiv = styled.div`
-  position: absolute;
+  position: relative;
   left: 0;
   top: 0;
+  opacity: ${(props) => (props.scrolled ? "0" : "1")}
   width: 100%;
-  height: 120px;
+  height: 94px;
   padding: 20px;
   z-index: 10;
   box-sizing: border-box;
   border-bottom: none;
+  background: ${(props) => (props.mobileSite ? "rgba(0, 0, 0, 0.8)" : "none")};
 `;
 
 const ImgDiv = styled.div`
@@ -72,29 +74,39 @@ const NavButton = styled.div`
   line-height: 1.5rem;
 `;
 
-const mobileDivStyles = {
-  position: "fixed",
-  left: "0",
-  paddingLeft: "40px",
-  paddingTop: "10px",
-  top: "94px",
-  display: "flex",
-  alignItems: "flex-start",
-  flexDirection: "column",
-  zIndex: "100",
-  width: "110vw",
-  transform: "translateX(-5px)",
-  background: "var(--main-blue)",
-  backgroundSize: "cover",
-  backgroundRepeat: "no-repeat",
-  height: "90vh",
-};
-
 const NavBar = ({ mobile, setRoute, route, tablet }) => {
   const [showNav, setShowNav] = useState(false);
   const [nav, setNav] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  const mobileDivStyles = {
+    position: "fixed",
+    left: "0",
+    paddingLeft: "40px",
+    paddingTop: "10px",
+    top: scrolled ? "0px" : "94px",
+    display: "flex",
+    alignItems: "flex-start",
+    flexDirection: "column",
+    zIndex: "100",
+    width: "110vw",
+    transform: "translateX(-5px)",
+    background: "rgba(0,0,0,0.8)",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    height: "100vh",
+  };
 
   const isDisabled = !nav && showNav;
+
+  const handleScroll = () => {
+    window.scrollY > 0 ? setScrolled(true) : setScrolled(false);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleMobileNavClick = () => {
     setNav(!nav);
@@ -114,7 +126,7 @@ const NavBar = ({ mobile, setRoute, route, tablet }) => {
   const mobileNavRef = useRef();
 
   return (
-    <NavDiv>
+    <NavDiv mobileSite={mobile}>
       <ImgDiv
         onClick={() => {
           setRoute("home");

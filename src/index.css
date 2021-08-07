@@ -5,10 +5,7 @@
 body {
   margin: 0;
   font-family: "Nunito", sans-serif;
-  background: var(--main-blue);
-  height: 100%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  height: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

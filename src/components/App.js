@@ -13,17 +13,18 @@ import smoothscroll from "smoothscroll-polyfill";
 
 const ContainerDiv = styled.div`
   position: absolute;
-  top: 100px;
+  top: 0;
   width: 100vw;
   height: auto;
   min-height: 100vh;
-  padding-bottom: 3rem;
+  box-sixing: border-box;
   background-image: url(${heroPic});
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   background-blend-mode: overlay;
+  padding-bottom: 3rem;
 `;
 
 const Background = styled.div`
@@ -79,15 +80,15 @@ function App() {
 
   return (
     <>
-      <NavBar
-        mobile={mobile}
-        setRoute={setRoute}
-        route={route}
-        tablet={tablet}
-      />
-      <UpButton scrollToTopOfPage={scrollToTopOfPage} />
       <ContainerDiv>
         <Background />
+        <NavBar
+          mobile={mobile}
+          setRoute={setRoute}
+          route={route}
+          tablet={tablet}
+        />
+        <UpButton scrollToTopOfPage={scrollToTopOfPage} />
         {route === "home" && (
           <Home mobile={mobile} orientation={orientation} setRoute={setRoute} />
         )}
