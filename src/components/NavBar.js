@@ -8,7 +8,8 @@ const NavDiv = styled.div`
   position: relative;
   left: 0;
   top: 0;
-  opacity: ${(props) => (props.scrolled ? "0" : "1")}
+  opacity: ${(props) => (props.scrolled ? "0" : "1")};
+  transition: all 0.4s ease-in-out;
   width: 100%;
   height: 94px;
   padding: 20px;
@@ -95,6 +96,7 @@ const NavBar = ({ mobile, setRoute, route, tablet }) => {
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     height: "100vh",
+    transition: "top 0.4s ease-in-out",
   };
 
   const isDisabled = !nav && showNav;
@@ -126,56 +128,58 @@ const NavBar = ({ mobile, setRoute, route, tablet }) => {
   const mobileNavRef = useRef();
 
   return (
-    <NavDiv mobileSite={mobile}>
-      <ImgDiv
-        onClick={() => {
-          setRoute("home");
-          setShowNav(false);
-          setNav(false);
-        }}
-      />
-      {!mobile && (
-        <NavButtonsDiv>
+    <>
+      <NavDiv mobileSite={mobile} scrolled={scrolled}>
+        <ImgDiv
+          onClick={() => {
+            setRoute("home");
+            setShowNav(false);
+            setNav(false);
+          }}
+        />
+        {!mobile && (
+          <NavButtonsDiv>
+            <NavButton
+              selected={route === "skills"}
+              onClick={() => setRoute("skills")}
+            >
+              {route === "skills" && <Check size={16} />}
+              Skills
+            </NavButton>
+            <NavButton
+              selected={route === "projects"}
+              onClick={() => setRoute("projects")}
+            >
+              {route === "projects" && <Check size={16} />}
+              Projects
+            </NavButton>
+            <NavButton
+              selected={route === "resume"}
+              onClick={() => setRoute("resume")}
+            >
+              {route === "resume" && <Check size={16} />} Resume
+            </NavButton>
+            <NavButton
+              selected={route === "contacts"}
+              onClick={() => setRoute("contacts")}
+            >
+              {route === "contacts" && <Check size={16} />} Contact Me
+            </NavButton>
+          </NavButtonsDiv>
+        )}
+        {mobile && (
           <NavButton
-            selected={route === "skills"}
-            onClick={() => setRoute("skills")}
+            onClick={() => !isDisabled && handleMobileNavClick()}
+            style={{ float: "right", marginRight: "0" }}
           >
-            {route === "skills" && <Check size={16} />}
-            Skills
+            {nav ? (
+              <i className="fas fa-times fa-2x"></i>
+            ) : (
+              <i className="fas fa-bars fa-2x"></i>
+            )}
           </NavButton>
-          <NavButton
-            selected={route === "projects"}
-            onClick={() => setRoute("projects")}
-          >
-            {route === "projects" && <Check size={16} />}
-            Projects
-          </NavButton>
-          <NavButton
-            selected={route === "resume"}
-            onClick={() => setRoute("resume")}
-          >
-            {route === "resume" && <Check size={16} />} Resume
-          </NavButton>
-          <NavButton
-            selected={route === "contacts"}
-            onClick={() => setRoute("contacts")}
-          >
-            {route === "contacts" && <Check size={16} />} Contact Me
-          </NavButton>
-        </NavButtonsDiv>
-      )}
-      {mobile && (
-        <NavButton
-          onClick={() => !isDisabled && handleMobileNavClick()}
-          style={{ float: "right", marginRight: "0" }}
-        >
-          {nav ? (
-            <i className="fas fa-times fa-2x"></i>
-          ) : (
-            <i className="fas fa-bars fa-2x"></i>
-          )}
-        </NavButton>
-      )}
+        )}
+      </NavDiv>
       {showNav && (
         <div
           ref={mobileNavRef}
@@ -219,7 +223,7 @@ const NavBar = ({ mobile, setRoute, route, tablet }) => {
           </NavButton>
         </div>
       )}
-    </NavDiv>
+    </>
   );
 };
 
