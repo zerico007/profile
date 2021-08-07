@@ -22,7 +22,7 @@ const ContainerDiv = styled.div`
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: auto 100%;
+  background-size: cover;
   background-blend-mode: overlay;
 `;
 
