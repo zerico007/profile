@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 const SkillDiv = styled.div`
   display: flex;
   flex-direction: column;
-  width: 18rem;
+  width: ${(props) => (props.mobileSite ? "80vw" : "18rem")};
   height: 35rem;
   background: rgba(255, 255, 255, 0.7);
   border-radius: 0.5rem;
@@ -29,9 +29,16 @@ const ContentDiv = styled.div`
   text-align: center;
 `;
 
-const SkillSection = ({ image, title, languages, frameworks, desc }) => {
+const SkillSection = ({
+  image,
+  title,
+  languages,
+  frameworks,
+  desc,
+  mobileSite,
+}) => {
   return (
-    <SkillDiv>
+    <SkillDiv mobileSite={mobileSite}>
       <img src={image} alt="skill" width="100" />
       <h3 style={{ textAlign: "center" }}>{title}</h3>
       <ContentDiv>

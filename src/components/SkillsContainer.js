@@ -24,6 +24,7 @@ const SkillsContainer = ({ mobile }) => {
         languages="Languages: HTML, CSS, JavaScript, TypeScript"
         frameworks="Libraries: ReactJS"
         desc="Modern, dynamic & responsive web development that animates your visions and captivates your audience."
+        mobileSite={mobile}
       />
       <SkillSection
         image={backend}
@@ -31,6 +32,7 @@ const SkillsContainer = ({ mobile }) => {
         languages="Languages: JavaScript, TypeScript, Java"
         frameworks="Frameworks: NodeJS, Spring Boot"
         desc="Development of both RESTful and GraphQL API's with JWT authentication, role-based and location-based permissions."
+        mobileSite={mobile}
       />
       <SkillSection
         image={database}
@@ -38,6 +40,7 @@ const SkillsContainer = ({ mobile }) => {
         frameworks="Databases: MongoDB, PostgresQL, MySQL"
         languages="Structured Query Language, MongoDB Query Language"
         desc="Database creation, modeling and management using Mongoose, Prisma from NodeJs and Spring Data JPA from Spring Boot."
+        mobileSite={mobile}
       />
     </ContainerDiv>
   );
