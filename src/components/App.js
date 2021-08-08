@@ -9,6 +9,7 @@ import SkillsContainer from "./SkillsContainer";
 import UpButton from "./UpButton";
 import { usePersistedState } from "../utils";
 import heroPic from "../assets/hero.jpg";
+import hero2Pic from "../assets/hero2.jpg";
 import smoothscroll from "smoothscroll-polyfill";
 
 const ContainerDiv = styled.div`
@@ -31,7 +32,7 @@ const Background = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.5);
 `;
 
 function App() {

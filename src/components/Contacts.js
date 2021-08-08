@@ -10,16 +10,17 @@ const ContactBox = styled.div`
   justify-content: center;
   align-items: center;
   padding: 10px;
+  animation: ${(props) => (props.odd ? "enterLeft 1s" : "fadeIn 1s")};
   margin-top: 40px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
   background: white;
-  color: var(--main-blue);
-  border: 2px solid var(--main-blue);
+  color: var(--main-black);
+  border: 2px solid var(--main-black);
   &:hover {
-    background: var(--main-blue);
+    background: var(--main-black);
     color: white;
     border: 2px solid white;
     transform: scale(1.2);
@@ -28,26 +29,20 @@ const ContactBox = styled.div`
 
 const ContactsContainer = styled.div`
   position: relative;
-  margin: 0 auto;
   width: 100vw;
-  height: 70vh;
+  height: 60vh;
   display: flex;
   flex-direction: ${(props) => (props.mobileSite ? "column" : "row")};
   justify-content: ${(props) =>
     props.mobileSite ? "flex-start" : "space-evenly"};
-  align-items: ${(props) => (props.mobileSite ? "center" : "flex-start")};
+  align-items: ${(props) => (props.mobileSite ? "center" : "flex-start")}; ;
 `;
 
 const Contacts = ({ mobile }) => {
   return (
     <ContactsContainer mobileSite={mobile}>
-      <a
-        href="https://github.com/zerico007"
-        target="_blank"
-        rel="noreferrer"
-        style={{ animation: "enterLeft 1s" }}
-      >
-        <ContactBox>
+      <a href="https://github.com/zerico007" target="_blank" rel="noreferrer">
+        <ContactBox odd={true}>
           <GitHub size={40} />
         </ContactBox>
       </a>
@@ -55,19 +50,13 @@ const Contacts = ({ mobile }) => {
         href="https://www.linkedin.com/in/bavin-edwards-777b23180/"
         target="_blank"
         rel="noreferrer"
-        style={{ animation: "enterBottom 1s" }}
       >
-        <ContactBox>
+        <ContactBox odd={false}>
           <Linkedin size={40} />
         </ContactBox>
       </a>
-      <a
-        href="mailto:bavin_edwards@live.com"
-        target="_blank"
-        rel="noreferrer"
-        style={{ animation: "enterRight 1s" }}
-      >
-        <ContactBox>
+      <a href="mailto:bavin_edwards@live.com" target="_blank" rel="noreferrer">
+        <ContactBox odd={true}>
           <Inbox size={40} />
         </ContactBox>
       </a>

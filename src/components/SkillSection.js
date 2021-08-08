@@ -19,7 +19,7 @@ const SkillDiv = styled.div`
 `;
 
 const ContentDiv = styled.div`
-  color: var(--main-blue);
+  color: var(--main-black);
   display: flex;
   flex-direction: column;
   height: 18rem;

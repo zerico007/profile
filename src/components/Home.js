@@ -22,10 +22,10 @@ const AboutDiv = styled.div`
   width: 70vw;
   max-width: 830px;
   height: auto;
-  border: ${(props) => (props.mobileSite ? "none" : "2px solid white")};
-  background: ${(props) => (props.mobileSite ? "rgba(0,0,0,0.2)" : "none")};
+  border: none;
+  background: rgba(255, 255, 255, 0.7);
   padding: 2rem;
-  color: white;
+  color: var(--main-black);
   line-height: 150%;
   font-weight: bold;
   text-align: center;

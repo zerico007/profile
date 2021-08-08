@@ -34,8 +34,8 @@ const DownloadButton = styled.button`
   width: 11rem;
   height: 2.5rem;
   background: white;
-  color: var(--main-blue);
-  border: 2px solid var(--main-blue);
+  color: var(--main-black);
+  border: 2px solid var(--main-black);
   border-radius: 20px;
   outline: none;
   cursor: pointer;
@@ -48,7 +48,7 @@ const DownloadButton = styled.button`
   transition: all 0.3s ease-in-out;
   animation: enterLeft 1s;
   &:hover {
-    background: var(--main-blue);
+    background: var(--main-black);
     color: white;
     border: 2px solid white;
     transform: scale(1.2);
