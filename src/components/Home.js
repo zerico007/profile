@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "@emotion/styled";
-import heroPic from "../assets/hero.jpg";
 import { ChevronDown } from "react-feather";
 
 const ContainerDiv = styled.div`

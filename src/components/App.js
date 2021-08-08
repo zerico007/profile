@@ -9,7 +9,6 @@ import SkillsContainer from "./SkillsContainer";
 import UpButton from "./UpButton";
 import { usePersistedState } from "../utils";
 import heroPic from "../assets/hero.jpg";
-import hero2Pic from "../assets/hero2.jpg";
 import smoothscroll from "smoothscroll-polyfill";
 
 const ContainerDiv = styled.div`
