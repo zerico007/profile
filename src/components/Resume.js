@@ -25,7 +25,7 @@ const ResumeDiv = styled.div`
   background: white;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
-  animation: fadeIn 1s;
+  animation: fadeIn 0.6s;
 `;
 
 const DownloadButton = styled.button`
@@ -46,7 +46,7 @@ const DownloadButton = styled.button`
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease-in-out;
-  animation: enterLeft 1s;
+  animation: enterLeft 0.6s;
   &:hover {
     background: var(--main-black);
     color: white;

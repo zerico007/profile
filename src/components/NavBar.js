@@ -117,7 +117,7 @@ const NavBar = ({ mobile, setRoute, route, tablet }) => {
       setTimeout(() => {
         mobileNavRef.current.classList.remove("exit");
         setShowNav(!showNav);
-      }, 600);
+      }, 400);
     }
     if (mobile && !showNav) {
       setShowNav(!showNav);

@@ -15,7 +15,7 @@ const SkillDiv = styled.div`
   justify-content: space-around;
   align-items: center;
   font-weight: bold;
-  animation: fadeIn 1s;
+  animation: fadeIn 0.6s;
 `;
 
 const ContentDiv = styled.div`

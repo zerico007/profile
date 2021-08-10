@@ -10,7 +10,7 @@ const ContactBox = styled.div`
   justify-content: center;
   align-items: center;
   padding: 10px;
-  animation: ${(props) => (props.odd ? "enterLeft 1s" : "fadeIn 1s")};
+  animation: ${(props) => (props.odd ? "enterLeft 0.8s" : "fadeIn 0.8s")};
   margin-top: 40px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;

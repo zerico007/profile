@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import appleShopPic from "../assets/apple-shop.jpg";
 import auctionsPic from "../assets/auctions.jpg";
 import gradebookPic from "../assets/gradebook.jpg";
+import sunnySidePic from "../assets/sunnyside.jpg";
 
 const ProjectDiv = styled.div`
   position: relative;
@@ -21,7 +22,7 @@ const ProjectDiv = styled.div`
   background: rgba(255, 255, 255, 0.7);
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
-  animation: fadeIn 1s;
+  animation: fadeIn 0.6s;
 `;
 
 const LaunchCover = styled.div`
@@ -81,6 +82,7 @@ const Projects = ({ mobile }) => {
   const [shop, setShop] = useState(false);
   const [auction, setAuction] = useState(false);
   const [gradebook, setGradebook] = useState(false);
+  const [sunnySide, setSunnySide] = useState(false);
 
   const imageStyle = {
     width: "70vw",
@@ -92,6 +94,41 @@ const Projects = ({ mobile }) => {
 
   return (
     <ContainerDiv>
+      <ProjectDiv
+        onMouseEnter={() => !mobile && setSunnySide(true)}
+        onMouseLeave={() => setSunnySide(false)}
+        mobileSite={mobile}
+      >
+        <img src={sunnySidePic} alt="sunnyside-pic" style={imageStyle} />
+
+        <Description>
+          Static Landing page built with HTML, CSS and a tiny bit of JavaScript
+        </Description>
+        <LaunchCover launch={sunnySide}>
+          <a
+            href="https://zerico007.github.io/sunnyside/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <LaunchButton>Visit</LaunchButton>
+          </a>
+        </LaunchCover>
+        {mobile && (
+          <a
+            href="https://zerico007.github.io/sunnyside/"
+            target="_blank"
+            rel="noreferrer"
+            style={{ zIndex: "5" }}
+          >
+            <LaunchButton
+              mobileSite={mobile}
+              style={{ background: "black", margin: "0 auto" }}
+            >
+              Visit
+            </LaunchButton>
+          </a>
+        )}
+      </ProjectDiv>
       <ProjectDiv
         onMouseEnter={() => !mobile && setShop(true)}
         onMouseLeave={() => setShop(false)}
