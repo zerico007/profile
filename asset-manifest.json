@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/profile/static/css/main.8bc4c14f.chunk.css",
-    "main.js": "/profile/static/js/main.a3769fb9.chunk.js",
-    "main.js.map": "/profile/static/js/main.a3769fb9.chunk.js.map",
+    "main.css": "/profile/static/css/main.ea586029.chunk.css",
+    "main.js": "/profile/static/js/main.87c5312d.chunk.js",
+    "main.js.map": "/profile/static/js/main.87c5312d.chunk.js.map",
     "runtime-main.js": "/profile/static/js/runtime-main.6ca917af.js",
     "runtime-main.js.map": "/profile/static/js/runtime-main.6ca917af.js.map",
-    "static/js/2.9d977965.chunk.js": "/profile/static/js/2.9d977965.chunk.js",
-    "static/js/2.9d977965.chunk.js.map": "/profile/static/js/2.9d977965.chunk.js.map",
+    "static/js/2.0965ae67.chunk.js": "/profile/static/js/2.0965ae67.chunk.js",
+    "static/js/2.0965ae67.chunk.js.map": "/profile/static/js/2.0965ae67.chunk.js.map",
     "index.html": "/profile/index.html",
-    "static/css/main.8bc4c14f.chunk.css.map": "/profile/static/css/main.8bc4c14f.chunk.css.map",
-    "static/js/2.9d977965.chunk.js.LICENSE.txt": "/profile/static/js/2.9d977965.chunk.js.LICENSE.txt",
+    "static/css/main.ea586029.chunk.css.map": "/profile/static/css/main.ea586029.chunk.css.map",
+    "static/js/2.0965ae67.chunk.js.LICENSE.txt": "/profile/static/js/2.0965ae67.chunk.js.LICENSE.txt",
     "static/media/apple-shop.247f3682.jpg": "/profile/static/media/apple-shop.247f3682.jpg",
     "static/media/auctions.dfece1f0.jpg": "/profile/static/media/auctions.dfece1f0.jpg",
     "static/media/backend.85a0ea55.png": "/profile/static/media/backend.85a0ea55.png",
@@ -18,12 +18,13 @@
     "static/media/gradebook.a03f3abc.jpg": "/profile/static/media/gradebook.a03f3abc.jpg",
     "static/media/hero.9decca57.jpg": "/profile/static/media/hero.9decca57.jpg",
     "static/media/profilePic.9e39ad30.jpg": "/profile/static/media/profilePic.9e39ad30.jpg",
-    "static/media/resume.7fc20a84.jpg": "/profile/static/media/resume.7fc20a84.jpg"
+    "static/media/resume.7fc20a84.jpg": "/profile/static/media/resume.7fc20a84.jpg",
+    "static/media/sunnyside.bf0fc1e7.jpg": "/profile/static/media/sunnyside.bf0fc1e7.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.6ca917af.js",
-    "static/js/2.9d977965.chunk.js",
-    "static/css/main.8bc4c14f.chunk.css",
-    "static/js/main.a3769fb9.chunk.js"
+    "static/js/2.0965ae67.chunk.js",
+    "static/css/main.ea586029.chunk.css",
+    "static/js/main.87c5312d.chunk.js"
   ]
 }
