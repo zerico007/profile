@@ -99,7 +99,12 @@ const Projects = ({ mobile }) => {
         onMouseLeave={() => setSunnySide(false)}
         mobileSite={mobile}
       >
-        <img src={sunnySidePic} alt="sunnyside-pic" style={imageStyle} />
+        <img
+          src={sunnySidePic}
+          alt="sunnyside-pic"
+          style={imageStyle}
+          loading="lazy"
+        />
 
         <Description>
           Static Landing page built with HTML, CSS and a tiny bit of JavaScript
@@ -134,7 +139,12 @@ const Projects = ({ mobile }) => {
         onMouseLeave={() => setShop(false)}
         mobileSite={mobile}
       >
-        <img src={appleShopPic} alt="apple-shop-pic" style={imageStyle} />
+        <img
+          src={appleShopPic}
+          alt="apple-shop-pic"
+          style={imageStyle}
+          loading="lazy"
+        />
 
         <Description>
           Web app for shopping apple products. Frontend built with React.
