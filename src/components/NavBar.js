@@ -101,7 +101,12 @@ const NavBar = ({ mobile, setRoute, route, tablet }) => {
   const isDisabled = !nav && showNav;
 
   const handleScroll = () => {
-    window.scrollY > 0 ? setScrolled(true) : setScrolled(false);
+    if (window.scrollY > 0) {
+      setScrolled(true);
+      return;
+    }
+    setRoute("home");
+    setScrolled(false);
   };
 
   useEffect(() => {

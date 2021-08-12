@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback, useRef } from "react";
 import styled from "@emotion/styled";
 import NavBar from "./NavBar";
 import Resume from "./Resume";
@@ -7,7 +7,6 @@ import Contacts from "./Contacts";
 import Home from "./Home";
 import SkillsContainer from "./SkillsContainer";
 import UpButton from "./UpButton";
-import { usePersistedState } from "../utils";
 import heroPic from "../assets/hero.jpg";
 import smoothscroll from "smoothscroll-polyfill";
 
@@ -34,13 +33,70 @@ const Background = styled.div`
   background: rgba(0, 0, 0, 0.5);
 `;
 
+const HeaderDiv = styled.div`
+  position: relative;
+  width: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4rem auto;
+  height: 4rem;
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-radius: 0.5rem;
+`;
+
+const Wrapper = styled.div`
+  width: 100%;
+  height: auto;
+`;
+
+function Header({ head }) {
+  return <HeaderDiv>{head}</HeaderDiv>;
+}
+
 function App() {
   const [mobile, setMobile] = useState(false);
   const [tablet, setTablet] = useState(false);
   const [orientation, setOrientation] = useState("landscape");
-  const [route, setRoute] = usePersistedState("route", "home");
+  const [route, setRoute] = useState("home");
 
   smoothscroll.polyfill();
+
+  const scrollToElement = (element) => {
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
+  };
+
+  const handleRouteScrolls = useCallback(() => {
+    switch (route) {
+      case "home":
+        window.scrollY > 0 && scrollToTopOfPage();
+        break;
+      case "skills":
+        scrollToElement(skills.current);
+        break;
+      case "projects":
+        scrollToElement(projects.current);
+        break;
+      case "resume":
+        scrollToElement(resume.current);
+        break;
+      case "contacts":
+        scrollToElement(contacts.current);
+        break;
+      default:
+        break;
+    }
+  }, [route]);
+
+  const skills = useRef(null);
+  const projects = useRef(null);
+  const resume = useRef(null);
+  const contacts = useRef(null);
 
   const checkIfMobileOrTablet = useCallback(() => {
     window.matchMedia("(max-width: 768px)").matches
@@ -53,12 +109,14 @@ function App() {
 
   const isPortrait = () => window.matchMedia("(orientation: portrait)").matches;
 
-  const scrollToTopOfPage = () =>
+  const scrollToTopOfPage = () => {
+    setRoute("home");
     window.scroll({
       top: 0,
       left: 0,
       behavior: "smooth",
     });
+  };
 
   useEffect(() => {
     window.addEventListener("resize", checkIfMobileOrTablet);
@@ -72,11 +130,15 @@ function App() {
   useEffect(() => {
     scrollToTopOfPage();
     checkIfMobileOrTablet();
-  }, [route, orientation, checkIfMobileOrTablet]);
+  }, [orientation, checkIfMobileOrTablet]);
 
   useEffect(() => {
     isPortrait() ? setOrientation("portrait") : setOrientation("landscape");
   }, []);
+
+  useEffect(() => {
+    handleRouteScrolls();
+  }, [route, handleRouteScrolls]);
 
   return (
     <>
@@ -89,13 +151,23 @@ function App() {
           tablet={tablet}
         />
         <UpButton scrollToTopOfPage={scrollToTopOfPage} />
-        {route === "home" && (
-          <Home mobile={mobile} orientation={orientation} setRoute={setRoute} />
-        )}
-        {route === "resume" && <Resume mobile={mobile} />}
-        {route === "projects" && <Projects mobile={mobile} />}
-        {route === "contacts" && <Contacts mobile={mobile} />}
-        {route === "skills" && <SkillsContainer mobile={mobile} />}
+        <Home mobile={mobile} orientation={orientation} setRoute={setRoute} />
+        <Wrapper ref={skills}>
+          <Header head={"Skills"} />
+          <SkillsContainer mobile={mobile} />
+        </Wrapper>
+        <Wrapper ref={projects}>
+          <Header head={"Projects"} />
+          <Projects mobile={mobile} />
+        </Wrapper>
+        <Wrapper ref={resume}>
+          <Header head={"Resume"} />
+          <Resume mobile={mobile} />
+        </Wrapper>
+        <Wrapper ref={contacts}>
+          <Header head={"Contacts"} />
+          <Contacts mobile={mobile} />
+        </Wrapper>
         <footer
           style={{
             position: "relative",
