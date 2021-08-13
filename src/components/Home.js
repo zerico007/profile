@@ -10,12 +10,13 @@ const ContainerDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 5rem;
 `;
 
 const AboutDiv = styled.div`
   position: relative;
   display: flex;
-  margin: 1rem 0;
+  margin: 3rem 0;
   justify-content: center;
   align-items: center;
   width: 70vw;
@@ -23,7 +24,7 @@ const AboutDiv = styled.div`
   height: auto;
   border: none;
   background: rgba(255, 255, 255, 0.7);
-  padding: 2rem;
+  padding: ${(props) => (props.mobileSite ? "3rem" : "4rem")};
   color: var(--main-black);
   line-height: 150%;
   font-weight: bold;

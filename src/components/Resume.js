@@ -17,7 +17,8 @@ const ContainerDiv = styled.div`
 const ResumeDiv = styled.div`
   position: relative;
   margin: 0 auto;
-  width: 70vw;
+  width: ${(props) => (props.mobileSite ? "80vw" : "70vw")};
+  max-width: 830px;
   height: auto;
   border: none;
   padding: 10px;
@@ -65,7 +66,7 @@ const Resume = ({ mobile }) => {
       <DownloadButton mobileSite={mobile} onClick={downloadResume}>
         <Download size={16} style={{ marginRight: "4px" }} /> Download
       </DownloadButton>
-      <ResumeDiv>
+      <ResumeDiv mobileSite={mobile}>
         <img
           style={{ width: "100%" }}
           src={resumePic}

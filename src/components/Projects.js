@@ -13,7 +13,7 @@ const ProjectDiv = styled.div`
     "desc";
   grid-template-rows: 1fr 1fr;
   margin: 50px auto 0 auto;
-  width: 70vw;
+  width: ${(props) => (props.mobileSite ? "80vw" : "70vw")};
   max-width: 830px;
   height: ${(props) => (props.mobileSite ? "auto" : "600px")};
   border: none;
@@ -85,7 +85,7 @@ const Projects = ({ mobile }) => {
   const [sunnySide, setSunnySide] = useState(false);
 
   const imageStyle = {
-    width: "70vw",
+    width: "100%",
     maxWidth: "830px",
     cursor: "pointer",
     gridArea: "image",

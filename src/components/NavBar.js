@@ -52,16 +52,15 @@ const NavButtonsDiv = styled.div`
 
 const NavButton = styled.div`
   width: ${(props) => (props.mobileSite ? "100%" : "120px")};
-  height: ${(props) => (props.mobileSite ? "2rem" : "60px")};
+  height: auto;
   font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
   background: transparent;
   border: none;
-  border-radius: 6px;
   font-size: ${(props) => (props.mobileSite ? "24px" : "18px")};
-  color: ${(props) => (props.selected ? "#FF6495" : "white")};
+  color: white;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
   &:hover {
@@ -74,7 +73,23 @@ const NavButton = styled.div`
   line-height: 1.5rem;
 `;
 
-const NavBar = ({ mobile, setRoute, route, tablet }) => {
+const BurgerButton = styled.button`
+  cursor: pointer;
+  font-size: 20px;
+  margin-top: 0.5rem;
+  height: 2rem;
+  width: 3rem;
+  background: none;
+  color: white;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.2);
+  }
+`;
+
+const NavBar = ({ mobile, setRoute, route }) => {
   const [showNav, setShowNav] = useState(false);
   const [nav, setNav] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -143,36 +158,16 @@ const NavBar = ({ mobile, setRoute, route, tablet }) => {
         />
         {!mobile && (
           <NavButtonsDiv>
-            <NavButton
-              selected={route === "skills"}
-              onClick={() => setRoute("skills")}
-            >
-              {route === "skills" && <Check size={16} />}
-              Skills
-            </NavButton>
-            <NavButton
-              selected={route === "projects"}
-              onClick={() => setRoute("projects")}
-            >
-              {route === "projects" && <Check size={16} />}
-              Projects
-            </NavButton>
-            <NavButton
-              selected={route === "resume"}
-              onClick={() => setRoute("resume")}
-            >
-              {route === "resume" && <Check size={16} />} Resume
-            </NavButton>
-            <NavButton
-              selected={route === "contacts"}
-              onClick={() => setRoute("contacts")}
-            >
-              {route === "contacts" && <Check size={16} />} Contact Me
+            <NavButton onClick={() => setRoute("skills")}>Skills</NavButton>
+            <NavButton onClick={() => setRoute("projects")}>Projects</NavButton>
+            <NavButton onClick={() => setRoute("resume")}>Resume</NavButton>
+            <NavButton onClick={() => setRoute("contacts")}>
+              Contact Me
             </NavButton>
           </NavButtonsDiv>
         )}
         {mobile && (
-          <NavButton
+          <BurgerButton
             onClick={() => !isDisabled && handleMobileNavClick()}
             style={{ float: "right", marginRight: "0" }}
           >
@@ -181,7 +176,7 @@ const NavBar = ({ mobile, setRoute, route, tablet }) => {
             ) : (
               <i className="fas fa-bars fa-2x"></i>
             )}
-          </NavButton>
+          </BurgerButton>
         )}
       </NavDiv>
       {showNav && (
@@ -194,36 +189,30 @@ const NavBar = ({ mobile, setRoute, route, tablet }) => {
           <NavButton
             mobileSite={true}
             style={{ animation: "enterLeft 1s" }}
-            selected={route === "skills"}
             onClick={() => setRoute("skills")}
           >
-            {route === "skills" && <Check size={16} />}
             Skills
           </NavButton>
           <NavButton
             mobileSite={true}
-            selected={route === "projects"}
             onClick={() => setRoute("projects")}
             style={{ animation: "enterLeft 1.25s" }}
           >
-            {route === "projects" && <Check size={16} />}
             Projects
           </NavButton>
           <NavButton
             mobileSite={true}
-            selected={route === "resume"}
             onClick={() => setRoute("resume")}
             style={{ animation: "enterLeft 1.5s" }}
           >
-            {route === "resume" && <Check size={16} />} Resume
+            Resume
           </NavButton>
           <NavButton
             mobileSite={true}
-            selected={route === "contacts"}
             onClick={() => setRoute("contacts")}
             style={{ animation: "enterLeft 1.75s" }}
           >
-            {route === "contacts" && <Check size={16} />} Contact Me
+            Contact Me
           </NavButton>
         </div>
       )}

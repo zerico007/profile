@@ -10,7 +10,7 @@ const SkillDiv = styled.div`
   border-radius: 0.5rem;
   border: none;
   padding: 1rem;
-  margin: 4rem 2rem;
+  margin: 1rem 2rem;
   box-sizing: border-box;
   justify-content: space-around;
   align-items: center;

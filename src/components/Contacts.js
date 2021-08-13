@@ -29,8 +29,8 @@ const ContactBox = styled.div`
 
 const ContactsContainer = styled.div`
   position: relative;
+  margin-top: 8rem;
   width: 100vw;
-  height: 60vh;
   display: flex;
   flex-direction: ${(props) => (props.mobileSite ? "column" : "row")};
   justify-content: ${(props) =>

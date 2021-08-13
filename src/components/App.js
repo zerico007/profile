@@ -49,6 +49,8 @@ const HeaderDiv = styled.div`
 const Wrapper = styled.div`
   width: 100%;
   height: auto;
+  padding-bottom: 2rem;
+  min-height: 20rem;
 `;
 
 function Header({ head }) {
@@ -60,6 +62,10 @@ function App() {
   const [tablet, setTablet] = useState(false);
   const [orientation, setOrientation] = useState("landscape");
   const [route, setRoute] = useState("home");
+  const [showProjects, setShowProjects] = useState(false);
+  const [showSkills, setShowSkills] = useState(false);
+  const [showResume, setShowResume] = useState(false);
+  const [showContacts, setShowContacts] = useState(false);
 
   smoothscroll.polyfill();
 
@@ -118,6 +124,23 @@ function App() {
     });
   };
 
+  let options = {};
+
+  const createNewObserver = (setter) => {
+    return new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setter(true);
+        }
+      });
+    }, options);
+  };
+
+  const projectsObserver = createNewObserver(setShowProjects);
+  const skillsObserver = createNewObserver(setShowSkills);
+  const resumeObserver = createNewObserver(setShowResume);
+  const contactsObserver = createNewObserver(setShowContacts);
+
   useEffect(() => {
     window.addEventListener("resize", checkIfMobileOrTablet);
     return () => window.removeEventListener("resize", checkIfMobileOrTablet);
@@ -134,7 +157,11 @@ function App() {
 
   useEffect(() => {
     isPortrait() ? setOrientation("portrait") : setOrientation("landscape");
-  }, []);
+    projectsObserver.observe(projects.current);
+    skillsObserver.observe(skills.current);
+    resumeObserver.observe(resume.current);
+    contactsObserver.observe(contacts.current);
+  });
 
   useEffect(() => {
     handleRouteScrolls();
@@ -142,7 +169,7 @@ function App() {
 
   return (
     <>
-      <ContainerDiv>
+      <ContainerDiv className="container">
         <Background />
         <NavBar
           mobile={mobile}
@@ -152,21 +179,20 @@ function App() {
         />
         <UpButton scrollToTopOfPage={scrollToTopOfPage} />
         <Home mobile={mobile} orientation={orientation} setRoute={setRoute} />
-        <Wrapper ref={skills}>
-          <Header head={"Skills"} />
-          <SkillsContainer mobile={mobile} />
+        <Wrapper ref={skills} style={{ height: mobile ? "1800px" : "800px" }}>
+          {showSkills && <SkillsContainer mobile={mobile} />}
         </Wrapper>
-        <Wrapper ref={projects}>
-          <Header head={"Projects"} />
-          <Projects mobile={mobile} />
+        <Wrapper
+          ref={projects}
+          style={{ height: mobile ? "2000px" : "2800px" }}
+        >
+          {showProjects && <Projects mobile={mobile} />}
         </Wrapper>
-        <Wrapper ref={resume}>
-          <Header head={"Resume"} />
-          <Resume mobile={mobile} />
+        <Wrapper ref={resume} style={{ height: mobile ? "700px" : "1400px" }}>
+          {showResume && <Resume mobile={mobile} />}
         </Wrapper>
-        <Wrapper ref={contacts}>
-          <Header head={"Contacts"} />
-          <Contacts mobile={mobile} />
+        <Wrapper ref={contacts} style={{ height: mobile ? "800px" : "500px" }}>
+          {showContacts && <Contacts mobile={mobile} />}
         </Wrapper>
         <footer
           style={{
