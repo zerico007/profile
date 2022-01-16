@@ -1,13 +1,10 @@
 import React, { ReactElement } from "react";
 import styled from "@emotion/styled";
 import { GitHub, Linkedin, Inbox } from "react-feather";
+import { useAppContext } from "../context/appContext";
 
 interface ContactBoxProps {
   odd: boolean;
-}
-
-interface ContactsProps {
-  mobile: boolean;
 }
 
 const ContactBox = styled.div<ContactBoxProps>`
@@ -46,7 +43,8 @@ const ContactsContainer = styled.div<MobileProp>`
   align-items: ${(props) => (props.mobileSite ? "center" : "flex-start")}; ;
 `;
 
-const Contacts = ({ mobile }: ContactsProps): ReactElement => {
+const Contacts = (): ReactElement => {
+  const { mobile } = useAppContext();
   return (
     <ContactsContainer mobileSite={mobile}>
       <a href="https://github.com/zerico007" target="_blank" rel="noreferrer">

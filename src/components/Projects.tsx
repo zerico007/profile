@@ -4,6 +4,7 @@ import appleShopPic from "../assets/apple-shop.jpg";
 import auctionsPic from "../assets/auctions.jpg";
 import gradebookPic from "../assets/gradebook.jpg";
 import sunnySidePic from "../assets/sunnyside.jpg";
+import { useAppContext } from "../context/appContext";
 
 interface LaunchCoverProps {
   launch: boolean;
@@ -82,11 +83,13 @@ const LaunchButton = styled.button<MobileProp>`
   }
 `;
 
-const Projects = ({ mobile }): ReactElement => {
+const Projects = (): ReactElement => {
   const [shop, setShop] = useState(false);
   const [auction, setAuction] = useState(false);
   const [gradebook, setGradebook] = useState(false);
   const [sunnySide, setSunnySide] = useState(false);
+
+  const { mobile } = useAppContext();
 
   const imageStyle = {
     width: "70vw",

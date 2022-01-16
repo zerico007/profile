@@ -1,12 +1,8 @@
 import { Dispatch, ReactElement, SetStateAction } from "react";
+import { useNavigate } from "react-router";
 import styled from "@emotion/styled";
 import { ChevronDown } from "react-feather";
-
-interface HomeProps {
-  mobile: boolean;
-  setRoute: Dispatch<SetStateAction<string>>;
-  orientation: string;
-}
+import { useAppContext } from "../context/appContext";
 
 const ContainerDiv = styled.div`
   position: relative;
@@ -100,7 +96,10 @@ const Footer = styled.div`
   }
 `;
 
-const Home = ({ mobile, setRoute, orientation }: HomeProps): ReactElement => {
+const Home = (): ReactElement => {
+  const { mobile, orientation } = useAppContext();
+  const navigate = useNavigate();
+
   const fontSizeAboutDiv = () => {
     if (orientation === "landscape" && window.innerHeight < 500) {
       return "14px";
@@ -131,7 +130,7 @@ const Home = ({ mobile, setRoute, orientation }: HomeProps): ReactElement => {
         us. My goal is to play an active role in solving real world problems
         through knowledge, innovation, data analysis and critical thinking.
       </AboutDiv>
-      <Footer onClick={() => setRoute("projects")}>
+      <Footer onClick={() => navigate("/profile/projects")}>
         <span>Take a look at my work</span>
         <ChevronDown />
       </Footer>

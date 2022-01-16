@@ -1,15 +1,10 @@
-import { useEffect, useState, useCallback, ReactElement } from "react";
+import { ReactElement, Suspense } from "react";
 import styled from "@emotion/styled";
+import { Routes, Route } from "react-router-dom";
+import routes from "../routes";
 import NavBar from "./NavBar";
-import Resume from "./Resume";
-import Projects from "./Projects";
-import Contacts from "./Contacts";
-import Home from "./Home";
-import SkillsContainer from "./SkillsContainer";
 import UpButton from "./UpButton";
-import { usePersistedState } from "../utils";
 import heroPic from "../assets/hero.jpg";
-import smoothscroll from "smoothscroll-polyfill";
 
 const ContainerDiv = styled.div`
   position: absolute;
@@ -35,59 +30,19 @@ const Background = styled.div`
 `;
 
 function App(): ReactElement {
-  const [mobile, setMobile] = useState<boolean>(false);
-  const [orientation, setOrientation] = useState<string>("landscape");
-  const [route, setRoute] = usePersistedState<string>("route", "home");
-
-  smoothscroll.polyfill();
-
-  const checkIfMobileOrTablet = useCallback(() => {
-    window.matchMedia("(max-width: 768px)").matches
-      ? setMobile(true)
-      : setMobile(false);
-  }, []);
-
-  const isPortrait: () => boolean = () =>
-    window.matchMedia("(orientation: portrait)").matches;
-
-  const scrollToTopOfPage = () =>
-    window.scroll({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
-
-  useEffect(() => {
-    window.addEventListener("resize", checkIfMobileOrTablet);
-    return () => window.removeEventListener("resize", checkIfMobileOrTablet);
-  }, [checkIfMobileOrTablet]);
-
-  useEffect(() => {
-    checkIfMobileOrTablet();
-  }, [checkIfMobileOrTablet]);
-
-  useEffect(() => {
-    scrollToTopOfPage();
-    checkIfMobileOrTablet();
-  }, [route, orientation, checkIfMobileOrTablet]);
-
-  useEffect(() => {
-    isPortrait() ? setOrientation("portrait") : setOrientation("landscape");
-  }, []);
-
   return (
     <>
       <ContainerDiv>
         <Background />
-        <NavBar mobile={mobile} setRoute={setRoute} route={route} />
-        <UpButton scrollToTopOfPage={scrollToTopOfPage} />
-        {route === "home" && (
-          <Home mobile={mobile} orientation={orientation} setRoute={setRoute} />
-        )}
-        {route === "resume" && <Resume />}
-        {route === "projects" && <Projects mobile={mobile} />}
-        {route === "contacts" && <Contacts mobile={mobile} />}
-        {route === "skills" && <SkillsContainer mobile={mobile} />}
+        <NavBar />
+        <UpButton />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            {routes.map(({ element, path }) => (
+              <Route key={path} path={path} element={element} />
+            ))}
+          </Routes>
+        </Suspense>
         <footer
           style={{
             position: "relative",

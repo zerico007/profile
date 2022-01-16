@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 import frontend from "../assets/frontend.png";
 import backend from "../assets/backend.png";
 import database from "../assets/database.png";
+import { useAppContext } from "../context/appContext";
 
 const ContainerDiv = styled.div<MobileProp>`
   position: relative;
@@ -15,7 +16,8 @@ const ContainerDiv = styled.div<MobileProp>`
   justify-content: center;
 `;
 
-const SkillsContainer = ({ mobile }): ReactElement => {
+const SkillsContainer = (): ReactElement => {
+  const { mobile } = useAppContext();
   return (
     <ContainerDiv mobileSite={mobile}>
       <SkillSection

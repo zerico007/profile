@@ -3,19 +3,13 @@ import {
   useState,
   useEffect,
   ReactElement,
-  Dispatch,
-  SetStateAction,
   useLayoutEffect,
 } from "react";
+import { useNavigate, useLocation } from "react-router";
 import styled from "@emotion/styled";
 import { Check } from "react-feather";
 import profilePic from "../assets/profilePic.jpg";
-
-interface NavBarProps {
-  mobile: boolean;
-  setRoute: Dispatch<SetStateAction<string>>;
-  route: string;
-}
+import { useAppContext } from "../context/appContext";
 
 interface NavDivProps extends MobileProp {
   scrolled: boolean;
@@ -115,10 +109,15 @@ const MobileNavDiv = styled.div<NavDivProps>`
   transition: top 0.4s ease-in-out;
 `;
 
-const NavBar = ({ mobile, setRoute, route }: NavBarProps): ReactElement => {
+const NavBar = (): ReactElement => {
   const [showNav, setShowNav] = useState<boolean>(false);
   const [nav, setNav] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
+
+  const { mobile } = useAppContext();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const currentPath = location.pathname;
 
   const isDisabled = !nav && showNav;
 
@@ -161,7 +160,7 @@ const NavBar = ({ mobile, setRoute, route }: NavBarProps): ReactElement => {
       <NavDiv mobileSite={mobile} scrolled={scrolled}>
         <ImgDiv
           onClick={() => {
-            setRoute("home");
+            navigate("/profile");
             setShowNav(false);
             setNav(false);
           }}
@@ -169,30 +168,31 @@ const NavBar = ({ mobile, setRoute, route }: NavBarProps): ReactElement => {
         {!mobile && (
           <NavButtonsDiv>
             <NavButton
-              selected={route === "skills"}
-              onClick={() => setRoute("skills")}
+              selected={currentPath === "/profile/skills"}
+              onClick={() => navigate("/profile/skills")}
             >
-              {route === "skills" && <Check size={16} />}
+              {currentPath === "/profile/skills" && <Check size={16} />}
               Skills
             </NavButton>
             <NavButton
-              selected={route === "projects"}
-              onClick={() => setRoute("projects")}
+              selected={currentPath === "/profile/projects"}
+              onClick={() => navigate("/profile/projects")}
             >
-              {route === "projects" && <Check size={16} />}
+              {currentPath === "/profile/projects" && <Check size={16} />}
               Projects
             </NavButton>
             <NavButton
-              selected={route === "resume"}
-              onClick={() => setRoute("resume")}
+              selected={currentPath === "/profile/resume"}
+              onClick={() => navigate("/profile/resume")}
             >
-              {route === "resume" && <Check size={16} />} Resume
+              {currentPath === "resume" && <Check size={16} />} Resume
             </NavButton>
             <NavButton
-              selected={route === "contacts"}
-              onClick={() => setRoute("contacts")}
+              selected={currentPath === "/profile/contacts"}
+              onClick={() => navigate("/profile/contacts")}
             >
-              {route === "contacts" && <Check size={16} />} Contact Me
+              {currentPath === "/profile/contacts" && <Check size={16} />}{" "}
+              Contact Me
             </NavButton>
           </NavButtonsDiv>
         )}
@@ -219,36 +219,36 @@ const NavBar = ({ mobile, setRoute, route }: NavBarProps): ReactElement => {
           <NavButton
             mobileSite={true}
             style={{ animation: "enterLeft 1s" }}
-            selected={route === "skills"}
-            onClick={() => setRoute("skills")}
+            selected={currentPath === "/profile/skills"}
+            onClick={() => navigate("/profile/skills")}
           >
-            {route === "skills" && <Check size={16} />}
+            {currentPath === "/profile/skills" && <Check size={16} />}
             Skills
           </NavButton>
           <NavButton
             mobileSite={true}
-            selected={route === "projects"}
-            onClick={() => setRoute("projects")}
+            selected={currentPath === "/profile/projects"}
+            onClick={() => navigate("/profile/projects")}
             style={{ animation: "enterLeft 1.25s" }}
           >
-            {route === "projects" && <Check size={16} />}
+            {currentPath === "projects" && <Check size={16} />}
             Projects
           </NavButton>
           <NavButton
             mobileSite={true}
-            selected={route === "resume"}
-            onClick={() => setRoute("resume")}
+            selected={currentPath === "/profile/resume"}
+            onClick={() => navigate("/profile/resume")}
             style={{ animation: "enterLeft 1.5s" }}
           >
-            {route === "resume" && <Check size={16} />} Resume
+            {currentPath === "resume" && <Check size={16} />} Resume
           </NavButton>
           <NavButton
             mobileSite={true}
-            selected={route === "contacts"}
-            onClick={() => setRoute("contacts")}
+            selected={currentPath === "/profile/contacts"}
+            onClick={() => navigate("/profile/contacts")}
             style={{ animation: "enterLeft 1.75s" }}
           >
-            {route === "contacts" && <Check size={16} />} Contact Me
+            {currentPath === "contacts" && <Check size={16} />} Contact Me
           </NavButton>
         </MobileNavDiv>
       )}
