@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, ReactElement } from "react";
 import styled from "@emotion/styled";
 import NavBar from "./NavBar";
 import Resume from "./Resume";
@@ -34,11 +34,10 @@ const Background = styled.div`
   background: rgba(0, 0, 0, 0.5);
 `;
 
-function App() {
-  const [mobile, setMobile] = useState(false);
-  const [tablet, setTablet] = useState(false);
-  const [orientation, setOrientation] = useState("landscape");
-  const [route, setRoute] = usePersistedState("route", "home");
+function App(): ReactElement {
+  const [mobile, setMobile] = useState<boolean>(false);
+  const [orientation, setOrientation] = useState<string>("landscape");
+  const [route, setRoute] = usePersistedState<string>("route", "home");
 
   smoothscroll.polyfill();
 
@@ -46,12 +45,10 @@ function App() {
     window.matchMedia("(max-width: 768px)").matches
       ? setMobile(true)
       : setMobile(false);
-    window.matchMedia("(max-width: 866px)").matches
-      ? setTablet(true)
-      : setTablet(false);
   }, []);
 
-  const isPortrait = () => window.matchMedia("(orientation: portrait)").matches;
+  const isPortrait: () => boolean = () =>
+    window.matchMedia("(orientation: portrait)").matches;
 
   const scrollToTopOfPage = () =>
     window.scroll({
@@ -82,17 +79,12 @@ function App() {
     <>
       <ContainerDiv>
         <Background />
-        <NavBar
-          mobile={mobile}
-          setRoute={setRoute}
-          route={route}
-          tablet={tablet}
-        />
+        <NavBar mobile={mobile} setRoute={setRoute} route={route} />
         <UpButton scrollToTopOfPage={scrollToTopOfPage} />
         {route === "home" && (
           <Home mobile={mobile} orientation={orientation} setRoute={setRoute} />
         )}
-        {route === "resume" && <Resume mobile={mobile} />}
+        {route === "resume" && <Resume />}
         {route === "projects" && <Projects mobile={mobile} />}
         {route === "contacts" && <Contacts mobile={mobile} />}
         {route === "skills" && <SkillsContainer mobile={mobile} />}

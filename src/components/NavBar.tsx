@@ -1,9 +1,31 @@
-import React, { useRef, useState, useEffect } from "react";
+import {
+  useRef,
+  useState,
+  useEffect,
+  ReactElement,
+  Dispatch,
+  SetStateAction,
+  useLayoutEffect,
+} from "react";
 import styled from "@emotion/styled";
 import { Check } from "react-feather";
 import profilePic from "../assets/profilePic.jpg";
 
-const NavDiv = styled.div`
+interface NavBarProps {
+  mobile: boolean;
+  setRoute: Dispatch<SetStateAction<string>>;
+  route: string;
+}
+
+interface NavDivProps extends MobileProp {
+  scrolled: boolean;
+}
+
+interface NavDivButtonProps extends MobileProp {
+  selected?: boolean;
+}
+
+const NavDiv = styled.div<NavDivProps>`
   position: relative;
   left: 0;
   top: 0;
@@ -50,7 +72,7 @@ const NavButtonsDiv = styled.div`
   margin-right: 2rem;
 `;
 
-const NavButton = styled.div`
+const NavButton = styled.div<NavDivButtonProps>`
   width: ${(props) => (props.mobileSite ? "100%" : "120px")};
   height: ${(props) => (props.mobileSite ? "2rem" : "60px")};
   font-weight: bold;
@@ -74,29 +96,29 @@ const NavButton = styled.div`
   line-height: 1.5rem;
 `;
 
-const NavBar = ({ mobile, setRoute, route, tablet }) => {
-  const [showNav, setShowNav] = useState(false);
-  const [nav, setNav] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+const MobileNavDiv = styled.div<NavDivProps>`
+  position: fixed;
+  left: 0;
+  padding-left: 40px;
+  padding-top: 10px;
+  top: ${(props) => (props.scrolled ? "0px" : "94px")};
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  z-index: 100;
+  width: 110vw;
+  transform: translateX(-5px);
+  background: rgba(0, 0, 0, 0.8);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 120vh;
+  transition: top 0.4s ease-in-out;
+`;
 
-  const mobileDivStyles = {
-    position: "fixed",
-    left: "0",
-    paddingLeft: "40px",
-    paddingTop: "10px",
-    top: scrolled ? "0px" : "94px",
-    display: "flex",
-    alignItems: "flex-start",
-    flexDirection: "column",
-    zIndex: "100",
-    width: "110vw",
-    transform: "translateX(-5px)",
-    background: "rgba(0,0,0,0.8)",
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    height: "120vh",
-    transition: "top 0.4s ease-in-out",
-  };
+const NavBar = ({ mobile, setRoute, route }: NavBarProps): ReactElement => {
+  const [showNav, setShowNav] = useState<boolean>(false);
+  const [nav, setNav] = useState<boolean>(false);
+  const [scrolled, setScrolled] = useState<boolean>(false);
 
   const isDisabled = !nav && showNav;
 
@@ -109,22 +131,30 @@ const NavBar = ({ mobile, setRoute, route, tablet }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const mobileNavRef = useRef<HTMLDivElement>(null);
+  let mobileNav: HTMLDivElement | null;
+
   const handleMobileNavClick = () => {
     setNav(!nav);
     if (mobile && showNav) {
-      mobileNavRef.current.classList.remove("enter");
-      mobileNavRef.current.classList.add("exit");
-      setTimeout(() => {
-        mobileNavRef.current.classList.remove("exit");
-        setShowNav(!showNav);
-      }, 400);
+      if (null !== mobileNav) {
+        mobileNav.classList.remove("enter");
+        mobileNav.classList.add("exit");
+        setTimeout(() => {
+          mobileNav.classList.remove("exit");
+          setShowNav(!showNav);
+        }, 400);
+      }
     }
     if (mobile && !showNav) {
       setShowNav(!showNav);
     }
   };
 
-  const mobileNavRef = useRef();
+  useLayoutEffect(() => {
+    mobileNav = mobileNavRef.current;
+    console.log(mobileNav);
+  });
 
   return (
     <>
@@ -180,9 +210,9 @@ const NavBar = ({ mobile, setRoute, route, tablet }) => {
         )}
       </NavDiv>
       {showNav && (
-        <div
+        <MobileNavDiv
           ref={mobileNavRef}
-          style={mobileDivStyles}
+          scrolled={scrolled}
           onClick={handleMobileNavClick}
           className={showNav ? "enter" : ""}
         >
@@ -220,7 +250,7 @@ const NavBar = ({ mobile, setRoute, route, tablet }) => {
           >
             {route === "contacts" && <Check size={16} />} Contact Me
           </NavButton>
-        </div>
+        </MobileNavDiv>
       )}
     </>
   );

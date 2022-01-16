@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import { ReactElement, useState } from "react";
 import styled from "@emotion/styled";
 import appleShopPic from "../assets/apple-shop.jpg";
 import auctionsPic from "../assets/auctions.jpg";
 import gradebookPic from "../assets/gradebook.jpg";
 import sunnySidePic from "../assets/sunnyside.jpg";
 
-const ProjectDiv = styled.div`
+interface LaunchCoverProps {
+  launch: boolean;
+}
+
+const ProjectDiv = styled.div<MobileProp>`
   position: relative;
   display: grid;
   grid-template-areas:
@@ -25,7 +29,7 @@ const ProjectDiv = styled.div`
   animation: fadeIn 0.6s;
 `;
 
-const LaunchCover = styled.div`
+const LaunchCover = styled.div<LaunchCoverProps>`
   position: absolute;
   width: 100%;
   height: 100%;
@@ -56,7 +60,7 @@ const ContainerDiv = styled.div`
   justify-content: center;
 `;
 
-const LaunchButton = styled.button`
+const LaunchButton = styled.button<MobileProp>`
   position: relative;
   border: 2px solid white;
   outline: none;
@@ -78,7 +82,7 @@ const LaunchButton = styled.button`
   }
 `;
 
-const Projects = ({ mobile }) => {
+const Projects = ({ mobile }): ReactElement => {
   const [shop, setShop] = useState(false);
   const [auction, setAuction] = useState(false);
   const [gradebook, setGradebook] = useState(false);

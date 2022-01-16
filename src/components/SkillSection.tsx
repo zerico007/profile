@@ -1,7 +1,16 @@
-import React from "react";
+import { ReactElement } from "react";
 import styled from "@emotion/styled";
 
-const SkillDiv = styled.div`
+interface SkillSectionProps {
+  image: string;
+  title: string;
+  languages: string;
+  frameworks: string;
+  desc: string;
+  mobileSite: boolean;
+}
+
+const SkillDiv = styled.div<MobileProp>`
   display: flex;
   flex-direction: column;
   width: ${(props) => (props.mobileSite ? "80vw" : "18rem")};
@@ -36,7 +45,7 @@ const SkillSection = ({
   frameworks,
   desc,
   mobileSite,
-}) => {
+}: SkillSectionProps): ReactElement => {
   return (
     <SkillDiv mobileSite={mobileSite}>
       <img src={image} alt="skill" width="100" />

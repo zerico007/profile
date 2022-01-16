@@ -1,4 +1,4 @@
-import React from "react";
+import { ReactElement } from "react";
 import styled from "@emotion/styled";
 import { Download } from "react-feather";
 import resumePic from "../assets/resume.jpg";
@@ -55,14 +55,14 @@ const DownloadButton = styled.button`
   }
 `;
 
-const Resume = ({ mobile }) => {
+const Resume = (): ReactElement => {
   const downloadResume = () => {
     saveAs(process.env.PUBLIC_URL + "/resume.pdf", "resume.pdf");
   };
 
   return (
     <ContainerDiv>
-      <DownloadButton mobileSite={mobile} onClick={downloadResume}>
+      <DownloadButton onClick={downloadResume}>
         <Download size={16} style={{ marginRight: "4px" }} /> Download
       </DownloadButton>
       <ResumeDiv>

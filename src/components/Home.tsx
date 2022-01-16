@@ -1,6 +1,12 @@
-import React from "react";
+import { Dispatch, ReactElement, SetStateAction } from "react";
 import styled from "@emotion/styled";
 import { ChevronDown } from "react-feather";
+
+interface HomeProps {
+  mobile: boolean;
+  setRoute: Dispatch<SetStateAction<string>>;
+  orientation: string;
+}
 
 const ContainerDiv = styled.div`
   position: relative;
@@ -35,7 +41,7 @@ const AboutDiv = styled.div`
   }
 `;
 
-const NameDiv = styled.div`
+const NameDiv = styled.div<MobileProp>`
   position: relative;
   display: flex;
   margin-bottom: 2rem;
@@ -57,7 +63,7 @@ const NameDiv = styled.div`
   }
 `;
 
-const TitleDiv = styled.div`
+const TitleDiv = styled.div<MobileProp>`
   position: relative;
   display: flex;
   margin-top: 2rem;
@@ -94,7 +100,7 @@ const Footer = styled.div`
   }
 `;
 
-const Home = ({ mobile, setRoute, orientation }) => {
+const Home = ({ mobile, setRoute, orientation }: HomeProps): ReactElement => {
   const fontSizeAboutDiv = () => {
     if (orientation === "landscape" && window.innerHeight < 500) {
       return "14px";
@@ -106,7 +112,7 @@ const Home = ({ mobile, setRoute, orientation }) => {
   };
 
   return (
-    <ContainerDiv mobileSite={mobile}>
+    <ContainerDiv>
       <NameDiv mobileSite={mobile}>
         <span style={{ animation: "fadeIn 0.5s" }}>Hi,</span>
         <span style={{ animation: "fadeIn 1s" }}> my</span>
@@ -118,7 +124,7 @@ const Home = ({ mobile, setRoute, orientation }) => {
       <TitleDiv style={{ animation: "fadeIn 3.8s" }} mobileSite={mobile}>
         I am a Web Developer
       </TitleDiv>
-      <AboutDiv mobileSite={mobile} style={{ fontSize: fontSizeAboutDiv() }}>
+      <AboutDiv style={{ fontSize: fontSizeAboutDiv() }}>
         We live in a data-driven, digital world, and thus success in any field
         requires us to be able to take full advantage of the profuse amount of
         data available to us through digital connections within the world around

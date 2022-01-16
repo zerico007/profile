@@ -1,7 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import { ChevronsUp } from "react-feather";
 
-const UpButton = ({ scrollToTopOfPage }) => {
+interface UpButtonProps {
+  scrollToTopOfPage: () => void;
+}
+
+const UpButton = ({ scrollToTopOfPage }: UpButtonProps): ReactElement => {
   const [upButton, setUpButton] = useState(false);
 
   const handleShowButtonOnScroll = () =>

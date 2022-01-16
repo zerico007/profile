@@ -1,8 +1,16 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import styled from "@emotion/styled";
 import { GitHub, Linkedin, Inbox } from "react-feather";
 
-const ContactBox = styled.div`
+interface ContactBoxProps {
+  odd: boolean;
+}
+
+interface ContactsProps {
+  mobile: boolean;
+}
+
+const ContactBox = styled.div<ContactBoxProps>`
   width: 100px;
   height: 100px;
   border-radius: 60px;
@@ -27,7 +35,7 @@ const ContactBox = styled.div`
   }
 `;
 
-const ContactsContainer = styled.div`
+const ContactsContainer = styled.div<MobileProp>`
   position: relative;
   width: 100vw;
   height: 60vh;
@@ -38,7 +46,7 @@ const ContactsContainer = styled.div`
   align-items: ${(props) => (props.mobileSite ? "center" : "flex-start")}; ;
 `;
 
-const Contacts = ({ mobile }) => {
+const Contacts = ({ mobile }: ContactsProps): ReactElement => {
   return (
     <ContactsContainer mobileSite={mobile}>
       <a href="https://github.com/zerico007" target="_blank" rel="noreferrer">

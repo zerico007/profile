@@ -1,0 +1,3 @@
+interface MobileProp {
+  mobileSite?: boolean;
+}

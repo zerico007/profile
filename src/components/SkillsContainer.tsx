@@ -1,11 +1,11 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import SkillSection from "./SkillSection";
 import styled from "@emotion/styled";
 import frontend from "../assets/frontend.png";
 import backend from "../assets/backend.png";
 import database from "../assets/database.png";
 
-const ContainerDiv = styled.div`
+const ContainerDiv = styled.div<MobileProp>`
   position: relative;
   width: 100%;
   height: auto;
@@ -15,7 +15,7 @@ const ContainerDiv = styled.div`
   justify-content: center;
 `;
 
-const SkillsContainer = ({ mobile }) => {
+const SkillsContainer = ({ mobile }): ReactElement => {
   return (
     <ContainerDiv mobileSite={mobile}>
       <SkillSection
