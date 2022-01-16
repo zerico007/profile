@@ -6,7 +6,7 @@ const Projects = lazy(() => import("./components/Projects"));
 const SkillsContainer = lazy(() => import("./components/SkillsContainer"));
 const Contacts = lazy(() => import("./components/Contacts"));
 
-export default [
+const routes = [
   {
     path: "/profile",
     element: <Home />,
@@ -28,3 +28,5 @@ export default [
     element: <Contacts />,
   },
 ];
+
+export default routes;

@@ -1,10 +1,4 @@
-import {
-  useRef,
-  useState,
-  useEffect,
-  ReactElement,
-  useLayoutEffect,
-} from "react";
+import { useRef, useState, useEffect, ReactElement } from "react";
 import { useNavigate, useLocation } from "react-router";
 import styled from "@emotion/styled";
 import { Check } from "react-feather";
@@ -131,16 +125,15 @@ const NavBar = (): ReactElement => {
   }, []);
 
   const mobileNavRef = useRef<HTMLDivElement>(null);
-  let mobileNav: HTMLDivElement | null;
 
   const handleMobileNavClick = () => {
     setNav(!nav);
     if (mobile && showNav) {
-      if (null !== mobileNav) {
-        mobileNav.classList.remove("enter");
-        mobileNav.classList.add("exit");
+      if (null !== mobileNavRef.current) {
+        mobileNavRef.current.classList.remove("enter");
+        mobileNavRef.current.classList.add("exit");
         setTimeout(() => {
-          mobileNav.classList.remove("exit");
+          mobileNavRef.current && mobileNavRef.current.classList.remove("exit");
           setShowNav(!showNav);
         }, 400);
       }
@@ -149,11 +142,6 @@ const NavBar = (): ReactElement => {
       setShowNav(!showNav);
     }
   };
-
-  useLayoutEffect(() => {
-    mobileNav = mobileNavRef.current;
-    console.log(mobileNav);
-  });
 
   return (
     <>
