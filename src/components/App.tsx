@@ -53,7 +53,7 @@ function App(): ReactElement {
             textAlign: "center",
           }}
         >
-          Created by Bavin Edwards &copy; 2021
+          Created by Bavin Edwards &copy; 2022
         </footer>
       </ContainerDiv>
     </>

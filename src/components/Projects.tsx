@@ -1,5 +1,6 @@
 import { ReactElement, useState } from "react";
 import styled from "@emotion/styled";
+import foodiePic from "../assets/foodiePic.jpg";
 import appleShopPic from "../assets/apple-shop.jpg";
 import auctionsPic from "../assets/auctions.jpg";
 import gradebookPic from "../assets/gradebook.jpg";
@@ -83,7 +84,17 @@ const LaunchButton = styled.button<MobileProp>`
   }
 `;
 
+interface ProjectInfo {
+  setter: (value: boolean) => void;
+  getter: boolean;
+  image: string;
+  url: string;
+  description: string;
+  alt: string;
+}
+
 const Projects = (): ReactElement => {
+  const [foodie, setFoodie] = useState(false);
   const [shop, setShop] = useState(false);
   const [auction, setAuction] = useState(false);
   const [gradebook, setGradebook] = useState(false);
@@ -99,173 +110,90 @@ const Projects = (): ReactElement => {
     borderRadius: "0.5rem",
   };
 
+  const projects: ProjectInfo[] = [
+    {
+      setter: setFoodie,
+      getter: foodie,
+      image: foodiePic,
+      alt: "foodie app",
+      url: "https://zerico007.github.io/food-app/",
+      description: `A React app written in TypeScript that allows users to interact 
+      with the spoonacular recipe search API`,
+    },
+    {
+      setter: setShop,
+      getter: shop,
+      image: appleShopPic,
+      alt: "apple shop pic",
+      url: "https://zerico007.github.io/apple_shop/",
+      description: `Web app for shopping apple products. Frontend built with React.
+      Backend built with Node (includes REST APIs, jwt authentication,
+      refresh tokens) and MongoDB`,
+    },
+    {
+      setter: setSunnySide,
+      getter: sunnySide,
+      image: sunnySidePic,
+      alt: "sunnyside pic",
+      url: "https://zerico007.github.io/sunnyside/",
+      description: `Static Landing page built with HTML, CSS and a tiny bit of JavaScript`,
+    },
+    {
+      setter: setAuction,
+      getter: auction,
+      image: auctionsPic,
+      url: "http://zerico007.pythonanywhere.com/",
+      description: `Web app similar to ebay for posting items for sale and bidding. Built
+      with Python using Django. SQL DB used.`,
+      alt: "auctions pic",
+    },
+    {
+      setter: setGradebook,
+      getter: gradebook,
+      image: gradebookPic,
+      url: "http://kabash.pythonanywhere.com/",
+      description: `Web app for managing grades. Built with Python using Flask and SQL.`,
+      alt: "gradebook pic",
+    },
+  ];
+
   return (
     <ContainerDiv>
-      <ProjectDiv
-        onMouseEnter={() => !mobile && setSunnySide(true)}
-        onMouseLeave={() => setSunnySide(false)}
-        mobileSite={mobile}
-      >
-        <img
-          src={sunnySidePic}
-          alt="sunnyside-pic"
-          style={imageStyle}
-          loading="lazy"
-        />
+      {projects.map((project) => {
+        const { setter, getter, image, url, description, alt } = project;
+        return (
+          <ProjectDiv
+            onMouseEnter={() => !mobile && setter(true)}
+            onMouseLeave={() => setter(false)}
+            mobileSite={mobile}
+            key={url}
+          >
+            <img src={image} alt={alt} style={imageStyle} loading="lazy" />
 
-        <Description>
-          Static Landing page built with HTML, CSS and a tiny bit of JavaScript
-        </Description>
-        <LaunchCover launch={sunnySide}>
-          <a
-            href="https://zerico007.github.io/sunnyside/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <LaunchButton>Visit</LaunchButton>
-          </a>
-        </LaunchCover>
-        {mobile && (
-          <a
-            href="https://zerico007.github.io/sunnyside/"
-            target="_blank"
-            rel="noreferrer"
-            style={{ zIndex: "5" }}
-          >
-            <LaunchButton
-              mobileSite={mobile}
-              style={{ background: "black", margin: "0 auto" }}
-            >
-              Visit
-            </LaunchButton>
-          </a>
-        )}
-      </ProjectDiv>
-      <ProjectDiv
-        onMouseEnter={() => !mobile && setShop(true)}
-        onMouseLeave={() => setShop(false)}
-        mobileSite={mobile}
-      >
-        <img
-          src={appleShopPic}
-          alt="apple-shop-pic"
-          style={imageStyle}
-          loading="lazy"
-        />
-
-        <Description>
-          Web app for shopping apple products. Frontend built with React.
-          Backend built with Node (includes REST APIs, jwt authentication,
-          refresh tokens) and MongoDB
-        </Description>
-        <LaunchCover launch={shop}>
-          <a
-            href="https://zerico007.github.io/apple_shop/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <LaunchButton>Visit</LaunchButton>
-          </a>
-        </LaunchCover>
-        {mobile && (
-          <a
-            href="https://zerico007.github.io/apple_shop/"
-            target="_blank"
-            rel="noreferrer"
-            style={{ zIndex: "5" }}
-          >
-            <LaunchButton
-              mobileSite={mobile}
-              style={{ background: "black", margin: "0 auto" }}
-            >
-              Visit
-            </LaunchButton>
-          </a>
-        )}
-      </ProjectDiv>
-      <ProjectDiv
-        onMouseEnter={() => !mobile && setAuction(true)}
-        onMouseLeave={() => setAuction(false)}
-        mobileSite={mobile}
-      >
-        <img
-          src={auctionsPic}
-          alt="auctions-pic"
-          loading="lazy"
-          style={imageStyle}
-        />
-
-        <Description>
-          Web app similar to ebay for posting items for sale and bidding. Built
-          with Python using Django. SQL DB used.
-        </Description>
-        <LaunchCover launch={auction}>
-          <a
-            href="http://zerico007.pythonanywhere.com/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <LaunchButton>Visit</LaunchButton>
-          </a>
-        </LaunchCover>
-        {mobile && (
-          <a
-            href="http://zerico007.pythonanywhere.com/"
-            target="_blank"
-            rel="noreferrer"
-            style={{ zIndex: "5" }}
-          >
-            <LaunchButton
-              mobileSite={mobile}
-              style={{ background: "black", margin: "0 auto" }}
-            >
-              Visit
-            </LaunchButton>
-          </a>
-        )}
-      </ProjectDiv>
-      <ProjectDiv
-        onMouseEnter={() => !mobile && setGradebook(true)}
-        onMouseLeave={() => setGradebook(false)}
-        mobileSite={mobile}
-        style={{ marginBottom: "100px" }}
-      >
-        <img
-          src={gradebookPic}
-          alt="gradebook-pic"
-          loading="lazy"
-          style={imageStyle}
-        />
-
-        <Description>
-          Web app for recording student grades. Built with Python using Flask.
-          SQL DB used.
-        </Description>
-        <LaunchCover launch={gradebook}>
-          <a
-            href="http://kabash.pythonanywhere.com/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <LaunchButton>Visit</LaunchButton>
-          </a>
-        </LaunchCover>
-        {mobile && (
-          <a
-            href="http://kabash.pythonanywhere.com/"
-            target="_blank"
-            rel="noreferrer"
-            style={{ zIndex: "5" }}
-          >
-            <LaunchButton
-              mobileSite={mobile}
-              style={{ background: "black", margin: "0 auto" }}
-            >
-              Visit
-            </LaunchButton>
-          </a>
-        )}
-      </ProjectDiv>
+            <Description>{description}</Description>
+            <LaunchCover launch={getter}>
+              <a href={url} target="_blank" rel="noreferrer">
+                <LaunchButton>Visit</LaunchButton>
+              </a>
+            </LaunchCover>
+            {mobile && (
+              <a
+                href={url}
+                target="_blank"
+                rel="noreferrer"
+                style={{ zIndex: "5" }}
+              >
+                <LaunchButton
+                  mobileSite={mobile}
+                  style={{ background: "black", margin: "0 auto" }}
+                >
+                  Visit
+                </LaunchButton>
+              </a>
+            )}
+          </ProjectDiv>
+        );
+      })}
     </ContainerDiv>
   );
 };
