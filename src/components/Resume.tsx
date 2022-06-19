@@ -67,7 +67,7 @@ const Resume = (): ReactElement => {
       </DownloadButton>
       <ResumeDiv>
         <img
-          style={{ width: "100%" }}
+          style={{ width: "100%", objectFit: "cover" }}
           src={resumePic}
           loading="lazy"
           alt="resume-pic"
