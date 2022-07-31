@@ -27,8 +27,7 @@ const ContainerDiv = styled.div`
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-blend-mode: overlay;
-  padding-bottom: 3rem;
+  background-blend-mode: overlay;s
 `;
 
 const Background = styled.div`
@@ -40,33 +39,33 @@ const Background = styled.div`
 
 const AnimationBox = ({
   title,
+  backgroundColor,
   children,
   ...rest
 }: {
   title: string;
+  backgroundColor: string;
   children: ReactElement;
   animateIn: string;
   duration: number;
 }) => {
   const { animateIn, duration } = rest;
   return (
-    <AnimationOnScroll
-      style={{ marginTop: 200 }}
-      animateIn={animateIn}
-      duration={duration}
-    >
-      <h1
-        style={{
-          fontSize: "2rem",
-          width: 150,
-          color: "#fff",
-          margin: "0 auto",
-        }}
-      >
-        {title}
-      </h1>
-      {children}
-    </AnimationOnScroll>
+    <div className={title} style={{ backgroundColor, padding: "200px 0" }}>
+      <AnimationOnScroll animateIn={animateIn} duration={duration}>
+        <h1
+          style={{
+            fontSize: "2rem",
+            width: 150,
+            color: "#fff",
+            margin: "0 auto",
+          }}
+        >
+          {title}
+        </h1>
+        {children}
+      </AnimationOnScroll>
+    </div>
   );
 };
 
@@ -91,12 +90,17 @@ function App(): ReactElement {
             ))}
           </Routes> */}
           <Home />
-          {elements.map(({ title, component }) => (
+          {elements.map(({ title, component }, index) => (
             <AnimationBox
               key={title}
+              backgroundColor={
+                !index || index % 2 === 0
+                  ? "rgba(255, 255, 255, 0.7)"
+                  : "rgba(0, 0, 0, 0.7)"
+              }
               title={title}
               animateIn="animate__bounceInLeft"
-              duration={1}
+              duration={2}
             >
               {component}
             </AnimationBox>
@@ -105,11 +109,12 @@ function App(): ReactElement {
         <footer
           style={{
             position: "relative",
-            width: "12.5rem",
-            bottom: "1rem",
-            margin: "3rem auto",
+            width: "100%",
+            height: "100px",
+            bottom: 0,
             color: "white",
             textAlign: "center",
+            background: "rgba(0, 0, 0, 0.7)",
           }}
         >
           Created by Bavin Edwards &copy; 2022

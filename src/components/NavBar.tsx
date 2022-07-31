@@ -103,12 +103,19 @@ const MobileNavDiv = styled.div<NavDivProps>`
   transition: top 0.4s ease-in-out;
 `;
 
+const navElements = [
+  { path: "/profile/projects", name: "Projects" },
+  { path: "/profile/skills", name: "Skills" },
+  { path: "/profile/resume", name: "Resume" },
+  { path: "/profile/contacts", name: "Contacts" },
+];
+
 const NavBar = (): ReactElement => {
   const [showNav, setShowNav] = useState<boolean>(false);
   const [nav, setNav] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
 
-  const { mobile } = useAppContext();
+  const { mobile, scrollToElement } = useAppContext();
   const navigate = useNavigate();
   const location = useLocation();
   const currentPath = location.pathname;
@@ -155,33 +162,19 @@ const NavBar = (): ReactElement => {
         />
         {!mobile && (
           <NavButtonsDiv>
-            <NavButton
-              selected={currentPath === "/profile/skills"}
-              onClick={() => navigate("/profile/skills")}
-            >
-              {currentPath === "/profile/skills" && <Check size={16} />}
-              Skills
-            </NavButton>
-            <NavButton
-              selected={currentPath === "/profile/projects"}
-              onClick={() => navigate("/profile/projects")}
-            >
-              {currentPath === "/profile/projects" && <Check size={16} />}
-              Projects
-            </NavButton>
-            <NavButton
-              selected={currentPath === "/profile/resume"}
-              onClick={() => navigate("/profile/resume")}
-            >
-              {currentPath === "resume" && <Check size={16} />} Resume
-            </NavButton>
-            <NavButton
-              selected={currentPath === "/profile/contacts"}
-              onClick={() => navigate("/profile/contacts")}
-            >
-              {currentPath === "/profile/contacts" && <Check size={16} />}{" "}
-              Contact Me
-            </NavButton>
+            {navElements.map(({ path, name }) => (
+              <NavButton
+                key={name}
+                selected={currentPath === path}
+                onClick={() => {
+                  navigate(path);
+                  scrollToElement(name);
+                }}
+              >
+                {currentPath === path && <Check size={16} />}
+                {name}
+              </NavButton>
+            ))}
           </NavButtonsDiv>
         )}
         {mobile && (
@@ -204,40 +197,21 @@ const NavBar = (): ReactElement => {
           onClick={handleMobileNavClick}
           className={showNav ? "enter" : ""}
         >
-          <NavButton
-            mobileSite={true}
-            style={{ animation: "enterLeft 1s" }}
-            selected={currentPath === "/profile/skills"}
-            onClick={() => navigate("/profile/skills")}
-          >
-            {currentPath === "/profile/skills" && <Check size={16} />}
-            Skills
-          </NavButton>
-          <NavButton
-            mobileSite={true}
-            selected={currentPath === "/profile/projects"}
-            onClick={() => navigate("/profile/projects")}
-            style={{ animation: "enterLeft 1.25s" }}
-          >
-            {currentPath === "projects" && <Check size={16} />}
-            Projects
-          </NavButton>
-          <NavButton
-            mobileSite={true}
-            selected={currentPath === "/profile/resume"}
-            onClick={() => navigate("/profile/resume")}
-            style={{ animation: "enterLeft 1.5s" }}
-          >
-            {currentPath === "resume" && <Check size={16} />} Resume
-          </NavButton>
-          <NavButton
-            mobileSite={true}
-            selected={currentPath === "/profile/contacts"}
-            onClick={() => navigate("/profile/contacts")}
-            style={{ animation: "enterLeft 1.75s" }}
-          >
-            {currentPath === "contacts" && <Check size={16} />} Contact Me
-          </NavButton>
+          {navElements.map(({ path, name }) => (
+            <NavButton
+              key={name}
+              mobileSite={true}
+              selected={currentPath === path}
+              style={{ animation: "enterLeft 1s" }}
+              onClick={() => {
+                navigate(path);
+                scrollToElement(name);
+              }}
+            >
+              {currentPath === path && <Check size={16} />}
+              {name}
+            </NavButton>
+          ))}
         </MobileNavDiv>
       )}
     </>

@@ -90,7 +90,7 @@ const Footer = styled.div`
   font-weight: bold;
   color: white;
   width: fit-content;
-  animation: bounce 1s infinite alternate;
+  animation: bounce 2s infinite alternate;
   cursor: pointer;
   &:hover {
     color: #ff6495;
@@ -98,7 +98,7 @@ const Footer = styled.div`
 `;
 
 const Home = (): ReactElement => {
-  const { mobile, orientation } = useAppContext();
+  const { mobile, orientation, scrollToElement } = useAppContext();
   const navigate = useNavigate();
 
   const fontSizeAboutDiv = () => {
@@ -131,7 +131,12 @@ const Home = (): ReactElement => {
         us. My goal is to play an active role in solving real world problems
         through knowledge, innovation, data analysis and critical thinking.
       </AboutDiv>
-      <Footer onClick={() => navigate("/profile/projects")}>
+      <Footer
+        onClick={() => {
+          navigate("/profile/projects");
+          scrollToElement("projects");
+        }}
+      >
         <span>Take a look at my work</span>
         <ChevronDown />
       </Footer>
