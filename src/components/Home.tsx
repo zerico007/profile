@@ -12,7 +12,7 @@ const ContainerDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 200px;
+  margin: 200px 0;
 `;
 
 const AboutDiv = styled.div`
@@ -134,7 +134,7 @@ const Home = (): ReactElement => {
       <Footer
         onClick={() => {
           navigate("/profile/projects");
-          scrollToElement("projects");
+          scrollToElement("Projects");
         }}
       >
         <span>Take a look at my work</span>

@@ -13,7 +13,6 @@ import {
   Resume,
   Contacts,
 } from "./components";
-import heroPic from "./assets/hero.jpg";
 
 const ContainerDiv = styled.div`
   position: absolute;
@@ -22,36 +21,22 @@ const ContainerDiv = styled.div`
   height: auto;
   min-height: 100vh;
   box-sixing: border-box;
-  background-image: url(${heroPic});
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-blend-mode: overlay;s
-`;
-
-const Background = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: #1e212b;
 `;
 
 const AnimationBox = ({
   title,
-  backgroundColor,
   children,
   ...rest
 }: {
   title: string;
-  backgroundColor: string;
   children: ReactElement;
   animateIn: string;
   duration: number;
 }) => {
   const { animateIn, duration } = rest;
   return (
-    <div className={title} style={{ backgroundColor, padding: "200px 0" }}>
+    <div className={title} style={{ padding: "200px 0" }}>
       <AnimationOnScroll animateIn={animateIn} duration={duration}>
         <h1
           style={{
@@ -59,6 +44,7 @@ const AnimationBox = ({
             width: 150,
             color: "#fff",
             margin: "0 auto",
+            paddingLeft: 40,
           }}
         >
           {title}
@@ -70,17 +56,32 @@ const AnimationBox = ({
 };
 
 const elements = [
-  { title: "Projects", component: <Projects /> },
-  { title: "Skills", component: <Skills /> },
-  { title: "Resume", component: <Resume /> },
-  { title: "Contacts", component: <Contacts /> },
+  {
+    title: "Projects",
+    component: <Projects />,
+    animation: "animate__bounceInLeft",
+  },
+  {
+    title: "Skills",
+    component: <Skills />,
+    animation: "animate__fadeInTopLeft",
+  },
+  {
+    title: "Resume",
+    component: <Resume />,
+    animation: "animate__rotateInUpRight",
+  },
+  {
+    title: "Contacts",
+    component: <Contacts />,
+    animation: "animate__lightSpeedInLeft",
+  },
 ];
 
 function App(): ReactElement {
   return (
     <>
       <ContainerDiv>
-        <Background />
         <NavBar />
         <UpButton />
         <Suspense fallback={<div>Loading...</div>}>
@@ -90,17 +91,12 @@ function App(): ReactElement {
             ))}
           </Routes> */}
           <Home />
-          {elements.map(({ title, component }, index) => (
+          {elements.map(({ title, component, animation }) => (
             <AnimationBox
               key={title}
-              backgroundColor={
-                !index || index % 2 === 0
-                  ? "rgba(255, 255, 255, 0.7)"
-                  : "rgba(0, 0, 0, 0.7)"
-              }
               title={title}
-              animateIn="animate__bounceInLeft"
-              duration={2}
+              animateIn={animation}
+              duration={1}
             >
               {component}
             </AnimationBox>
@@ -114,7 +110,6 @@ function App(): ReactElement {
             bottom: 0,
             color: "white",
             textAlign: "center",
-            background: "rgba(0, 0, 0, 0.7)",
           }}
         >
           Created by Bavin Edwards &copy; 2022

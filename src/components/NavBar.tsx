@@ -14,10 +14,9 @@ interface NavDivButtonProps extends MobileProp {
 }
 
 const NavDiv = styled.div<NavDivProps>`
-  position: relative;
+  position: fixed;
   left: 0;
   top: 0;
-  opacity: ${(props) => (props.scrolled ? "0" : "1")};
   transition: all 0.4s ease-in-out;
   width: 100%;
   height: 94px;
@@ -25,7 +24,7 @@ const NavDiv = styled.div<NavDivProps>`
   z-index: 10;
   box-sizing: border-box;
   border-bottom: none;
-  background: ${(props) => (props.mobileSite ? "rgba(0, 0, 0, 0.8)" : "none")};
+  background: transparent;
 `;
 
 const ImgDiv = styled.div`
@@ -89,7 +88,7 @@ const MobileNavDiv = styled.div<NavDivProps>`
   left: 0;
   padding-left: 40px;
   padding-top: 10px;
-  top: ${(props) => (props.scrolled ? "0px" : "94px")};
+  top: 0;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
@@ -115,7 +114,7 @@ const NavBar = (): ReactElement => {
   const [nav, setNav] = useState<boolean>(false);
   const [scrolled, setScrolled] = useState<boolean>(false);
 
-  const { mobile, scrollToElement } = useAppContext();
+  const { mobile, scrollToElement, scrollToTopOfPage } = useAppContext();
   const navigate = useNavigate();
   const location = useLocation();
   const currentPath = location.pathname;
@@ -158,6 +157,7 @@ const NavBar = (): ReactElement => {
             navigate("/profile");
             setShowNav(false);
             setNav(false);
+            scrollToTopOfPage();
           }}
         />
         {!mobile && (
