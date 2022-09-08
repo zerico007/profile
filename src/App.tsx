@@ -2,8 +2,7 @@ import { ReactElement, Suspense } from "react";
 import "animate.css/animate.min.css";
 import { AnimationOnScroll } from "react-animation-on-scroll";
 import styled from "@emotion/styled";
-// import { Routes, Route } from "react-router-dom";
-// import routes from "./routes";
+
 import {
   NavBar,
   UpButton,
@@ -27,16 +26,18 @@ const ContainerDiv = styled.div`
 const AnimationBox = ({
   title,
   children,
+  background,
   ...rest
 }: {
   title: string;
   children: ReactElement;
+  background: string;
   animateIn: string;
   duration: number;
 }) => {
   const { animateIn, duration } = rest;
   return (
-    <div className={title} style={{ padding: "200px 0" }}>
+    <div className={title} style={{ padding: "200px 0", background }}>
       <AnimationOnScroll animateIn={animateIn} duration={duration}>
         <h1
           style={{
@@ -60,21 +61,25 @@ const elements = [
     title: "Projects",
     component: <Projects />,
     animation: "animate__bounceInLeft",
+    background: "#5B676D",
   },
   {
     title: "Skills",
     component: <Skills />,
     animation: "animate__fadeInTopLeft",
+    background: "#848689",
   },
   {
     title: "Resume",
     component: <Resume />,
     animation: "animate__rotateInUpRight",
+    background: "#2A3439",
   },
   {
     title: "Contacts",
     component: <Contacts />,
     animation: "animate__lightSpeedInLeft",
+    background: "#1e212b",
   },
 ];
 
@@ -85,16 +90,12 @@ function App(): ReactElement {
         <NavBar />
         <UpButton />
         <Suspense fallback={<div>Loading...</div>}>
-          {/* <Routes>
-            {routes.map(({ element, path }) => (
-              <Route key={path} path={path} element={element} />
-            ))}
-          </Routes> */}
           <Home />
-          {elements.map(({ title, component, animation }) => (
+          {elements.map(({ title, component, animation, background }) => (
             <AnimationBox
               key={title}
               title={title}
+              background={background}
               animateIn={animation}
               duration={1}
             >

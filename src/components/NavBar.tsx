@@ -1,7 +1,6 @@
 import { useRef, useState, useEffect, ReactElement } from "react";
 import { useNavigate, useLocation } from "react-router";
 import styled from "@emotion/styled";
-import { Check } from "react-feather";
 import profilePic from "../assets/profilePic.jpg";
 import { useAppContext } from "../context/appContext";
 
@@ -61,22 +60,23 @@ const NavButtonsDiv = styled.div`
 
 const NavButton = styled.div<NavDivButtonProps>`
   width: ${(props) => (props.mobileSite ? "100%" : "120px")};
-  height: ${(props) => (props.mobileSite ? "2rem" : "60px")};
+  height: ${(props) => (props.mobileSite ? "2rem" : "36px")};
   font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
   background: transparent;
   border: none;
-  border-radius: 6px;
   font-size: ${(props) => (props.mobileSite ? "24px" : "18px")};
-  color: ${(props) => (props.selected ? "#FF6495" : "white")};
+  color: #fff;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
+  border-bottom: 2px solid transparent;
+
   &:hover {
-    color: #ff6495;
-    transform: scale(1.2);
+    border-bottom: 2px solid #fff;
   }
+
   margin-top: ${(props) => (props.mobileSite ? "45px" : "0")};
   margin-left: ${(props) => (props.mobileSite ? "auto" : "0")};
   text-align: center;
@@ -171,7 +171,6 @@ const NavBar = (): ReactElement => {
                   scrollToElement(name);
                 }}
               >
-                {currentPath === path && <Check size={16} />}
                 {name}
               </NavButton>
             ))}
@@ -208,7 +207,6 @@ const NavBar = (): ReactElement => {
                 scrollToElement(name);
               }}
             >
-              {currentPath === path && <Check size={16} />}
               {name}
             </NavButton>
           ))}
