@@ -1,15 +1,9 @@
 {
   "files": {
-    "main.css": "/profile/static/css/main.70f742c8.css",
-    "main.js": "/profile/static/js/main.c6a4e16e.js",
-    "static/js/489.6e28554d.chunk.js": "/profile/static/js/489.6e28554d.chunk.js",
-    "static/js/457.00d85ef1.chunk.js": "/profile/static/js/457.00d85ef1.chunk.js",
-    "static/js/669.0558cab9.chunk.js": "/profile/static/js/669.0558cab9.chunk.js",
-    "static/js/837.61a30939.chunk.js": "/profile/static/js/837.61a30939.chunk.js",
-    "static/js/919.3907d012.chunk.js": "/profile/static/js/919.3907d012.chunk.js",
+    "main.css": "/profile/static/css/main.e64afe5c.css",
+    "main.js": "/profile/static/js/main.da8dee3f.js",
     "static/media/profilePic.jpg": "/profile/static/media/profilePic.9e39ad302c2019fbeff5.jpg",
     "static/media/foodiePic.jpg": "/profile/static/media/foodiePic.884ffa9ffe303a8db011.jpg",
-    "static/media/hero.jpg": "/profile/static/media/hero.9decca57062cccc42695.jpg",
     "static/media/apple-shop.jpg": "/profile/static/media/apple-shop.247f3682fbf1a5a037cb.jpg",
     "static/media/auctions.jpg": "/profile/static/media/auctions.dfece1f0d8fd8d58ce74.jpg",
     "static/media/sunnyside.jpg": "/profile/static/media/sunnyside.bf0fc1e74037f75f898b.jpg",
@@ -19,16 +13,11 @@
     "static/media/frontend.png": "/profile/static/media/frontend.ebc747e44935b8e42f80.png",
     "static/media/backend.png": "/profile/static/media/backend.85a0ea55461b4b878554.png",
     "index.html": "/profile/index.html",
-    "main.70f742c8.css.map": "/profile/static/css/main.70f742c8.css.map",
-    "main.c6a4e16e.js.map": "/profile/static/js/main.c6a4e16e.js.map",
-    "489.6e28554d.chunk.js.map": "/profile/static/js/489.6e28554d.chunk.js.map",
-    "457.00d85ef1.chunk.js.map": "/profile/static/js/457.00d85ef1.chunk.js.map",
-    "669.0558cab9.chunk.js.map": "/profile/static/js/669.0558cab9.chunk.js.map",
-    "837.61a30939.chunk.js.map": "/profile/static/js/837.61a30939.chunk.js.map",
-    "919.3907d012.chunk.js.map": "/profile/static/js/919.3907d012.chunk.js.map"
+    "main.e64afe5c.css.map": "/profile/static/css/main.e64afe5c.css.map",
+    "main.da8dee3f.js.map": "/profile/static/js/main.da8dee3f.js.map"
   },
   "entrypoints": [
-    "static/css/main.70f742c8.css",
-    "static/js/main.c6a4e16e.js"
+    "static/css/main.e64afe5c.css",
+    "static/js/main.da8dee3f.js"
   ]
 }
