@@ -1,9 +1,8 @@
-import React from "react";
 import { AppContextProvider } from "./context/appContext";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import "./index.css";
-import App from "./components/App";
+import App from "./App";
 
 ReactDOM.render(
   <AppContextProvider>

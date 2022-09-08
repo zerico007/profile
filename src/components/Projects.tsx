@@ -21,7 +21,7 @@ const ProjectDiv = styled.div<MobileProp>`
   margin: 50px auto 0 auto;
   width: 70vw;
   max-width: 830px;
-  height: ${(props) => (props.mobileSite ? "auto" : "600px")};
+  height: ${(props) => (props.mobileSite ? "auto" : "700px")};
   border: none;
   padding: 0.7rem;
   border-radius: 6px;

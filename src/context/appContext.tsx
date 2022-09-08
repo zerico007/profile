@@ -4,18 +4,33 @@ import {
   useState,
   useEffect,
   useCallback,
+  useMemo,
 } from "react";
 import smoothscroll from "smoothscroll-polyfill";
 
-const AppContext = createContext({
+interface IAppContext {
+  mobile: boolean;
+  orientation: "portrait" | "landscape";
+  scrollToElement: (className: string) => void;
+  scrollToTopOfPage: () => void;
+  // isElementInViewport: (className: string) => boolean;
+}
+
+const AppContext = createContext<IAppContext>({
   mobile: false,
   orientation: "landscape",
   scrollToTopOfPage: () => {},
+  scrollToElement: () => {},
+  // isElementInViewport: () => {
+  //   return false;
+  // },
 });
 
 export const AppContextProvider = ({ children }: { children: JSX.Element }) => {
   const [mobile, setMobile] = useState<boolean>(false);
-  const [orientation, setOrientation] = useState<string>("landscape");
+  const [orientation, setOrientation] = useState<"landscape" | "portrait">(
+    "landscape"
+  );
 
   smoothscroll.polyfill();
 
@@ -28,12 +43,22 @@ export const AppContextProvider = ({ children }: { children: JSX.Element }) => {
   const isPortrait: () => boolean = () =>
     window.matchMedia("(orientation: portrait)").matches;
 
-  const scrollToTopOfPage = () =>
-    window.scroll({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
+  const scrollToTopOfPage = useCallback(
+    () =>
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      }),
+    []
+  );
+
+  const scrollToElement = useCallback((className: string) => {
+    const element = document.querySelector(`.${className}`);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
 
   useEffect(() => {
     window.addEventListener("resize", checkIfMobileOrTablet);
@@ -47,22 +72,31 @@ export const AppContextProvider = ({ children }: { children: JSX.Element }) => {
   useEffect(() => {
     scrollToTopOfPage();
     checkIfMobileOrTablet();
-  }, [orientation, checkIfMobileOrTablet]);
+  }, [orientation, checkIfMobileOrTablet, scrollToTopOfPage]);
 
   useEffect(() => {
     isPortrait() ? setOrientation("portrait") : setOrientation("landscape");
   }, []);
 
+  const providerValue = useMemo(
+    () => ({
+      mobile,
+      orientation,
+      scrollToTopOfPage,
+      scrollToElement,
+      // isElementInViewport,
+    }),
+    [
+      mobile,
+      orientation,
+      scrollToTopOfPage,
+      scrollToElement,
+      // isElementInViewport,
+    ]
+  );
+
   return (
-    <AppContext.Provider
-      value={{
-        mobile,
-        orientation,
-        scrollToTopOfPage,
-      }}
-    >
-      {children}
-    </AppContext.Provider>
+    <AppContext.Provider value={providerValue}>{children}</AppContext.Provider>
   );
 };
 

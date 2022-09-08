@@ -1,4 +1,5 @@
 import { ReactElement, useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 import { ChevronsUp } from "react-feather";
 import { useAppContext } from "../context/appContext";
 
@@ -6,6 +7,12 @@ const UpButton = (): ReactElement => {
   const [upButton, setUpButton] = useState(false);
 
   const { scrollToTopOfPage } = useAppContext();
+  const navigate = useNavigate();
+
+  const handleScrollToTop = () => {
+    navigate("/profile");
+    scrollToTopOfPage();
+  };
 
   const handleShowButtonOnScroll = () =>
     window.scrollY > 0 ? setUpButton(true) : setUpButton(false);
@@ -17,7 +24,7 @@ const UpButton = (): ReactElement => {
 
   return (
     <ChevronsUp
-      onClick={scrollToTopOfPage}
+      onClick={handleScrollToTop}
       className="scroll-up"
       style={{
         cursor: "pointer",
