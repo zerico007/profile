@@ -1,5 +1,6 @@
 import { ReactElement, useState } from "react";
 import styled from "@emotion/styled";
+import commentsPic from "../assets/commentsPic.jpg";
 import foodiePic from "../assets/foodiePic.jpg";
 import appleShopPic from "../assets/apple-shop.jpg";
 import auctionsPic from "../assets/auctions.jpg";
@@ -94,6 +95,7 @@ interface ProjectInfo {
 }
 
 const Projects = (): ReactElement => {
+  const [comments, setComments] = useState(false);
   const [foodie, setFoodie] = useState(false);
   const [shop, setShop] = useState(false);
   const [auction, setAuction] = useState(false);
@@ -111,6 +113,15 @@ const Projects = (): ReactElement => {
   };
 
   const projects: ProjectInfo[] = [
+    {
+      setter: setComments,
+      getter: comments,
+      image: commentsPic,
+      alt: "comments app",
+      url: "https://zerico007.github.io/comments-section",
+      description: `A React app written in TypeScript that allows a user to make new comments, reply to a comment,
+       edit a comment, and delete a comment. The app utilizes the redux toolkit to manage state.`,
+    },
     {
       setter: setFoodie,
       getter: foodie,
