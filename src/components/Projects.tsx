@@ -1,4 +1,4 @@
-import { ReactElement, useState } from "react";
+import { ReactElement, useMemo, useState } from "react";
 import styled from "@emotion/styled";
 import commentsPic from "../assets/commentsPic.jpg";
 import foodiePic from "../assets/foodiePic.jpg";
@@ -94,6 +94,14 @@ interface ProjectInfo {
   alt: string;
 }
 
+const imageStyle = {
+  width: "70vw",
+  maxWidth: "830px",
+  cursor: "pointer",
+  gridArea: "image",
+  borderRadius: "0.5rem",
+};
+
 const Projects = (): ReactElement => {
   const [comments, setComments] = useState(false);
   const [foodie, setFoodie] = useState(false);
@@ -104,69 +112,64 @@ const Projects = (): ReactElement => {
 
   const { mobile } = useAppContext();
 
-  const imageStyle = {
-    width: "70vw",
-    maxWidth: "830px",
-    cursor: "pointer",
-    gridArea: "image",
-    borderRadius: "0.5rem",
-  };
-
-  const projects: ProjectInfo[] = [
-    {
-      setter: setComments,
-      getter: comments,
-      image: commentsPic,
-      alt: "comments app",
-      url: "https://zerico007.github.io/comments-section",
-      description: `A React app written in TypeScript that allows a user to make new comments, reply to a comment,
+  const projects = useMemo(
+    (): ProjectInfo[] => [
+      {
+        setter: setComments,
+        getter: comments,
+        image: commentsPic,
+        alt: "comments app",
+        url: "https://zerico007.github.io/comments-section",
+        description: `A React app written in TypeScript that allows a user to make new comments, reply to a comment,
        edit a comment, and delete a comment. The app utilizes the redux toolkit to manage state.`,
-    },
-    {
-      setter: setFoodie,
-      getter: foodie,
-      image: foodiePic,
-      alt: "foodie app",
-      url: "https://zerico007.github.io/food-app/",
-      description: `A React app written in TypeScript that allows users to interact 
+      },
+      {
+        setter: setFoodie,
+        getter: foodie,
+        image: foodiePic,
+        alt: "foodie app",
+        url: "https://zerico007.github.io/food-app/",
+        description: `A React app written in TypeScript that allows users to interact 
       with the spoonacular recipe search API`,
-    },
-    {
-      setter: setShop,
-      getter: shop,
-      image: appleShopPic,
-      alt: "apple shop pic",
-      url: "https://zerico007.github.io/apple_shop/",
-      description: `Web app for shopping apple products. Frontend built with React.
+      },
+      {
+        setter: setShop,
+        getter: shop,
+        image: appleShopPic,
+        alt: "apple shop pic",
+        url: "https://zerico007.github.io/apple_shop/",
+        description: `Web app for shopping apple products. Frontend built with React.
       Backend built with Node (includes REST APIs, jwt authentication,
       refresh tokens) and MongoDB`,
-    },
-    {
-      setter: setSunnySide,
-      getter: sunnySide,
-      image: sunnySidePic,
-      alt: "sunnyside pic",
-      url: "https://zerico007.github.io/sunnyside/",
-      description: `Static Landing page built with HTML, CSS and a tiny bit of JavaScript`,
-    },
-    {
-      setter: setAuction,
-      getter: auction,
-      image: auctionsPic,
-      url: "http://zerico007.pythonanywhere.com/",
-      description: `Web app similar to ebay for posting items for sale and bidding. Built
+      },
+      {
+        setter: setSunnySide,
+        getter: sunnySide,
+        image: sunnySidePic,
+        alt: "sunnyside pic",
+        url: "https://zerico007.github.io/sunnyside/",
+        description: `Static Landing page built with HTML, CSS and a tiny bit of JavaScript`,
+      },
+      {
+        setter: setAuction,
+        getter: auction,
+        image: auctionsPic,
+        url: "http://zerico007.pythonanywhere.com/",
+        description: `Web app similar to ebay for posting items for sale and bidding. Built
       with Python using Django. SQL DB used.`,
-      alt: "auctions pic",
-    },
-    {
-      setter: setGradebook,
-      getter: gradebook,
-      image: gradebookPic,
-      url: "http://kabash.pythonanywhere.com/",
-      description: `Web app for managing grades. Built with Python using Flask and SQL.`,
-      alt: "gradebook pic",
-    },
-  ];
+        alt: "auctions pic",
+      },
+      {
+        setter: setGradebook,
+        getter: gradebook,
+        image: gradebookPic,
+        url: "http://kabash.pythonanywhere.com/",
+        description: `Web app for managing grades. Built with Python using Flask and SQL.`,
+        alt: "gradebook pic",
+      },
+    ],
+    [comments, foodie, shop, auction, gradebook, sunnySide]
+  );
 
   return (
     <ContainerDiv>
