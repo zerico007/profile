@@ -29,7 +29,7 @@ const ProjectDiv = styled.div<MobileProp>`
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
   animation: fadeIn 0.6s;
-  margin: 2rem;
+  margin: 50px auto 0 auto;
 
   @media (max-width: 769px) {
     width: 90%;
