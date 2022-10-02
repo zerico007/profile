@@ -31,7 +31,7 @@ const AnimationBox = ({
 }: {
   title: string;
   children: ReactElement;
-  background: string;
+  background?: string;
   animateIn: string;
   duration: number;
 }) => {
@@ -91,11 +91,10 @@ function App(): ReactElement {
         <UpButton />
         <Suspense fallback={<div>Loading...</div>}>
           <Home />
-          {elements.map(({ title, component, animation, background }) => (
+          {elements.map(({ title, component, animation }) => (
             <AnimationBox
               key={title}
               title={title}
-              background={background}
               animateIn={animation}
               duration={1}
             >

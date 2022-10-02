@@ -15,7 +15,10 @@ const SkillDiv = styled.div<MobileProp>`
   flex-direction: column;
   width: ${(props) => (props.mobileSite ? "80vw" : "18rem")};
   height: 35rem;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  outline: 2px solid rgba(255, 255, 255, 0.1);
+  outline-offset: -2px;
   border-radius: 0.5rem;
   border: none;
   padding: 1rem;
@@ -28,7 +31,7 @@ const SkillDiv = styled.div<MobileProp>`
 `;
 
 const ContentDiv = styled.div`
-  color: var(--main-black);
+  color: white;
   display: flex;
   flex-direction: column;
   height: 18rem;
@@ -49,7 +52,7 @@ const SkillSection = ({
   return (
     <SkillDiv mobileSite={mobileSite}>
       <img src={image} alt="skill" width="100" />
-      <h3 style={{ textAlign: "center" }}>{title}</h3>
+      <h3 style={{ textAlign: "center", color: "#fff" }}>{title}</h3>
       <ContentDiv>
         <div className="description">{desc}</div>
         <div className="languages">{languages}</div>

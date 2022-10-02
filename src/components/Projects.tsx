@@ -22,17 +22,30 @@ const ProjectDiv = styled.div<MobileProp>`
   width: 33%;
   main-width: 300px;
   height: 500px;
-  border: none;
+  outline: 2px solid rgba(255, 255, 255, 0.2);
+  outline-offset: -2px;
   padding: 0.7rem;
   border-radius: 6px;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.1);
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
   animation: fadeIn 0.6s;
   margin: 50px auto 0 auto;
+  transition: all 0.3s ease-in-out;
+
+  :hover {
+    transform: translate3d(0px, -45px, 0px) scale(1.05) perspective(50em)
+      rotateX(5deg) rotateY(-5deg);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 20px 40px;
+  }
 
   @media (max-width: 769px) {
     width: 90%;
+    height: 600px;
+  }
+
+  @media (max-width: 500px) {
+    height: 500px;
   }
 `;
 
@@ -45,7 +58,7 @@ const LaunchCover = styled.div<LaunchCoverProps>`
   justify-content: center;
   display: ${(props) => (props.launch ? "flex" : "none")};
   z-index: 9;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 6px;
 `;
 
@@ -55,6 +68,10 @@ const Description = styled.p`
   font-weight: bold;
   line-height: 1.5rem;
   grid-area: desc;
+  color: #fff;
+  background: linear-gradient(45deg, #20bdff, #a5fecb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 `;
 
 const ContainerDiv = styled.div`

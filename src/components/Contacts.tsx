@@ -24,6 +24,7 @@ const ContactBox = styled.div<ContactBoxProps>`
   background: white;
   color: var(--main-black);
   border: 2px solid var(--main-black);
+
   &:hover {
     background: var(--main-black);
     color: white;
