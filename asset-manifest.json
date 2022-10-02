@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/profile/static/css/main.88a37229.css",
-    "main.js": "/profile/static/js/main.abc25e6c.js",
+    "main.js": "/profile/static/js/main.b33a2df3.js",
     "static/media/profilePic.jpg": "/profile/static/media/profilePic.9e39ad302c2019fbeff5.jpg",
     "static/media/foodiePic.jpg": "/profile/static/media/foodiePic.884ffa9ffe303a8db011.jpg",
     "static/media/apple-shop.jpg": "/profile/static/media/apple-shop.247f3682fbf1a5a037cb.jpg",
@@ -10,15 +10,18 @@
     "static/media/commentsPic.jpg": "/profile/static/media/commentsPic.80b80b4227e7bef80bd4.jpg",
     "static/media/resume.jpg": "/profile/static/media/resume.39a98afe8eb2e387b909.jpg",
     "static/media/gradebook.jpg": "/profile/static/media/gradebook.a03f3abc378312c7f20c.jpg",
+    "static/media/callme.png": "/profile/static/media/callme.054dc87e57f8f79c17c4.png",
+    "static/media/come.png": "/profile/static/media/come.d9a5a67bfb467e4968ed.png",
+    "static/media/hi.png": "/profile/static/media/hi.3b1a0093488406f10d4d.png",
     "static/media/database.png": "/profile/static/media/database.044c43cfcb203fb35946.png",
     "static/media/frontend.png": "/profile/static/media/frontend.ebc747e44935b8e42f80.png",
     "static/media/backend.png": "/profile/static/media/backend.85a0ea55461b4b878554.png",
     "index.html": "/profile/index.html",
     "main.88a37229.css.map": "/profile/static/css/main.88a37229.css.map",
-    "main.abc25e6c.js.map": "/profile/static/js/main.abc25e6c.js.map"
+    "main.b33a2df3.js.map": "/profile/static/js/main.b33a2df3.js.map"
   },
   "entrypoints": [
     "static/css/main.88a37229.css",
-    "static/js/main.abc25e6c.js"
+    "static/js/main.b33a2df3.js"
   ]
 }
