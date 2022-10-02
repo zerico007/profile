@@ -33,7 +33,6 @@ const ProjectDiv = styled.div<MobileProp>`
 
   @media (max-width: 769px) {
     width: 90%;
-    height: 700px;
   }
 `;
 
