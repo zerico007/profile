@@ -37,7 +37,7 @@ const AnimationBox = ({
 }) => {
   const { animateIn, duration } = rest;
   return (
-    <div className={title} style={{ padding: "200px 0", background }}>
+    <div className={title} style={{ padding: "50px 0", background }}>
       <AnimationOnScroll animateIn={animateIn} duration={duration}>
         <h1
           style={{

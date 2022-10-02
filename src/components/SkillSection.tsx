@@ -28,10 +28,18 @@ const SkillDiv = styled.div<MobileProp>`
   align-items: center;
   font-weight: bold;
   animation: fadeIn 0.6s;
+
+  h3 {
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(45deg, #ef629f, #eecda3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 `;
 
 const ContentDiv = styled.div`
-  color: white;
+  color: #fff;
   display: flex;
   flex-direction: column;
   height: 18rem;
@@ -52,7 +60,7 @@ const SkillSection = ({
   return (
     <SkillDiv mobileSite={mobileSite}>
       <img src={image} alt="skill" width="100" />
-      <h3 style={{ textAlign: "center", color: "#fff" }}>{title}</h3>
+      <h3>{title}</h3>
       <ContentDiv>
         <div className="description">{desc}</div>
         <div className="languages">{languages}</div>

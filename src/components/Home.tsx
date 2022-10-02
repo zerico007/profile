@@ -3,6 +3,8 @@ import { useNavigate } from "react-router";
 import styled from "@emotion/styled";
 import { ArrowDownCircle } from "react-feather";
 import { useAppContext } from "../context/appContext";
+import hi from "../assets/hi.png";
+import come from "../assets/come.png";
 
 const ContainerDiv = styled.div`
   position: relative;
@@ -26,13 +28,21 @@ const AboutDiv = styled.div`
   height: auto;
   border: none;
   padding: 2rem;
-  color: var(--main-black);
   line-height: 150%;
   font-weight: bold;
   text-align: center;
   border-radius: 0.5rem;
   animation: fadeIn 4.8s;
-  background: rgba(255 255 255 / 0.7);
+  background: rgba(255 255 255 / 0.05);
+  box-shadow: 0 0 10px rgba(0 0 0 / 0.5);
+  outline: 2px solid rgba(255 255 255 / 0.1);
+
+  p {
+    color: #fff;
+    background: linear-gradient(45deg, #ef629f, #eecda3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 
   @media (max-width: 400px) {
     font-size: 14px;
@@ -56,6 +66,14 @@ const NameDiv = styled.div<MobileProp>`
   font-weight: bold;
   text-align: center;
   color: white;
+
+  span {
+    color: #fff;
+    background: linear-gradient(45deg, #20bdff, #a5fecb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
   @media (max-width: 400px) {
     font-size: 36px;
   }
@@ -64,7 +82,7 @@ const NameDiv = styled.div<MobileProp>`
 const TitleDiv = styled.div<MobileProp>`
   position: relative;
   display: flex;
-  margin-top: 2rem;
+  margin-top: 3rem;
   margin-bottom: 1rem;
   justify-content: center;
   align-items: center;
@@ -74,7 +92,11 @@ const TitleDiv = styled.div<MobileProp>`
   padding: 10px;
   font-size: ${(props) => (props.mobileSite ? "28px" : "42px")};
   font-weight: bold;
-  color: white;
+  color: #fff;
+  background: linear-gradient(45deg, #20bdff, #a5fecb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
   @media (max-width: 400px) {
     font-size: 24px;
   }
@@ -89,9 +111,8 @@ const Footer = styled.div`
   align-items: center;
   height: auto;
   font-weight: bold;
-  color: white;
+  color: #0ed2f7;
   width: fit-content;
-  animation: bounce 2s infinite alternate;
   cursor: pointer;
   &:hover {
     color: #ff6495;
@@ -115,14 +136,25 @@ const Home = (): ReactElement => {
   return (
     <ContainerDiv>
       <NameDiv mobileSite={mobile}>
-        <span style={{ animation: "fadeIn 0.5s" }}>Hi,</span>
-        <span style={{ animation: "fadeIn 1s" }}> my</span>
-        <span style={{ animation: "fadeIn 1.5s" }}> name</span>
-        <span style={{ animation: "fadeIn 2s" }}> is</span>
-        <span style={{ animation: "fadeIn 2.5s" }}> Bavin</span>
-        <span style={{ animation: "fadeIn 3s" }}> Edwards</span>
+        <span style={{ animation: "fadeIn 0.5s" }}>Hi!</span>
+        <span>
+          <img
+            src={hi}
+            alt="hi"
+            style={{
+              display: "inline",
+              animation: "fadeIn 0.5s",
+              width: "56px",
+            }}
+          />
+        </span>
+        <span style={{ animation: "fadeIn 2s" }}> My</span>
+        <span style={{ animation: "fadeIn 3.5s" }}> name</span>
+        <span style={{ animation: "fadeIn 5s" }}> is</span>
+        <span style={{ animation: "fadeIn 6.5s" }}> Bavin</span>
+        <span style={{ animation: "fadeIn 8s" }}> Edwards</span>
       </NameDiv>
-      <TitleDiv style={{ animation: "fadeIn 3.8s" }} mobileSite={mobile}>
+      <TitleDiv style={{ animation: "fadeIn 9.8s" }} mobileSite={mobile}>
         I am a Web Developer
       </TitleDiv>
       <AboutDiv style={{ fontSize: fontSizeAboutDiv() }}>
@@ -142,6 +174,7 @@ const Home = (): ReactElement => {
         }}
       >
         <span>Take a look at my work</span>
+        <img src={come} alt="take a look" style={{ width: "60px" }} />
         <ArrowDownCircle fontSize={32} />
       </Footer>
     </ContainerDiv>
