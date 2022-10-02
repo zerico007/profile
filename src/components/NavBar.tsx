@@ -23,7 +23,13 @@ const NavDiv = styled.div<NavDivProps>`
   z-index: 10;
   box-sizing: border-box;
   border-bottom: none;
-  background: transparent;
+  background-color: ${({ scrolled }) =>
+    scrolled ? "rgba(255 255 255 / 0.15)" : "transparent"};
+  backdrop-filter: blur(5px);
+
+  .hamburger {
+    color: ${({ scrolled }) => (scrolled ? "#1e212b" : "white")};
+  }
 `;
 
 const ImgDiv = styled.div`
@@ -180,6 +186,7 @@ const NavBar = (): ReactElement => {
           <NavButton
             onClick={() => !isDisabled && handleMobileNavClick()}
             style={{ float: "right", marginRight: "0" }}
+            className="hamburger"
           >
             {nav ? (
               <i className="fas fa-times fa-2x"></i>

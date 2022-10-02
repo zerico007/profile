@@ -18,11 +18,10 @@ const ProjectDiv = styled.div<MobileProp>`
   grid-template-areas:
     "image"
     "desc";
-  grid-template-rows: 1fr 1fr;
-  margin: 50px auto 0 auto;
-  width: 70vw;
-  max-width: 830px;
-  height: ${(props) => (props.mobileSite ? "auto" : "700px")};
+  grid-template-rows: 2fr 1fr;
+  width: 33%;
+  main-width: 300px;
+  height: 500px;
   border: none;
   padding: 0.7rem;
   border-radius: 6px;
@@ -30,6 +29,12 @@ const ProjectDiv = styled.div<MobileProp>`
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
   animation: fadeIn 0.6s;
+  margin: 2rem;
+
+  @media (max-width: 769px) {
+    width: 90%;
+    height: 700px;
+  }
 `;
 
 const LaunchCover = styled.div<LaunchCoverProps>`
@@ -58,9 +63,15 @@ const ContainerDiv = styled.div`
   width: 100%;
   height: auto;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
+
+  @media (max-width: 769px) {
+    flex-direction: column;
+  }
 `;
 
 const LaunchButton = styled.button<MobileProp>`
@@ -95,8 +106,7 @@ interface ProjectInfo {
 }
 
 const imageStyle = {
-  width: "70vw",
-  maxWidth: "830px",
+  width: "100%",
   cursor: "pointer",
   gridArea: "image",
   borderRadius: "0.5rem",

@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 import { useNavigate } from "react-router";
 import styled from "@emotion/styled";
-import { ChevronDown } from "react-feather";
+import { ArrowDownCircle } from "react-feather";
 import { useAppContext } from "../context/appContext";
 
 const ContainerDiv = styled.div`
@@ -25,7 +25,6 @@ const AboutDiv = styled.div`
   max-width: 830px;
   height: auto;
   border: none;
-  background: rgba(255, 255, 255, 0.7);
   padding: 2rem;
   color: var(--main-black);
   line-height: 150%;
@@ -33,6 +32,8 @@ const AboutDiv = styled.div`
   text-align: center;
   border-radius: 0.5rem;
   animation: fadeIn 4.8s;
+  background: rgba(255 255 255 / 0.7);
+
   @media (max-width: 400px) {
     font-size: 14px;
   }
@@ -86,7 +87,7 @@ const Footer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 32px;
+  height: auto;
   font-weight: bold;
   color: white;
   width: fit-content;
@@ -125,11 +126,14 @@ const Home = (): ReactElement => {
         I am a Web Developer
       </TitleDiv>
       <AboutDiv style={{ fontSize: fontSizeAboutDiv() }}>
-        We live in a data-driven, digital world, and thus success in any field
-        requires us to be able to take full advantage of the profuse amount of
-        data available to us through digital connections within the world around
-        us. My goal is to play an active role in solving real world problems
-        through knowledge, innovation, data analysis and critical thinking.
+        <p>
+          We live in a data-driven, digital world, and thus success in any field
+          requires us to be able to take full advantage of the profuse amount of
+          data available to us through digital connections within the world
+          around us. My goal is to play an active role in solving real world
+          problems through knowledge, innovation, data analysis and critical
+          thinking.
+        </p>
       </AboutDiv>
       <Footer
         onClick={() => {
@@ -138,7 +142,7 @@ const Home = (): ReactElement => {
         }}
       >
         <span>Take a look at my work</span>
-        <ChevronDown />
+        <ArrowDownCircle fontSize={32} />
       </Footer>
     </ContainerDiv>
   );
