@@ -17,8 +17,7 @@ const SkillDiv = styled.div<MobileProp>`
   height: 35rem;
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  outline: 2px solid rgba(255, 255, 255, 0.1);
-  outline-offset: -2px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
   border-radius: 0.5rem;
   border: none;
   padding: 1rem;

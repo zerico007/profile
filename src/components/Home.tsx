@@ -26,7 +26,6 @@ const AboutDiv = styled.div`
   width: 70vw;
   max-width: 830px;
   height: auto;
-  border: none;
   padding: 2rem;
   line-height: 150%;
   font-weight: bold;
@@ -35,7 +34,7 @@ const AboutDiv = styled.div`
   animation: fadeIn 4.8s;
   background: rgba(255 255 255 / 0.05);
   box-shadow: 0 0 10px rgba(0 0 0 / 0.5);
-  outline: 2px solid rgba(255 255 255 / 0.1);
+  border: 2px solid rgba(255 255 255 / 0.1);
 
   p {
     color: #fff;

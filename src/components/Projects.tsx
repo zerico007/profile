@@ -22,8 +22,7 @@ const ProjectDiv = styled.div<MobileProp>`
   width: 33%;
   main-width: 300px;
   height: 500px;
-  outline: 2px solid rgba(255, 255, 255, 0.2);
-  outline-offset: -2px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
   padding: 0.7rem;
   border-radius: 6px;
   background: rgba(255, 255, 255, 0.1);
