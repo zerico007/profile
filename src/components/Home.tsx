@@ -15,6 +15,14 @@ const ContainerDiv = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 200px 0;
+
+  > span {
+    color: #fff;
+    background: linear-gradient(45deg, #20bdff, #a5fecb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.3rem;
+  }
 `;
 
 const AboutDiv = styled.div`
@@ -51,26 +59,29 @@ const AboutDiv = styled.div`
 const NameDiv = styled.div<MobileProp>`
   position: relative;
   display: flex;
+  flex-direction: column;
   margin-bottom: 2rem;
   margin-top: 2rem;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  width: 80vw;
+  width: max-content;
   line-height: ${(props) => (props.mobileSite ? "3rem" : "4rem")};
-  height: 32px;
   border: none;
   padding: 10px;
-  font-size: ${(props) => (props.mobileSite ? "32px" : "42px")};
-  font-weight: bold;
-  text-align: center;
-  color: white;
+  background: rgba(255 255 255 / 0.25);
+  box-shadow: 0 0 10px rgba(0 0 0 / 0.5);
+  border-radius: 0.5rem;
 
   span {
-    color: #fff;
-    background: linear-gradient(45deg, #20bdff, #a5fecb);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-size: ${(props) => (props.mobileSite ? "24px" : "30px")};
+    text-align: center;
+    color: var(--main-black);
+    font-family: "Montserrat", sans-serif;
+  }
+
+  span > b {
+    font-size: ${(props) => (props.mobileSite ? "32px" : "40px")};
   }
 
   @media (max-width: 400px) {
@@ -86,10 +97,10 @@ const TitleDiv = styled.div<MobileProp>`
   justify-content: center;
   align-items: center;
   width: fit-content;
-  height: 32px;
   border: none;
   padding: 10px;
-  font-size: ${(props) => (props.mobileSite ? "28px" : "42px")};
+  font-size: ${(props) => (props.mobileSite ? "40px" : "62px")};
+  text-align: center;
   font-weight: bold;
   color: #fff;
   background: linear-gradient(45deg, #20bdff, #a5fecb);
@@ -135,8 +146,8 @@ const Home = (): ReactElement => {
   return (
     <ContainerDiv>
       <NameDiv mobileSite={mobile}>
-        <span style={{ animation: "fadeIn 0.5s" }}>Hi!</span>
-        <span>
+        <div>
+          <span style={{ animation: "fadeIn 0.5s" }}>Hi!</span>
           <img
             src={hi}
             alt="hi"
@@ -146,16 +157,15 @@ const Home = (): ReactElement => {
               width: "56px",
             }}
           />
+        </div>
+        <span>
+          I am <b>Bavin</b>
         </span>
-        <span style={{ animation: "fadeIn 2s" }}> My</span>
-        <span style={{ animation: "fadeIn 3.5s" }}> name</span>
-        <span style={{ animation: "fadeIn 5s" }}> is</span>
-        <span style={{ animation: "fadeIn 6.5s" }}> Bavin</span>
-        <span style={{ animation: "fadeIn 8s" }}> Edwards</span>
       </NameDiv>
       <TitleDiv style={{ animation: "fadeIn 9.8s" }} mobileSite={mobile}>
-        I am a Web Developer
+        Frontend Developer | React
       </TitleDiv>
+      <span>(with a touch of backend development)</span>
       <AboutDiv style={{ fontSize: fontSizeAboutDiv() }}>
         <p>
           We live in a data-driven, digital world, and thus success in any field
