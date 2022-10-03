@@ -23,6 +23,10 @@ const ContainerDiv = styled.div`
     -webkit-text-fill-color: transparent;
     font-size: 1.3rem;
     animation: fadeIn 10s;
+
+    @media (max-width: 769px) {
+      font-size: 0.8rem;
+    }
   }
 `;
 
