@@ -22,6 +22,7 @@ const ContainerDiv = styled.div`
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 1.3rem;
+    animation: fadeIn 10s;
   }
 `;
 
@@ -72,6 +73,7 @@ const NameDiv = styled.div<MobileProp>`
   background: rgba(255 255 255 / 0.25);
   box-shadow: 0 0 10px rgba(0 0 0 / 0.5);
   border-radius: 0.5rem;
+  animation: fadeIn 1s;
 
   span {
     font-size: ${(props) => (props.mobileSite ? "24px" : "30px")};
@@ -147,13 +149,12 @@ const Home = (): ReactElement => {
     <ContainerDiv>
       <NameDiv mobileSite={mobile}>
         <div>
-          <span style={{ animation: "fadeIn 0.5s" }}>Hi!</span>
+          <span>Hi!</span>
           <img
             src={hi}
             alt="hi"
             style={{
               display: "inline",
-              animation: "fadeIn 0.5s",
               width: "56px",
             }}
           />
