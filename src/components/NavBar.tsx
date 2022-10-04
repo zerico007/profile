@@ -106,16 +106,15 @@ const NavButton = styled.div<NavDivButtonProps>`
 const MobileNavDiv = styled.div<NavDivProps>`
   position: fixed;
   left: 0;
-  padding-left: 40px;
   padding-top: 10px;
-  top: 0;
+  top: 94px;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
   z-index: 100;
   width: 110vw;
   transform: translateX(-5px);
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(14 24 42 / 0.8);
   background-size: cover;
   background-repeat: no-repeat;
   height: 120vh;
@@ -199,7 +198,7 @@ const NavBar = (): ReactElement => {
         {mobile && (
           <NavButton
             onClick={() => !isDisabled && handleMobileNavClick()}
-            style={{ float: "right", marginRight: "0" }}
+            style={{ float: "right", margin: "1.2rem 0 0" }}
             className="hamburger"
           >
             {nav ? (
