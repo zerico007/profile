@@ -20,7 +20,7 @@ const ContainerDiv = styled.div`
   height: auto;
   min-height: 100vh;
   box-sixing: border-box;
-  background: #1e212b;
+  background: #0e182a;
 `;
 
 const AnimationBox = ({

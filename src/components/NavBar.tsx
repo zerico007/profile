@@ -65,6 +65,7 @@ const NavButtonsDiv = styled.div`
 `;
 
 const NavButton = styled.div<NavDivButtonProps>`
+  position: relative;
   width: ${(props) => (props.mobileSite ? "100%" : "120px")};
   height: ${(props) => (props.mobileSite ? "2rem" : "36px")};
   font-weight: bold;
@@ -79,8 +80,21 @@ const NavButton = styled.div<NavDivButtonProps>`
   cursor: pointer;
   border-bottom: 2px solid transparent;
 
+  :after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: transparent;
+    transition: all 0.3s ease-in-out;
+  }
+
   &:hover {
-    border-bottom: 2px solid #fff;
+    :after {
+      width: 100%;
+      background: #fff;
+    }
   }
 
   margin-top: ${(props) => (props.mobileSite ? "45px" : "0")};
