@@ -1,5 +1,6 @@
 import { ReactElement, useMemo, useState } from "react";
 import styled from "@emotion/styled";
+import moviePic from "../assets/movieApp.png";
 import commentsPic from "../assets/commentsPic.jpg";
 import foodiePic from "../assets/foodiePic.jpg";
 import appleShopPic from "../assets/apple-shop.jpg";
@@ -128,6 +129,7 @@ const imageStyle = {
 };
 
 const Projects = (): ReactElement => {
+  const [movieApp, setMovieApp] = useState(false);
   const [comments, setComments] = useState(false);
   const [foodie, setFoodie] = useState(false);
   const [shop, setShop] = useState(false);
@@ -139,6 +141,15 @@ const Projects = (): ReactElement => {
 
   const projects = useMemo(
     (): ProjectInfo[] => [
+      {
+        setter: setMovieApp,
+        getter: movieApp,
+        image: moviePic,
+        alt: "movie app",
+        url: "https://zerico007.github.io/vue-movie-app/",
+        description: `A VueJS app written in TypeScript that allows a user to interact with the free 
+        IMDb API from RapidAPI. State management with Pinia and routing with Vue Router.`,
+      },
       {
         setter: setComments,
         getter: comments,
@@ -193,7 +204,7 @@ const Projects = (): ReactElement => {
         alt: "gradebook pic",
       },
     ],
-    [comments, foodie, shop, auction, gradebook, sunnySide]
+    [movieApp, comments, foodie, shop, auction, gradebook, sunnySide]
   );
 
   return (

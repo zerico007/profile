@@ -105,7 +105,7 @@ const TitleDiv = styled.div<MobileProp>`
   width: fit-content;
   border: none;
   padding: 10px;
-  font-size: ${(props) => (props.mobileSite ? "40px" : "62px")};
+  font-size: ${(props) => (props.mobileSite ? "40px" : "56px")};
   text-align: center;
   font-weight: bold;
   color: #fff;
@@ -168,7 +168,7 @@ const Home = (): ReactElement => {
         </span>
       </NameDiv>
       <TitleDiv style={{ animation: "fadeIn 9.8s" }} mobileSite={mobile}>
-        Frontend Developer | React
+        Frontend Developer | React | Vue
       </TitleDiv>
       <span>(with a touch of backend development)</span>
       <AboutDiv style={{ fontSize: fontSizeAboutDiv() }}>

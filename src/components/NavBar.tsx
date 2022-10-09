@@ -209,7 +209,7 @@ const NavBar = (): ReactElement => {
           </NavButton>
         )}
       </NavDiv>
-      {showNav && (
+      {showNav && mobile && (
         <MobileNavDiv
           ref={mobileNavRef}
           scrolled={scrolled}
