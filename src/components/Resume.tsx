@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 import styled from "@emotion/styled";
 import { Download } from "react-feather";
-import resumePic from "../assets/resume.jpg";
+import resumePic from "../assets/resume.jp2";
 import { saveAs } from "file-saver";
 
 const ContainerDiv = styled.div`

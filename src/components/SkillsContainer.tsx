@@ -24,7 +24,7 @@ const SkillsContainer = (): ReactElement => {
         image={frontend}
         title="Front End Development"
         languages="Languages: HTML, CSS, JavaScript, TypeScript"
-        frameworks="Libraries: ReactJS"
+        frameworks="Libraries & Frameworks: ReactJS, VueJS"
         desc="Modern, dynamic & responsive web development that animates your visions and captivates your audience."
         mobileSite={mobile}
       />

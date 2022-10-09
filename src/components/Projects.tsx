@@ -5,7 +5,6 @@ import commentsPic from "../assets/commentsPic.jpg";
 import foodiePic from "../assets/foodiePic.jpg";
 import appleShopPic from "../assets/apple-shop.jpg";
 import auctionsPic from "../assets/auctions.jpg";
-import gradebookPic from "../assets/gradebook.jpg";
 import sunnySidePic from "../assets/sunnyside.jpg";
 import { useAppContext } from "../context/appContext";
 
@@ -134,7 +133,6 @@ const Projects = (): ReactElement => {
   const [foodie, setFoodie] = useState(false);
   const [shop, setShop] = useState(false);
   const [auction, setAuction] = useState(false);
-  const [gradebook, setGradebook] = useState(false);
   const [sunnySide, setSunnySide] = useState(false);
 
   const { mobile } = useAppContext();
@@ -195,16 +193,8 @@ const Projects = (): ReactElement => {
       with Python using Django. SQL DB used.`,
         alt: "auctions pic",
       },
-      {
-        setter: setGradebook,
-        getter: gradebook,
-        image: gradebookPic,
-        url: "http://kabash.pythonanywhere.com/",
-        description: `Web app for managing grades. Built with Python using Flask and SQL.`,
-        alt: "gradebook pic",
-      },
     ],
-    [movieApp, comments, foodie, shop, auction, gradebook, sunnySide]
+    [movieApp, comments, foodie, shop, auction, sunnySide]
   );
 
   return (
