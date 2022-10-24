@@ -1,5 +1,6 @@
 import { ReactElement, useMemo, useState } from "react";
 import styled from "@emotion/styled";
+import eShopPic from "../assets/eshop.png";
 import moviePic from "../assets/movieApp.png";
 import commentsPic from "../assets/commentsPic.jpg";
 import foodiePic from "../assets/foodiePic.jpg";
@@ -128,6 +129,7 @@ const imageStyle = {
 };
 
 const Projects = (): ReactElement => {
+  const [eshop, setEshop] = useState(false);
   const [movieApp, setMovieApp] = useState(false);
   const [comments, setComments] = useState(false);
   const [foodie, setFoodie] = useState(false);
@@ -139,6 +141,16 @@ const Projects = (): ReactElement => {
 
   const projects = useMemo(
     (): ProjectInfo[] => [
+      {
+        setter: setEshop,
+        getter: eshop,
+        image: eShopPic,
+        alt: "eShop",
+        url: "https://zerico007.github.io/e-shop/",
+        description: `A simple VueJS e-commerce app written in TypeScript. User can create an account, login,
+        add items to cart, checkout and view order history. Backend is written in NodeJS and uses MongoDB for data storage.
+        API and server state management with vue-query (by TanStack) and client state management with Pinia.`,
+      },
       {
         setter: setMovieApp,
         getter: movieApp,
@@ -194,7 +206,7 @@ const Projects = (): ReactElement => {
         alt: "auctions pic",
       },
     ],
-    [movieApp, comments, foodie, shop, auction, sunnySide]
+    [eshop, movieApp, comments, foodie, shop, sunnySide, auction]
   );
 
   return (
