@@ -22,7 +22,7 @@ const ContainerDiv = styled.div`
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 1.3rem;
-    animation: fadeIn 10s;
+    animation: fadeIn 2.4s;
 
     @media (max-width: 769px) {
       font-size: 0.8rem;
@@ -44,7 +44,7 @@ const AboutDiv = styled.div`
   font-weight: bold;
   text-align: center;
   border-radius: 0.5rem;
-  animation: fadeIn 4.8s;
+  animation: fadeIn 2s;
   background: rgba(255 255 255 / 0.05);
   box-shadow: 0 0 10px rgba(0 0 0 / 0.5);
   border: 2px solid rgba(255 255 255 / 0.1);
@@ -167,7 +167,7 @@ const Home = (): ReactElement => {
           I am <b>Bavin</b>
         </span>
       </NameDiv>
-      <TitleDiv style={{ animation: "fadeIn 9.8s" }} mobileSite={mobile}>
+      <TitleDiv style={{ animation: "fadeIn 2s" }} mobileSite={mobile}>
         Frontend Developer | React | Vue
       </TitleDiv>
       <span>(with a touch of backend development)</span>

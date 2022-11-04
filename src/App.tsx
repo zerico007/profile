@@ -10,7 +10,7 @@ import {
   Resume,
   Contacts,
 } from "./components";
-import { observe } from "./utils";
+import { observe, unobserve } from "./utils";
 
 const ContainerDiv = styled.div`
   position: absolute;
@@ -74,6 +74,11 @@ function App(): ReactElement {
     hiddenSections.forEach((section) => {
       observe(section);
     });
+    return () => {
+      hiddenSections.forEach((section) => {
+        unobserve(section);
+      });
+    };
   }, []);
   return (
     <>

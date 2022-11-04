@@ -11,3 +11,7 @@ const observer = new IntersectionObserver((entries) => {
 export function observe(element: HTMLElement) {
   observer.observe(element);
 }
+
+export function unobserve(element: HTMLElement) {
+  observer.unobserve(element);
+}
