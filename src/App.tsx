@@ -1,6 +1,4 @@
-import { ReactElement, Suspense } from "react";
-import "animate.css/animate.min.css";
-import { AnimationOnScroll } from "react-animation-on-scroll";
+import { ReactElement, Suspense, useEffect } from "react";
 import styled from "@emotion/styled";
 
 import {
@@ -12,6 +10,7 @@ import {
   Resume,
   Contacts,
 } from "./components";
+import { observe } from "./utils";
 
 const ContainerDiv = styled.div`
   position: absolute;
@@ -26,32 +25,24 @@ const ContainerDiv = styled.div`
 const AnimationBox = ({
   title,
   children,
-  background,
-  ...rest
 }: {
   title: string;
   children: ReactElement;
-  background?: string;
-  animateIn: string;
-  duration: number;
 }) => {
-  const { animateIn, duration } = rest;
   return (
-    <div className={title} style={{ padding: "50px 0", background }}>
-      <AnimationOnScroll animateIn={animateIn} duration={duration}>
-        <h1
-          style={{
-            fontSize: "2rem",
-            width: 150,
-            color: "#fff",
-            margin: "0 auto",
-            paddingLeft: 40,
-          }}
-        >
-          {title}
-        </h1>
-        {children}
-      </AnimationOnScroll>
+    <div className={`${title} hidden`} style={{ padding: "50px 0" }}>
+      <h1
+        style={{
+          fontSize: "2rem",
+          width: 150,
+          color: "#fff",
+          margin: "0 auto",
+          paddingLeft: 40,
+        }}
+      >
+        {title}
+      </h1>
+      {children}
     </div>
   );
 };
@@ -60,30 +51,30 @@ const elements = [
   {
     title: "Projects",
     component: <Projects />,
-    animation: "animate__bounceInLeft",
-    background: "#5B676D",
   },
   {
     title: "Skills",
     component: <Skills />,
-    animation: "animate__fadeInTopLeft",
-    background: "#848689",
   },
   {
     title: "Resume",
     component: <Resume />,
-    animation: "animate__rotateInUpRight",
-    background: "#2A3439",
   },
   {
     title: "Contacts",
     component: <Contacts />,
-    animation: "animate__lightSpeedInLeft",
-    background: "#1e212b",
   },
 ];
 
 function App(): ReactElement {
+  useEffect(() => {
+    const hiddenSections = document.querySelectorAll(
+      ".hidden"
+    ) as NodeListOf<HTMLElement>;
+    hiddenSections.forEach((section) => {
+      observe(section);
+    });
+  }, []);
   return (
     <>
       <ContainerDiv>
@@ -91,13 +82,8 @@ function App(): ReactElement {
         <UpButton />
         <Suspense fallback={<div>Loading...</div>}>
           <Home />
-          {elements.map(({ title, component, animation }) => (
-            <AnimationBox
-              key={title}
-              title={title}
-              animateIn={animation}
-              duration={1}
-            >
+          {elements.map(({ title, component }) => (
+            <AnimationBox key={title} title={title}>
               {component}
             </AnimationBox>
           ))}
@@ -112,7 +98,7 @@ function App(): ReactElement {
             textAlign: "center",
           }}
         >
-          Created by Bavin Edwards &copy; 2022
+          Created by Bavin Edwards &copy; {new Date().getFullYear()}
         </footer>
       </ContainerDiv>
     </>
