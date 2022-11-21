@@ -135,9 +135,39 @@ span {
   transition: translate 1s ease-in-out, opacity 1s ease-in-out 0.3s;
 }
 
+.Contacts.hidden a,
+img {
+  opacity: 0;
+  scale: 0.3;
+}
+
 .hidden.active {
   opacity: 1;
   translate: 0 0;
+}
+
+.Contacts.hidden.active img {
+  opacity: 1;
+  scale: 1;
+  transition: all 0.5s ease-in-out 0.85s;
+}
+
+.Contacts.hidden.active a {
+  opacity: 1;
+  scale: 1;
+  transition: all 0.5s ease-in-out;
+}
+
+.Contacts.hidden.active a:nth-child(1) {
+  transition-delay: 0.5s;
+}
+
+.Contacts.hidden.active a:nth-child(2) {
+  transition-delay: 0.65s;
+}
+
+.Contacts.hidden.active a:nth-child(3) {
+  transition-delay: 0.8s;
 }
 
 @media (prefers-reduced-motion) {

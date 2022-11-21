@@ -4,11 +4,7 @@ import { GitHub, Linkedin, Inbox } from "react-feather";
 import { useAppContext } from "../context/appContext";
 import callme from "../assets/callme.png";
 
-interface ContactBoxProps {
-  odd: boolean;
-}
-
-const ContactBox = styled.div<ContactBoxProps>`
+const ContactBox = styled.div`
   width: 100px;
   height: 100px;
   border-radius: 60px;
@@ -16,7 +12,6 @@ const ContactBox = styled.div<ContactBoxProps>`
   justify-content: center;
   align-items: center;
   padding: 10px;
-  animation: ${(props) => (props.odd ? "enterLeft 0.8s" : "fadeIn 0.8s")};
   margin-top: 40px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
@@ -65,7 +60,7 @@ const Contacts = (): ReactElement => {
     <Wrapper>
       <ContactsContainer mobileSite={mobile}>
         <a href="https://github.com/zerico007" target="_blank" rel="noreferrer">
-          <ContactBox odd={true}>
+          <ContactBox>
             <GitHub size={40} />
           </ContactBox>
         </a>
@@ -74,7 +69,7 @@ const Contacts = (): ReactElement => {
           target="_blank"
           rel="noreferrer"
         >
-          <ContactBox odd={false}>
+          <ContactBox>
             <Linkedin size={40} />
           </ContactBox>
         </a>
@@ -83,7 +78,7 @@ const Contacts = (): ReactElement => {
           target="_blank"
           rel="noreferrer"
         >
-          <ContactBox odd={true}>
+          <ContactBox>
             <Inbox size={40} />
           </ContactBox>
         </a>
