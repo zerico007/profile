@@ -2,7 +2,6 @@ import { ReactElement } from "react";
 import styled from "@emotion/styled";
 import { Download } from "react-feather";
 import resumePic from "../assets/resume.jp2";
-import { saveAs } from "file-saver";
 
 const ContainerDiv = styled.div`
   position: relative;
@@ -56,15 +55,13 @@ const DownloadButton = styled.button`
 `;
 
 const Resume = (): ReactElement => {
-  const downloadResume = () => {
-    saveAs(process.env.PUBLIC_URL + "/resume.pdf", "resume.pdf");
-  };
-
   return (
     <ContainerDiv>
-      <DownloadButton onClick={downloadResume}>
-        <Download size={16} style={{ marginRight: "4px" }} /> Download
-      </DownloadButton>
+      <a href={process.env.PUBLIC_URL + "/resume.pdf"} download>
+        <DownloadButton>
+          <Download size={16} style={{ marginRight: "4px" }} /> Download
+        </DownloadButton>
+      </a>
       <ResumeDiv>
         <img
           style={{ width: "100%", objectFit: "cover" }}
