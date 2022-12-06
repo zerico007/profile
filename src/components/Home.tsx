@@ -2,6 +2,8 @@ import { ReactElement } from "react";
 import { useNavigate } from "react-router";
 import styled from "@emotion/styled";
 import { ArrowDownCircle } from "react-feather";
+import { useWindupString } from "windups";
+
 import { useAppContext } from "../context/appContext";
 import hi from "../assets/hi.png";
 import come from "../assets/come.png";
@@ -109,6 +111,7 @@ const TitleDiv = styled.div<MobileProp>`
   text-align: center;
   font-weight: bold;
   color: #fff;
+  animation: fadeIn 2s;
   background: linear-gradient(45deg, #20bdff, #a5fecb);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -138,6 +141,9 @@ const Footer = styled.div`
 const Home = (): ReactElement => {
   const { mobile, orientation, scrollToElement } = useAppContext();
   const navigate = useNavigate();
+  const [title] = useWindupString("Frontend Developer | React | Vue", {
+    pace: (character) => (character === " " ? 20 : 80),
+  });
 
   const fontSizeAboutDiv = () => {
     if (orientation === "landscape" && window.innerHeight < 500) {
@@ -167,9 +173,7 @@ const Home = (): ReactElement => {
           I am <b>Bavin</b>
         </span>
       </NameDiv>
-      <TitleDiv style={{ animation: "fadeIn 2s" }} mobileSite={mobile}>
-        Frontend Developer | React | Vue
-      </TitleDiv>
+      <TitleDiv mobileSite={mobile}>{title}</TitleDiv>
       <span>(with a touch of backend development)</span>
       <AboutDiv style={{ fontSize: fontSizeAboutDiv() }}>
         <p>
@@ -181,6 +185,7 @@ const Home = (): ReactElement => {
           thinking.
         </p>
       </AboutDiv>
+
       <Footer
         onClick={() => {
           navigate("/profile/projects");
