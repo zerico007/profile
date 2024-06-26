@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.css": "/profile/static/css/main.554b5532.css",
-    "main.js": "/profile/static/js/main.d85e5251.js",
+    "main.css": "/profile/static/css/main.7b4e624e.css",
+    "main.js": "/profile/static/js/main.64d8c083.js",
     "static/media/profilePic.jpg": "/profile/static/media/profilePic.9e39ad302c2019fbeff5.jpg",
-    "static/media/resume.jp2": "/profile/static/media/resume.9e681523d3ffdd3dda1e.jp2",
     "static/media/movieApp.png": "/profile/static/media/movieApp.957f107cf6b2862dee19.png",
     "static/media/eshop.png": "/profile/static/media/eshop.3c4fa65e2a43f2210339.png",
     "static/media/foodiePic.jpg": "/profile/static/media/foodiePic.884ffa9ffe303a8db011.jpg",
+    "static/media/resume.png": "/profile/static/media/resume.d910ef46a9b6e62a3f63.png",
     "static/media/apple-shop.jpg": "/profile/static/media/apple-shop.247f3682fbf1a5a037cb.jpg",
     "static/media/auctions.jpg": "/profile/static/media/auctions.dfece1f0d8fd8d58ce74.jpg",
     "static/media/sunnyside.jpg": "/profile/static/media/sunnyside.bf0fc1e74037f75f898b.jpg",
@@ -18,11 +18,11 @@
     "static/media/frontend.png": "/profile/static/media/frontend.ebc747e44935b8e42f80.png",
     "static/media/backend.png": "/profile/static/media/backend.85a0ea55461b4b878554.png",
     "index.html": "/profile/index.html",
-    "main.554b5532.css.map": "/profile/static/css/main.554b5532.css.map",
-    "main.d85e5251.js.map": "/profile/static/js/main.d85e5251.js.map"
+    "main.7b4e624e.css.map": "/profile/static/css/main.7b4e624e.css.map",
+    "main.64d8c083.js.map": "/profile/static/js/main.64d8c083.js.map"
   },
   "entrypoints": [
-    "static/css/main.554b5532.css",
-    "static/js/main.d85e5251.js"
+    "static/css/main.7b4e624e.css",
+    "static/js/main.64d8c083.js"
   ]
 }
