@@ -20,7 +20,7 @@ const ContainerDiv = styled.div`
 
   > span {
     color: #fff;
-    background: linear-gradient(45deg, #20bdff, #a5fecb);
+    background: linear-gradient(45deg, #191970, #6082B6);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 1.3rem;
@@ -53,7 +53,7 @@ const AboutDiv = styled.div`
 
   p {
     color: #fff;
-    background: linear-gradient(45deg, #ef629f, #eecda3);
+    background: linear-gradient(45deg, #900C3F, #C70039);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -112,7 +112,7 @@ const TitleDiv = styled.div<MobileProp>`
   font-weight: bold;
   color: #fff;
   animation: fadeIn 2s;
-  background: linear-gradient(45deg, #20bdff, #a5fecb);
+  background: linear-gradient(45deg, #191970, #6082B6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
@@ -130,11 +130,14 @@ const Footer = styled.div`
   align-items: center;
   height: auto;
   font-weight: bold;
-  color: #0ed2f7;
+  color: var(--text-color);
   width: fit-content;
   cursor: pointer;
   &:hover {
-    color: #ff6495;
+    color: #fff;
+    background: linear-gradient(45deg, #900C3F, #C70039);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 `;
 

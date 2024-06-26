@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 import styled from "@emotion/styled";
 import { Download } from "react-feather";
-import resumePic from "../assets/resume.jp2";
+import resumePic from "../assets/resume.png";
 
 const ContainerDiv = styled.div`
   position: relative;

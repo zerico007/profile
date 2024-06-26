@@ -68,10 +68,7 @@ const Description = styled.p`
   font-weight: bold;
   line-height: 1.5rem;
   grid-area: desc;
-  color: #fff;
-  background: linear-gradient(45deg, #20bdff, #a5fecb);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--text-color);
 `;
 
 const ContainerDiv = styled.div`

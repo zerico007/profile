@@ -38,7 +38,7 @@ const SkillDiv = styled.div<MobileProp>`
 `;
 
 const ContentDiv = styled.div`
-  color: #fff;
+  color: var(--text-color);
   display: flex;
   flex-direction: column;
   height: 18rem;
