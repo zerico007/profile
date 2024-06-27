@@ -57,7 +57,7 @@ const DownloadButton = styled.button`
 const Resume = (): ReactElement => {
   return (
     <ContainerDiv>
-      <a href={import.meta.env.PUBLIC_URL + "/resume.pdf"} download>
+      <a href="/profile/resume.pdf" download>
         <DownloadButton>
           <Download size={16} style={{ marginRight: "4px" }} /> Download
         </DownloadButton>
