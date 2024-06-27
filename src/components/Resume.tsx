@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 import styled from "@emotion/styled";
 import { Download } from "react-feather";
-import resumePic from "../assets/resume.png";
+import resumePic from "../assets/resumePic.png";
 
 const ContainerDiv = styled.div`
   position: relative;
@@ -57,7 +57,7 @@ const DownloadButton = styled.button`
 const Resume = (): ReactElement => {
   return (
     <ContainerDiv>
-      <a href={process.env.PUBLIC_URL + "/resume.pdf"} download>
+      <a href={import.meta.env.PUBLIC_URL + "/resume.pdf"} download>
         <DownloadButton>
           <Download size={16} style={{ marginRight: "4px" }} /> Download
         </DownloadButton>
