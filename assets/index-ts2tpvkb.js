@@ -380,7 +380,7 @@ Error generating stack: `+o.message+`
       with the spoonacular recipe search API`},{setter:c,getter:a,image:Z0,alt:"apple shop pic",url:"https://zerico007.github.io/apple_shop/",description:`Web app for shopping apple products. Frontend built with React.
       Backend built with Node (includes REST APIs, jwt authentication,
       refresh tokens) and MongoDB`},{setter:w,getter:v,image:q0,alt:"sunnyside pic",url:"https://zerico007.github.io/sunnyside/",description:"Static Landing page built with HTML, CSS and a tiny bit of JavaScript"},{setter:h,getter:m,image:b0,url:"http://zerico007.pythonanywhere.com/",description:`Web app similar to ebay for posting items for sale and bidding. Built
-      with Python using Django. SQL DB used.`,alt:"auctions pic"}],[e,n,i,l,a,v,m]);return _.jsx(rv,{children:g.map(S=>{const{setter:f,getter:s,image:d,url:p,description:x,alt:P}=S;return _.jsxs(ev,{onMouseEnter:()=>!y&&f(!0),onMouseLeave:()=>f(!1),mobileSite:y,children:[_.jsx("img",{src:d,alt:P,style:iv,loading:"lazy"}),_.jsx(nv,{children:x}),_.jsx(tv,{launch:s,children:_.jsx("a",{href:p,target:"_blank",rel:"noreferrer",children:_.jsx(Es,{children:"Visit"})})}),y&&_.jsx("a",{href:p,target:"_blank",rel:"noreferrer",style:{zIndex:"5"},children:_.jsx(Es,{mobileSite:y,style:{background:"black",margin:"0 auto"},children:"Visit"})})]},p)})})},lv="/profile/assets/resumePic-CZ2N4bP3.png";var uv={BASE_URL:"/profile",MODE:"production",DEV:!1,PROD:!0,SSR:!1};const av=A.div`
+      with Python using Django. SQL DB used.`,alt:"auctions pic"}],[e,n,i,l,a,v,m]);return _.jsx(rv,{children:g.map(S=>{const{setter:f,getter:s,image:d,url:p,description:x,alt:P}=S;return _.jsxs(ev,{onMouseEnter:()=>!y&&f(!0),onMouseLeave:()=>f(!1),mobileSite:y,children:[_.jsx("img",{src:d,alt:P,style:iv,loading:"lazy"}),_.jsx(nv,{children:x}),_.jsx(tv,{launch:s,children:_.jsx("a",{href:p,target:"_blank",rel:"noreferrer",children:_.jsx(Es,{children:"Visit"})})}),y&&_.jsx("a",{href:p,target:"_blank",rel:"noreferrer",style:{zIndex:"5"},children:_.jsx(Es,{mobileSite:y,style:{background:"black",margin:"0 auto"},children:"Visit"})})]},p)})})},lv="/profile/assets/resumePic-CZ2N4bP3.png",uv=A.div`
   position: relative;
   width: 100%;
   height: auto;
@@ -388,7 +388,7 @@ Error generating stack: `+o.message+`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-`,sv=A.div`
+`,av=A.div`
   position: relative;
   margin: 0 auto;
   width: 70vw;
@@ -400,7 +400,7 @@ Error generating stack: `+o.message+`
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
   animation: fadeIn 0.6s;
-`,cv=A.button`
+`,sv=A.button`
   position: relative;
   margin: 50px auto;
   width: 11rem;
@@ -425,7 +425,7 @@ Error generating stack: `+o.message+`
     border: 2px solid white;
     transform: scale(1.2);
   }
-`,fv=()=>_.jsxs(av,{children:[_.jsx("a",{href:uv.PUBLIC_URL+"/resume.pdf",download:!0,children:_.jsxs(cv,{children:[_.jsx(Xu,{size:16,style:{marginRight:"4px"}})," Download"]})}),_.jsx(sv,{children:_.jsx("img",{style:{width:"100%",objectFit:"cover"},src:lv,loading:"lazy",alt:"resume-pic"})})]}),dv=A.div`
+`,cv=()=>_.jsxs(uv,{children:[_.jsx("a",{href:"/profile/resume.pdf",download:!0,children:_.jsxs(sv,{children:[_.jsx(Xu,{size:16,style:{marginRight:"4px"}})," Download"]})}),_.jsx(av,{children:_.jsx("img",{style:{width:"100%",objectFit:"cover"},src:lv,loading:"lazy",alt:"resume-pic"})})]}),fv=A.div`
   display: flex;
   flex-direction: column;
   width: ${e=>e.mobileSite?"80vw":"18rem"};
@@ -450,7 +450,7 @@ Error generating stack: `+o.message+`
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-`,pv=A.div`
+`,dv=A.div`
   color: var(--text-color);
   display: flex;
   flex-direction: column;
@@ -459,7 +459,7 @@ Error generating stack: `+o.message+`
   justify-content: space-around;
   align-items: center;
   text-align: center;
-`,Io=({image:e,title:t,languages:n,frameworks:r,desc:i,mobileSite:o})=>_.jsxs(dv,{mobileSite:o,children:[_.jsx("img",{src:e,alt:"skill",width:"100"}),_.jsx("h3",{children:t}),_.jsxs(pv,{children:[_.jsx("div",{className:"description",children:i}),_.jsx("div",{className:"languages",children:n}),_.jsx("div",{className:"frameworks",children:r})]})]}),hv="/profile/assets/frontend-RoQ4PF-G.png",mv="/profile/assets/backend-C1i93Da6.png",vv="/profile/assets/database-CkEfNZOt.png",gv=A.div`
+`,Io=({image:e,title:t,languages:n,frameworks:r,desc:i,mobileSite:o})=>_.jsxs(fv,{mobileSite:o,children:[_.jsx("img",{src:e,alt:"skill",width:"100"}),_.jsx("h3",{children:t}),_.jsxs(dv,{children:[_.jsx("div",{className:"description",children:i}),_.jsx("div",{className:"languages",children:n}),_.jsx("div",{className:"frameworks",children:r})]})]}),pv="/profile/assets/frontend-RoQ4PF-G.png",hv="/profile/assets/backend-C1i93Da6.png",mv="/profile/assets/database-CkEfNZOt.png",vv=A.div`
   position: relative;
   width: 100%;
   height: auto;
@@ -467,7 +467,7 @@ Error generating stack: `+o.message+`
   flex-direction: ${e=>e.mobileSite?"column":"row"};
   align-items: center;
   justify-content: center;
-`,yv=()=>{const{mobile:e}=Cn();return _.jsxs(gv,{mobileSite:e,children:[_.jsx(Io,{image:hv,title:"Front End Development",languages:"Languages: HTML, CSS, JavaScript, TypeScript",frameworks:"Libraries & Frameworks: ReactJS, VueJS",desc:"Modern, dynamic & responsive web development that animates your visions and captivates your audience.",mobileSite:e}),_.jsx(Io,{image:mv,title:"Back End Development",languages:"Languages: JavaScript, TypeScript, Java",frameworks:"Frameworks: NodeJS, Spring Boot",desc:"Development of both RESTful and GraphQL API's with JWT authentication, role-based and location-based permissions.",mobileSite:e}),_.jsx(Io,{image:vv,title:"Database Modeling and Management",frameworks:"Databases: MongoDB, PostgresQL, MySQL",languages:"Structured Query Language, MongoDB Query Language",desc:"Database creation, modeling and management using Mongoose, Prisma from NodeJs and Spring Data JPA from Spring Boot.",mobileSite:e})]})},wv="/profile/assets/callme-BEGhlR0y.png",Do=A.div`
+`,gv=()=>{const{mobile:e}=Cn();return _.jsxs(vv,{mobileSite:e,children:[_.jsx(Io,{image:pv,title:"Front End Development",languages:"Languages: HTML, CSS, JavaScript, TypeScript",frameworks:"Libraries & Frameworks: ReactJS, VueJS",desc:"Modern, dynamic & responsive web development that animates your visions and captivates your audience.",mobileSite:e}),_.jsx(Io,{image:hv,title:"Back End Development",languages:"Languages: JavaScript, TypeScript, Java",frameworks:"Frameworks: NodeJS, Spring Boot",desc:"Development of both RESTful and GraphQL API's with JWT authentication, role-based and location-based permissions.",mobileSite:e}),_.jsx(Io,{image:mv,title:"Database Modeling and Management",frameworks:"Databases: MongoDB, PostgresQL, MySQL",languages:"Structured Query Language, MongoDB Query Language",desc:"Database creation, modeling and management using Mongoose, Prisma from NodeJs and Spring Data JPA from Spring Boot.",mobileSite:e})]})},yv="/profile/assets/callme-BEGhlR0y.png",Do=A.div`
   width: 100px;
   height: 100px;
   border-radius: 60px;
@@ -490,7 +490,7 @@ Error generating stack: `+o.message+`
     border: 2px solid white;
     transform: scale(1.2);
   }
-`,xv=A.div`
+`,wv=A.div`
   position: relative;
   width: 100%;
   height: 50%;
@@ -498,7 +498,7 @@ Error generating stack: `+o.message+`
   flex-direction: ${e=>e.mobileSite?"column":"row"};
   justify-content: ${e=>e.mobileSite?"flex-start":"space-evenly"};
   align-items: ${e=>e.mobileSite?"center":"flex-start"};
-`,Sv=A.div`
+`,xv=A.div`
   width: 100vw;
   height: auto;
   display: flex;
@@ -510,7 +510,7 @@ Error generating stack: `+o.message+`
     align-self: center;
     margin-top: 40px;
   }
-`,kv=()=>{const{mobile:e}=Cn();return _.jsxs(Sv,{children:[_.jsxs(xv,{mobileSite:e,children:[_.jsx("a",{href:"https://github.com/zerico007",target:"_blank",rel:"noreferrer",children:_.jsx(Do,{children:_.jsx(Ku,{size:40})})}),_.jsx("a",{href:"https://www.linkedin.com/in/bavin-edwards-777b23180/",target:"_blank",rel:"noreferrer",children:_.jsx(Do,{children:_.jsx(Ju,{size:40})})}),_.jsx("a",{href:"mailto:bavin_edwards@live.com",target:"_blank",rel:"noreferrer",children:_.jsx(Do,{children:_.jsx(Gu,{size:40})})})]}),_.jsx("img",{src:wv,alt:"call me"})]})},Ev=()=>{const[e,t]=C.useState(!1),{scrollToTopOfPage:n}=Cn(),r=Bu(),i=()=>{r("/profile"),n()},o=()=>window.scrollY>0?t(!0):t(!1);return C.useEffect(()=>(window.addEventListener("scroll",o),()=>window.removeEventListener("scroll",o)),[]),_.jsx(Yu,{onClick:i,className:"scroll-up",style:{cursor:"pointer",opacity:e?"1":"0",position:"fixed",left:"1rem",bottom:"5rem",color:"white",zIndex:"5"}})},hd=new IntersectionObserver(e=>{for(const t of e)t.isIntersecting?t.target.classList.add("active"):t.target.classList.remove("active")});function Cv(e){hd.observe(e)}function Pv(e){hd.unobserve(e)}const _v=A.div`
+`,Sv=()=>{const{mobile:e}=Cn();return _.jsxs(xv,{children:[_.jsxs(wv,{mobileSite:e,children:[_.jsx("a",{href:"https://github.com/zerico007",target:"_blank",rel:"noreferrer",children:_.jsx(Do,{children:_.jsx(Ku,{size:40})})}),_.jsx("a",{href:"https://www.linkedin.com/in/bavin-edwards-777b23180/",target:"_blank",rel:"noreferrer",children:_.jsx(Do,{children:_.jsx(Ju,{size:40})})}),_.jsx("a",{href:"mailto:bavin_edwards@live.com",target:"_blank",rel:"noreferrer",children:_.jsx(Do,{children:_.jsx(Gu,{size:40})})})]}),_.jsx("img",{src:yv,alt:"call me"})]})},kv=()=>{const[e,t]=C.useState(!1),{scrollToTopOfPage:n}=Cn(),r=Bu(),i=()=>{r("/profile"),n()},o=()=>window.scrollY>0?t(!0):t(!1);return C.useEffect(()=>(window.addEventListener("scroll",o),()=>window.removeEventListener("scroll",o)),[]),_.jsx(Yu,{onClick:i,className:"scroll-up",style:{cursor:"pointer",opacity:e?"1":"0",position:"fixed",left:"1rem",bottom:"5rem",color:"white",zIndex:"5"}})},hd=new IntersectionObserver(e=>{for(const t of e)t.isIntersecting?t.target.classList.add("active"):t.target.classList.remove("active")});function Ev(e){hd.observe(e)}function Cv(e){hd.unobserve(e)}const Pv=A.div`
   position: absolute;
   top: 0;
   width: 100vw;
@@ -518,4 +518,4 @@ Error generating stack: `+o.message+`
   min-height: 100vh;
   box-sixing: border-box;
   background: #0e182a;
-`,Tv=({title:e,children:t})=>_.jsxs("div",{className:`${e} hidden`,style:{padding:"50px 0"},children:[_.jsx("h1",{style:{fontSize:"2rem",width:150,color:"#fff",margin:"0 auto",paddingLeft:40},children:e}),t]}),Ov=[{title:"Projects",component:_.jsx(ov,{})},{title:"Skills",component:_.jsx(yv,{})},{title:"Resume",component:_.jsx(fv,{})},{title:"Contacts",component:_.jsx(kv,{})}];function Nv(){return C.useEffect(()=>{const e=document.querySelectorAll(".hidden");return e.forEach(t=>{Cv(t)}),()=>{e.forEach(t=>{Pv(t)})}},[]),_.jsx(_.Fragment,{children:_.jsxs(_v,{children:[_.jsx(Y0,{}),_.jsx(Ev,{}),_.jsxs(C.Suspense,{fallback:_.jsx("div",{children:"Loading..."}),children:[_.jsx(U0,{}),Ov.map(({title:e,component:t})=>_.jsx(Tv,{title:e,children:t},e))]}),_.jsxs("footer",{style:{position:"relative",width:"100%",height:"100px",bottom:0,color:"white",textAlign:"center"},children:["Created by Bavin Edwards © ",new Date().getFullYear()]})]})})}const jv=Af(document.getElementById("root"));jv.render(_.jsx(Ud,{children:_.jsx(pm,{children:_.jsx(Nv,{})})}));
+`,_v=({title:e,children:t})=>_.jsxs("div",{className:`${e} hidden`,style:{padding:"50px 0"},children:[_.jsx("h1",{style:{fontSize:"2rem",width:150,color:"#fff",margin:"0 auto",paddingLeft:40},children:e}),t]}),Tv=[{title:"Projects",component:_.jsx(ov,{})},{title:"Skills",component:_.jsx(gv,{})},{title:"Resume",component:_.jsx(cv,{})},{title:"Contacts",component:_.jsx(Sv,{})}];function Ov(){return C.useEffect(()=>{const e=document.querySelectorAll(".hidden");return e.forEach(t=>{Ev(t)}),()=>{e.forEach(t=>{Cv(t)})}},[]),_.jsx(_.Fragment,{children:_.jsxs(Pv,{children:[_.jsx(Y0,{}),_.jsx(kv,{}),_.jsxs(C.Suspense,{fallback:_.jsx("div",{children:"Loading..."}),children:[_.jsx(U0,{}),Tv.map(({title:e,component:t})=>_.jsx(_v,{title:e,children:t},e))]}),_.jsxs("footer",{style:{position:"relative",width:"100%",height:"100px",bottom:0,color:"white",textAlign:"center"},children:["Created by Bavin Edwards © ",new Date().getFullYear()]})]})})}const Nv=Af(document.getElementById("root"));Nv.render(_.jsx(Ud,{children:_.jsx(pm,{children:_.jsx(Ov,{})})}));
